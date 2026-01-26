@@ -19,7 +19,7 @@
       "title_detail": "Frank Worley Professor\nDepartment of Chemical and Biomolecular Engineering",
       "tags": ["Molecular mechanisms of fibrillization and toxicity of amyloid β", "Nucleation of pharmaceutical crystals", "Polymorph control", "Methods to control organic crystal nucleation and growth", "Hematin crystallization (malaria)"],
       "id": "vekilov",
-      "image": "public/images/vekilov.jpg",
+      "image": "public/images/vekilov.webp",
       "email": "vekilov@uh.edu",
       "website": "http://vekilovgroup.chee.uh.edu",
       "scholar": "https://scholar.google.com/citations?user=g2dzQr0AAAAJ&hl=en"
@@ -31,7 +31,7 @@
       "title_detail": "Dow Chair and Welch Foundation Professor\nDirector, International Polymer & Soft Matter Center (IPSMC)",
       "tags": ["Polymer coacervates", "Crystallization", "Self-Assembly and Self Organization", "Polymer membranes", "Energy and Sustainability"],
       "id": "karim",
-      "image": "public/images/karim.jpg",
+      "image": "public/images/karim.webp",
       "email": "akarim3@central.uh.edu",
       "website": "https://karimlab.chee.uh.edu/",
       "scholar": "https://scholar.google.com/citations?user=UHQARgwAAAAJ&hl=en"
@@ -43,7 +43,7 @@
       "title_detail": "Cullen Distinguished Professor and Associate\nChair, Department of Chemistry",
       "tags": ["Applied nanomaterials", "Magnetic and photonic nanoparticles", "2-dimensional materials synthesis", "Self-assembled monolayers and functionalized interfaces", "Structured interfaces for controlled crystal nucleation"],
       "id": "lee",
-      "image": "public/images/lee.jpg",
+      "image": "public/images/lee.webp",
       "email": "trlee@uh.edu",
       "website": "http://lee.chem.uh.edu/",
       "scholar": "https://scholar.google.com/citations?user=wtJ5no0AAAAJ&hl=en"
@@ -55,7 +55,7 @@
       "title_detail": "Ernest J and Barbara M Henley Professor\nDepartment of Chemical and Biomolecular Engineering",
       "tags": ["Computational studies of molecule – crystal interactions", "Properties of crystalline materials", "Soft and complex media", "Glasses and metastable liquids"],
       "id": "palmer",
-      "image": "public/images/palmer.jpg",
+      "image": "public/images/palmer.webp",
       "email": "jcpalmer@uh.edu",
       "website": "http://palmer.chee.uh.edu/",
       "scholar": "https://scholar.google.com/citations?user=zOW6kSsAAAAJ&hl=en"
@@ -79,7 +79,7 @@
       "title_detail": "Professor\nMechanical Engineering Technology\nJoint Appointments: Materials Science and Engineering, Electrical and Computer Engineering, and Chemistry",
       "tags": ["Electron microscopy expert", "Synthesis of nanostructured metal oxides: sensing and catalysis", "Carbon nanostructure synthesis", "Alloys, alloy design, processing, post-processing, and properties", "Manufacturing and testing of superconductors, semiconductors"],
       "id": "robles",
-      "image": "public/images/robles.jpg",
+      "image": "public/images/robles.webp",
       "email": "fcrobles@Central.UH.EDU",
       "website": "https://mt-group.egr.uh.edu/",
       "scholar": "https://scholar.google.com/citations?user=j26yO8sAAAAJ&hl=en"
