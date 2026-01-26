@@ -2,27 +2,13 @@
   "home": {
     "hero_title": "Advancing the Frontiers of Crystallization",
     "hero_text": "We are engineering the future of materials through fundamental understanding of nucleation, growth, and polymorphism.",
+    "event_count": 3,
     "slides": [
-      {
-        "image": "public/images/slide-1.webp",
-        "alt": "Mefenamic_acid_form_I_crystals"
-      },
-      {
-        "image": "public/images/slide-2.webp",
-        "alt": "ZnO_hexagonal_cylinder_1"
-      },
-      {
-        "image": "public/images/slide-3.webp",
-        "alt": "Bent_crystal"
-      },
-      {
-        "image": "public/images/slide-4.webp",
-        "alt": "Bent_crystal"
-      },
-      {
-        "image": "public/images/slide-5.webp",
-        "alt": "Cu2O_Octahedra"
-      }
+      { "image": "public/images/slide-1.webp", "alt": "Mefenamic_acid_form_I_crystals" },
+      { "image": "public/images/slide-2.webp", "alt": "ZnO_hexagonal_cylinder_1" },
+      { "image": "public/images/slide-3.webp", "alt": "Bent_crystal" },
+      { "image": "public/images/slide-4.webp", "alt": "Bent_crystal" },
+      { "image": "public/images/slide-5.webp", "alt": "Cu2O_Octahedra" }
     ],
     "director": {
       "photo": "public/images/rimer.webp",
@@ -35,22 +21,48 @@
     {
       "number": "01",
       "title": "Understanding the fundamental principles of nonclassical nucleation",
-      "description": "We are at the forefront of systematically investigating nonclassical crystallization precursors. Our primary focus is to develop innovative methodologies for controlling the nucleation of both inorganic compounds, such as biominerals, and organic compounds, like pharmaceuticals. A distinctive feature of our research is the application of molecular modifiers, which we have demonstrated to effectively regulate nucleation. To deepen our understanding of pre-nucleation clusters, the dynamics of complex growth units, and the influence of modifiers, we utilize a range of modeling and characterization techniques, including in situ scattering, optical microscopy, and electron microscopy. This integrated approach enables us to anticipate and control the properties of crystalline materials proactively. **Associated faculty members:** Rimer, Vekilov, Palmer",
-      "images": ["public/images/aim1_bent_crystal_1.webp", "public/images/aim1_bent_crystal_2.webp"],
+      "description": "We are at the forefront of systematically investigating nonclassical crystallization precursors. Our primary focus is to develop innovative methodologies for controlling the nucleation of both inorganic compounds, such as biominerals, and organic compounds, like pharmaceuticals. A distinctive feature of our research is the application of molecular modifiers, which we have demonstrated to effectively regulate nucleation. To deepen our understanding of pre-nucleation clusters, the dynamics of complex growth units, and the influence of modifiers, we utilize a range of modeling and characterization techniques, including in situ scattering, optical microscopy, and electron microscopy. This integrated approach enables us to anticipate and control the properties of crystalline materials proactively.",
+      "faculty": "Rimer, Vekilov, Palmer",
+      "gallery": [
+        {
+          "src": "public/images/aim1_bent_crystal_1.webp",
+          "caption": "Optical micrograph showing crystal bending induced by molecular modifiers."
+        },
+        {
+          "src": "public/images/aim1_bent_crystal_2.webp",
+          "caption": "High-resolution imaging of surface growth steps and cluster dynamics."
+        }
+      ],
       "tags": ["Nonclassical Nucleation", "Molecular Modifiers", "In Situ Scattering"]
     },
     {
       "number": "02",
       "title": "Establishing methodologies to control nonclassical crystallization",
-      "description": "We develop methodologies that transcend conventional approaches to adjusting conditions such as temperature, supersaturation, or solvent. Our research involves synthesizing libraries of metal(oxide) nanoparticles, each characterized by distinct facets and functionalized interfaces, which serve as templates to influence the formation and properties of pre-nucleation clusters. Additionally, we create condensed-phase coacervates that leverage gel-like environments within polyelectrolytes to exert precise control over crystal nucleation. These systems provide crystallization environments that are fundamentally different from those employed in traditional syntheses, allowing us to achieve a level of control over crystal structure that is usually beyond the reach of classical methods. **Associated faculty members:** Lee, Karim, Robles",
-      "images": ["public/images/aim2_glycine_1.webp", "public/images/aim2_glycine_2.webp"],
+      "description": "We develop methodologies that transcend conventional approaches to adjusting conditions such as temperature, supersaturation, or solvent. Our research involves synthesizing libraries of metal(oxide) nanoparticles, each characterized by distinct facets and functionalized interfaces, which serve as templates to influence the formation and properties of pre-nucleation clusters. Additionally, we create condensed-phase coacervates that leverage gel-like environments within polyelectrolytes to exert precise control over crystal nucleation. These systems provide crystallization environments that are fundamentally different from those employed in traditional syntheses, allowing us to achieve a level of control over crystal structure that is usually beyond the reach of classical methods.",
+      "faculty": "Lee, Karim, Robles",
+      "gallery": [
+        {
+          "src": "public/images/aim2_glycine_1.webp",
+          "caption": "Glycine crystallization controlled by engineered nanoparticle templates."
+        },
+        {
+          "src": "public/images/aim2_glycine_2.webp",
+          "caption": "Condensed-phase coacervates providing a unique nucleation environment."
+        }
+      ],
       "tags": ["Nanoparticles", "Coacervates", "Template-Directed"]
     },
     {
       "number": "03",
       "title": "Developing models to predict crystal structure multiplicity",
-      "description": "We are making substantial progress in enhancing current models that overlook nonclassical pathways. These shortcomings have led to inaccurate predictions of crystal structures and challenges in managing polymorph transformations, which significantly hinder the design and production of advanced crystalline materials. Our innovative methodology enables us to predict crystal structures in advance and control intercrystalline transformations through a synergistic blend of experiments, theoretical insights, and cutting-edge modeling techniques. This comprehensive approach addresses two pivotal challenges in crystal polymorphism: the multiplicity of structures and the dynamics of crystal forms. **Associated faculty members:** Vekilov, Zerze",
-      "images": ["public/images/aim3_visualization.webp"],
+      "description": "We are making substantial progress in enhancing current models that overlook nonclassical pathways. These shortcomings have led to inaccurate predictions of crystal structures and challenges in managing polymorph transformations, which significantly hinder the design and production of advanced crystalline materials. Our innovative methodology enables us to predict crystal structures in advance and control intercrystalline transformations through a synergistic blend of experiments, theoretical insights, and cutting-edge modeling techniques. This comprehensive approach addresses two pivotal challenges in crystal polymorphism: the multiplicity of structures and the dynamics of crystal forms.",
+      "faculty": "Vekilov, Zerze",
+      "gallery": [
+        {
+          "src": "public/images/aim3_visualization.webp",
+          "caption": "Molecular dynamics simulation predicting polymorph stability and transitions."
+        }
+      ],
       "tags": ["Predictive Modeling", "Polymorph Transformations", "Crystal Dynamics"]
     }
   ]
