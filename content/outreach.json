@@ -1,0 +1,104 @@
+{
+  "programs": [
+    {
+      "id": "crystal-growth-challenge",
+      "date": "2024-05-18",
+      "title": "High School Crystal Growth Challenge 2024",
+      "preview": "The annual challenge brought together 50 students to learn about supersaturation, nucleation, and crystal habit in our labs.",
+      "image": "",
+      "tags": ["Competition", "High School"],
+      "body": {
+        "full_title": "Event Success: High School Crystal Growth Challenge",
+        "category": "K-12 Education",
+        "main_image": "",
+        "lead_text": "The Welch Center hosted its annual High School Crystal Growth Challenge, bringing together 50 talented students from various Houston-area high schools.",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "Participants spent a full day in our advanced microscopy and wet labs. The focus was on applied physical chemistry, teaching students the principles of <strong>controlled crystallization</strong> that underpin pharmaceutical development."
+          },
+          {
+            "type": "highlight_box",
+            "title": "Key Takeaways",
+            "items": [
+              "<strong>Nucleation:</strong> Understanding the critical size required for a crystal seed to survive.",
+              "<strong>Growth:</strong> The influence of temperature and agitation on growth kinetics.",
+              "<strong>Purity:</strong> Techniques for minimizing impurities to achieve perfect crystal habit."
+            ]
+          },
+          {
+            "type": "quote",
+            "content": "It was amazing to see science in action.",
+            "author": "Maria Rodriguez, Team Leader"
+          },
+          {
+            "type": "text",
+            "content": "The winning team, 'Crystal Clear Minds,' grew the largest and most perfect potassium alum crystal, earning them scholarships to the UH summer science program. We look forward to next year's competition!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "science-fair-mentorship",
+      "date": "2023-11-10",
+      "title": "Mentoring Future Scientists",
+      "preview": "Welch Center faculty and graduate students volunteered as mentors and judges at the Greater Houston Area Science Fair.",
+      "image": "",
+      "tags": ["Mentoring", "Community"],
+      "body": {
+        "full_title": "Supporting Local STEM: Mentorship Program",
+        "category": "Community Outreach",
+        "main_image": "",
+        "lead_text": "For the third consecutive year, Welch Center faculty and graduate students volunteered as mentors and judges at the Greater Houston Area Science Fair.",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "Our team provided specialized guidance to dozens of middle and high school students on advanced projects related to chemical synthesis, environmental science, and computational modeling."
+          },
+          {
+            "type": "quote",
+            "content": "Engaging with these bright students is incredibly rewarding. They are the future innovators who will tackle energy and pharmaceutical challenges.",
+            "author": "Dr. Peter Rimer"
+          },
+          {
+            "type": "text",
+            "content": "Our involvement aims to provide meaningful feedback beyond just grading. We are proud to support local education and inspire careers in materials engineering and chemistry."
+          }
+        ]
+      }
+    },
+    {
+      "id": "university-day-lab-tours",
+      "date": "2024-03-22",
+      "title": "University Day: Inside the Lab",
+      "preview": "Prospective UH students and their families toured our labs and witnessed live crystal growth demonstrations.",
+      "image": "",
+      "tags": ["Recruitment", "Open House"],
+      "body": {
+        "full_title": "An Inside Look: University Day Open House",
+        "category": "Recruitment",
+        "main_image": "",
+        "lead_text": "During University Day 2024, the Welch Center opened its doors to prospective UH students and their families for an exclusive tour.",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "Over 100 visitors toured our advanced microscopy and spectroscopy labs. Highlights included:"
+          },
+          {
+            "type": "highlight_box",
+            "title": "What Visitors Saw",
+            "items": [
+              "<strong>Live TEM Feed:</strong> Real-time observation of nanoparticle self-assembly.",
+              "<strong>Crystal Growth Station:</strong> Demonstrations on how to grow perfect, large single crystals.",
+              "<strong>Molecular Simulation Demos:</strong> Interactive stations showing Molecular Dynamics (MD) simulations in action."
+            ]
+          },
+          {
+            "type": "text",
+            "content": "PhD candidate Emily Chen led a popular station demonstrating how temperature affects solubility, explaining the basis of phase diagrams. The tours provided a unique glimpse into the cutting-edge research environment at the University of Houston."
+          }
+        ]
+      }
+    }
+  ]
+}

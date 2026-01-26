@@ -1,0 +1,32 @@
+{
+  "patents": [
+    {
+      "id": "pat-01",
+      "year": 2024,
+      "title": "Gallium-exchanged Zeolites for Alcohol Dehydration",
+      "inventors": "Jeffrey D. Rimer, Amir Abutalib, and Deependra Parmar",
+      "status": "Provisional Application Filed 3/21/2024"
+    },
+    {
+      "id": "pat-02",
+      "year": 2025,
+      "title": "Method to Enhance Access to Nanopores in Low-Dimensional Zeolites",
+      "inventors": "Jeffrey D. Rimer, Kumari Shilpa, Sambita Choudhury",
+      "status": "Provisional Filed, UHID# 2025-050, 63/806,924"
+    },
+    {
+      "id": "pat-03",
+      "year": 2025,
+      "title": "Modifiers of Calcium Oxalate Crystal Dissolution as Formulations for Irrigation Solutions",
+      "inventors": "Jeffrey D. Rimer, Vraj P. Chauhan",
+      "status": "Provisional Filed, UHID# 2025-043, 63/814,812"
+    },
+    {
+      "id": "pat-04",
+      "year": 2025,
+      "title": "Enhanced Hydrothermal Stability of Zeolite AEI and Uses Thereof",
+      "inventors": "Jeffrey D. Rimer, Zhiyin Niu",
+      "status": "Provisional Filed, UHID# 2025-029, 63/762,798"
+    }
+  ]
+}

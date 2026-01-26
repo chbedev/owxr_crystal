@@ -1,0 +1,43 @@
+{
+  "events_list": [
+    {
+      "id": "welch-summer-2026",
+      "date": "2026-06-01",
+      "title": "Welch Center Summer School 2026",
+      "time": "TBA",
+      "location": "University of Houston",
+      "preview": "Annual summer school for crystallization fundamentals.",
+      "tags": ["Summer School"]
+    },
+    {
+      "id": "grc-crystal-2026",
+      "date": "2026-06-21",
+      "title": "GRC Crystal Engineering Conference",
+      "time": "June 21 - 26, 2026",
+      "location": "Newry, Maine, United States",
+      "preview": "Gordon Research Conference on Crystal Engineering.",
+      "link": "https://www.grc.org/crystal-engineering-conference/2026/",
+      "tags": ["Conference"]
+    },
+    {
+      "id": "aacg-2026",
+      "date": "2026-06-07",
+      "title": "29th AACG Western Section Conference on Crystal Growth & Epitaxy",
+      "time": "June 7 - 11, 2026",
+      "location": "Fallen Leaf Lake, California, USA",
+      "preview": "Western Section Conference on Crystal Growth & Epitaxy.",
+      "link": "https://www.aacgwest.org/",
+      "tags": ["Conference"]
+    },
+    {
+      "id": "acs-spring-2026",
+      "date": "2026-03-22",
+      "title": "ACS Spring 2026",
+      "time": "March 22 - 26, 2026",
+      "location": "Atlanta, GA & Digital",
+      "preview": "American Chemical Society National Meeting.",
+      "link": "https://www.acs.org/events/spring.html",
+      "tags": ["Conference"]
+    }
+  ]
+}

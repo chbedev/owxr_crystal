@@ -1,0 +1,304 @@
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: "https://welchuhadmin.netlify.app/.netlify/identity"
+  gateway_url: "https://welchuhadmin.netlify.app/.netlify/git"
+  site_url: https://ld-shell.github.io/owxr_draft/  
+
+logo_url: https://ld-shell.github.io/owxr_draft/public/images/logo-1.webp
+
+media_folder: "public/images/"
+public_folder: "/public/images/"
+
+collections:
+  # =========================================
+  # 1. GLOBAL SETTINGS (Footer, Contact, Stats)
+  # =========================================
+  - name: "globals"
+    label: "Global Settings"
+    files:
+      - name: "site_data"
+        label: "Site Data"
+        file: "content/globals.json"
+        fields:
+          - label: "Impact Stats"
+            name: "impact_stats"
+            widget: "list"
+            fields:
+              - {label: "Value", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Color", name: "color", widget: "string", default: "#F4D03F"}
+          
+          - label: "Contact Info"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Address Line 1", name: "address_line1", widget: "string"}
+              - {label: "Address Line 2", name: "address_line2", widget: "string"}
+              - {label: "Address Line 3", name: "address_line3", widget: "string"}
+              - {label: "Address Line 4", name: "address_line4", widget: "string"}
+              - {label: "Map Embed URL", name: "map_embed_url", widget: "string"}
+              - {label: "LinkedIn URL", name: "linkedin", widget: "string", required: false}
+
+          - label: "Advisory Board"
+            name: "advisory_board"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Company Icon", name: "company_icon", widget: "image", required: false}
+          
+          - {label: "Advisory Group Photo", name: "advisory_group_image", widget: "image", required: false}
+
+  # =========================================
+  # 2. PAGE CONTENT (Home, Research)
+  # =========================================
+  - name: "pages"
+    label: "Page Content"
+    files:
+      - name: "page_data"
+        label: "Home & Research"
+        file: "content/pages.json"
+        fields:
+          - label: "Home Page"
+            name: "home"
+            widget: "object"
+            fields:
+              - {label: "Hero Title", name: "hero_title", widget: "string"}
+              - {label: "Hero Text", name: "hero_text", widget: "text"}
+              - label: "Hero Slides"
+                name: "slides"
+                widget: "list"
+                fields:
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - label: "Director Section"
+                name: "director"
+                widget: "object"
+                fields:
+                  - {label: "Photo", name: "photo", widget: "image"}
+                  - {label: "Signature", name: "signature", widget: "image", required: false}
+                  - {label: "Message", name: "message", widget: "text"}
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+
+          - label: "Research Aims"
+            name: "research_aims"
+            widget: "list"
+            fields:
+              - {label: "Number", name: "number", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "markdown"}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Gallery Images", name: "images", widget: "list", required: false, field: {label: "Image", name: "image", widget: "image"}}
+              - {label: "Faculty", name: "faculty", widget: "string", required: false}
+              - {label: "Tags", name: "tags", widget: "list"}
+
+  # =========================================
+  # 3. DYNAMIC CONTENT (Lists)
+  # =========================================
+  - name: "dynamic_content"
+    label: "Content Lists"
+    files:
+      - name: "team"
+        label: "Team Members"
+        file: "content/team.json"
+        fields:
+          - label: "Members"
+            name: "members" 
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Is PI?", name: "is_pi", widget: "boolean", default: false}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Advisor", name: "advisor", widget: "string", required: false}
+              - {label: "Title Detail", name: "title_detail", widget: "text", required: false}
+              - {label: "Department", name: "department", widget: "string", required: false}
+              - {label: "University", name: "university", widget: "string", required: false}
+              - {label: "Bio", name: "bio", widget: "text", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Tags", name: "tags", widget: "list", required: false}
+              - {label: "Email", name: "email", widget: "string", required: false}
+              - {label: "Lab Website", name: "website", widget: "string", required: false}
+              - {label: "Scholar URL", name: "scholar", widget: "string", required: false}
+
+      - name: "news"
+        label: "News & Updates"
+        file: "content/news.json"
+        fields:
+          - label: "Articles"
+            name: "articles" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Preview", name: "preview", widget: "text"}
+              - {label: "Thumbnail", name: "image", widget: "image", required: false}
+              - {label: "External Link", name: "link", widget: "string", required: false}
+              - label: "Article Body"
+                name: "body"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Full Title", name: "full_title", widget: "string"}
+                  - {label: "Category", name: "category", widget: "string"}
+                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Lead Text", name: "lead_text", widget: "text"}
+                  - label: "Content Blocks"
+                    name: "content_blocks"
+                    widget: "list"
+                    types:
+                      - label: "Paragraph"
+                        name: "text"
+                        widget: "object"
+                        fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      - label: "Quote"
+                        name: "quote"
+                        widget: "object"
+                        fields: [{label: "Content", name: "content", widget: "text"}, {label: "Author", name: "author", widget: "string"}]
+                      - label: "Highlights"
+                        name: "highlight_box"
+                        widget: "object"
+                        fields: [{label: "Title", name: "title", widget: "string"}, {label: "Items", name: "items", widget: "list"}]
+
+      - name: "events"
+        label: "Events Calendar"
+        file: "content/events.json"
+        fields:
+          - label: "Events List"
+            name: "events_list" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Time", name: "time", widget: "string"}
+              - {label: "Location", name: "location", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Preview", name: "preview", widget: "text"}
+              - {label: "External Link", name: "link", widget: "string", required: false}
+              - {label: "Tags", name: "tags", widget: "list"}
+              - label: "Event Details Body"
+                name: "body"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Full Title", name: "full_title", widget: "string"}
+                  - {label: "Category", name: "category", widget: "string"}
+                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Lead Text", name: "lead_text", widget: "text"}
+                  - label: "Content Blocks"
+                    name: "content_blocks"
+                    widget: "list"
+                    types:
+                      - label: "Paragraph"
+                        name: "text"
+                        widget: "object"
+                        fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      - label: "Details Box"
+                        name: "highlight_box"
+                        widget: "object"
+                        fields: [{label: "Title", name: "title", widget: "string"}, {label: "Items", name: "items", widget: "list"}]
+
+      - name: "outreach"
+        label: "Outreach"
+        file: "content/outreach.json"
+        fields:
+          - label: "Programs"
+            name: "programs" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Preview", name: "preview", widget: "text"}
+              - {label: "Thumbnail", name: "image", widget: "image", required: false}
+              - {label: "External Link", name: "link", widget: "string", required: false}
+              - {label: "Tags", name: "tags", widget: "list"}
+              - label: "Body"
+                name: "body"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Full Title", name: "full_title", widget: "string"}
+                  - {label: "Category", name: "category", widget: "string"}
+                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Lead Text", name: "lead_text", widget: "text"}
+                  - label: "Content Blocks"
+                    name: "content_blocks"
+                    widget: "list"
+                    types:
+                      - label: "Paragraph"
+                        name: "text"
+                        widget: "object"
+                        fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      - label: "Quote"
+                        name: "quote"
+                        widget: "object"
+                        fields: [{label: "Content", name: "content", widget: "text"}, {label: "Author", name: "author", widget: "string"}]
+                      - label: "Highlights"
+                        name: "highlight_box"
+                        widget: "object"
+                        fields: [{label: "Title", name: "title", widget: "string"}, {label: "Items", name: "items", widget: "list"}]
+
+      - name: "publications"
+        label: "Publications"
+        file: "content/publications.json"
+        fields:
+          - label: "Papers"
+            name: "papers" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Year", name: "year", widget: "number", value_type: "int"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Journal", name: "journal", widget: "string"}
+              - {label: "Authors", name: "authors", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", required: false}
+              - {label: "Featured", name: "featured", widget: "boolean", default: false}
+              - {label: "PDF File", name: "pdf_file", widget: "file", required: false}
+
+      - name: "presentations"
+        label: "Presentations"
+        file: "content/presentations.json"
+        fields:
+          - label: "Talks"
+            name: "talks" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Conference", name: "conference", widget: "string"}
+              - {label: "Location", name: "location", widget: "string"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Presenter", name: "presenter", widget: "string"}
+
+      - name: "awards"
+        label: "Awards"
+        file: "content/awards.json"
+        fields:
+          - label: "Awards List"
+            name: "awards" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "Year", name: "year", widget: "number", value_type: "int"}
+              - {label: "Recipient", name: "recipient", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+
+      - name: "patents"
+        label: "Patents"
+        file: "content/patents.json"
+        fields:
+          - label: "Patents List"
+            name: "patents" # Wrapper key
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Year", name: "year", widget: "number", value_type: "int"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Inventors", name: "inventors", widget: "string"}
+              - {label: "Status/Reference", name: "status", widget: "string"}

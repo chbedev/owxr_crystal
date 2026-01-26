@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welch Center at UH Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="public/images/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="public/images/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="public/images/icon-192.png" />
+  <link rel="apple-touch-icon" href="public/images/icon-192.png" />
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script>
+    (function() {
+      var patchInterval = setInterval(function() {
+        if (window.netlifyIdentity) {
+          clearInterval(patchInterval);
+
+          // Capture the original init function
+          var originalInit = window.netlifyIdentity.init;
+
+          // Override init to force the external API URL
+          window.netlifyIdentity.init = function(options) {
+            options = options || {};
+            options.APIUrl = "https://welchuhadmin.netlify.app/.netlify/identity";
+            return originalInit.call(window.netlifyIdentity, options);
+          };
+
+          // Initialize immediately to apply settings
+          window.netlifyIdentity.init({});
+        }
+      }, 10);
+    })();
+  </script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;700&display=swap");
+    CMS.registerPreviewStyle("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+    CMS.registerPreviewStyle("../src/css/main.css");
+  </script>
+</body>
+</html>

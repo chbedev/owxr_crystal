@@ -1,0 +1,57 @@
+{
+  "articles": [
+    {
+      "id": "nih-grant",
+      "date": "2024-09-15",
+      "title": "Center Receives $2M NIH Grant",
+      "preview": "The Welch Center has been awarded a new R01 grant to investigate novel pathways of hematin crystallization.",
+      "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800",
+      "body": {
+        "full_title": "Center Receives $2M NIH Grant for Malaria Research",
+        "category": "Grants & Funding",
+        "main_image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200",
+        "image_caption": "Liquid-cell TEM used for crystallization analysis.",
+        "lead_text": "The Welch Center of Crystallization Research has been awarded a prestigious R01 grant from the National Institutes of Health (NIH) to investigate novel pathways of hematin crystallization in malaria parasites.",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "Malaria parasites survive by digesting hemoglobin, releasing toxic heme. They detoxify this heme by crystallizing it into hemozoin. Understanding the exact molecular mechanism of this crystallization is key to developing new antimalarial drugs that can inhibit this process."
+          },
+          {
+            "type": "quote",
+            "content": "This grant allows us to see what was previously invisible.",
+            "author": "Dr. Peter Rimer, Principal Investigator"
+          },
+          {
+            "type": "text",
+            "content": "Using the center's advanced liquid-cell transmission electron microscopy (TEM), our team will observe this crystallization process in real-time at the nanoscale. The project is a collaboration between the College of Engineering and the College of Natural Sciences."
+          }
+        ]
+      }
+    },
+    {
+      "id": "student-award",
+      "date": "2024-08-20",
+      "title": "Student Best Paper Award",
+      "preview": "PhD Candidate Jane Doe won the Best Paper Award at the International Conference on Crystal Growth.",
+      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+      "body": {
+        "full_title": "PhD Candidate Jane Doe Wins Best Paper",
+        "category": "Awards",
+        "main_image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200",
+        "lead_text": "Jane Doe was recognized for her groundbreaking work on 'Non-Classical Nucleation Pathways' at the ICCG conference in Boston.",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "Her paper challenges existing paradigms about how porous materials form. Using a combination of X-ray diffraction and computational modeling, Jane demonstrated that precursor clusters play a more significant role than previously thought."
+          },
+          {
+            "type": "quote",
+            "content": "Jane's work provides the first experimental evidence of these clusters in zeolite systems.",
+            "author": "Dr. Sarah Chen, Advisor"
+          }
+        ]
+      }
+    }
+  ]
+}

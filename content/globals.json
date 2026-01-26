@@ -1,0 +1,69 @@
+{
+  "impact_stats": [
+    { "value": "60+", "label": "Publications", "color": "#F4D03F" },
+    { "value": "$5M+", "label": "Research Funding", "color": "#F4D03F" },
+    { "value": "30+", "label": "Postdocs & PhD Students", "color": "#F4D03F" },
+    { "value": "4", "label": "Patents Filed", "color": "#F4D03F" }
+  ],
+  "contact": {
+    "email": "wcc@central.uh.edu",
+    "phone": "713-743-4300",
+    "address_line1": "Engineering Building 1, Room S222",
+    "address_line2": "4226 Martin Luther King Boulevard",
+    "address_line3": "Houston, TX 77204-4004",
+    "address_line4": "",
+    "linkedin": "https://www.linkedin.com/company/welch-center-for-advanced-bioactive-materials-crystallization/",
+    "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.336040605926!2d-95.34442668489246!3d29.72033398199732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640be56291a2729%3A0x673995640245a526!2sUniversity%20of%20Houston!5e0!3m2!1sen!2sus!4v1689200000000!5m2!1sen!2sus"
+  },
+  "advisory_board": [
+    {
+      "name": "Dr. Christopher Burcham",
+      "role": "Eli Lilly",
+      "image": "public/images/christopher_burcham.webp",
+      "company_icon": "public/images/lili.png"
+    },
+    {
+      "name": "Dr. Kevin Girard",
+      "role": "Pfizer",
+      "image": "public/images/kevin_girard.webp",
+      "company_icon": "public/images/pfizer.png"
+    },
+    {
+      "name": "Dr. Chris Marton",
+      "role": "Bristol Myers Squibb",
+      "image": "public/images/chris_marton.webp",
+      "company_icon": "public/images/myers.png"
+    },
+    {
+      "name": "Dr. Nandu Nere",
+      "role": "AbbVie",
+      "image": "public/images/nandu_nere.webp",
+      "company_icon": "public/images/abbvie.webp"
+    },
+    {
+      "name": "Dr. Megan Ketchum",
+      "role": "GlaxoSmithKline",
+      "image": "public/images/megan_ketchum.webp",
+      "company_icon": "public/images/gsk.png"
+    },
+    {
+      "name": "Dr. Xiaolong Zhu",
+      "role": "Merck",
+      "image": "public/images/xiaolong_zhu.webp",
+      "company_icon": "public/images/merck.png"
+    },
+    {
+      "name": "Dr. Monika Warzecha",
+      "role": "Vertex Pharmaceuticals, Inc",
+      "image": "public/images/monika_warzecha.webp",
+      "company_icon": "public/images/vertex.png"
+    },
+    {
+      "name": "Dr. Mark Barrett",
+      "role": "apc",
+      "image": "public/images/mark_barrett.webp",
+      "company_icon": "public/images/apc.png"
+    }
+  ],
+  "advisory_group_image": "public/images/iab_group.webp"
+}
