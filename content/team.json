@@ -67,7 +67,7 @@
       "title_detail": "Assistant Professor\nCancer Prevention and Research Institute of Texas Scholar\nDepartment of Chemical and Biomolecular Engineering",
       "tags": ["Computational modeling of crystal precursor assembly", "Biomolecular self-assembly in oncogenic/neurodegenerative diseases", "Interplay between polymorphism and disordered intermediates", "Role of structural disorder in immune system evading virulence factors"],
       "id": "zerze",
-      "image": "public/images/zerze.jpg",
+      "image": "public/images/zerze.webp",
       "email": "gzerze@central.uh.edu",
       "website": "https://ghzlab.chee.uh.edu/",
       "scholar": "https://scholar.google.com/citations?user=-yjAGasAAAAJ&hl=en"
@@ -109,7 +109,7 @@
       "role": "Postdoctoral Fellow",
       "advisor": "Dr. Alamgir Karim",
       "bio": "Research: Polyelectrolyte, Complex Coacervade, Encapsulation Platform.",
-      "image": "public/images/julia_sabadini.jpg"
+      "image": "public/images/julia_sabadini.webp"
     },
     {
       "id": "melissa_gonzalez",
@@ -136,7 +136,7 @@
       "role": "Graduate Student",
       "advisor": "Dr. Francisco C. Robles Hernandez",
       "bio": "Research: Single-layered Co-Doped TiO2 nanotubes: Crystallization, Morphology Tuning and Application.",
-      "image": "public/images/isaac_yeboah.jpg"
+      "image": "public/images/isaac_yeboah.webp"
     },
     {
       "id": "menghui_yao",
@@ -181,7 +181,7 @@
       "role": "Postdoctoral Fellow",
       "advisor": "Dr. Jeffrey D. Rimer",
       "bio": "Research: Crystal engineering, pathological crystallization, biomineralization, crystal growth, polymorph control.",
-      "image": "public/images/si_li.jpg"
+      "image": "public/images/si_li.webp"
     },
     {
       "id": "dang_buu_tran",
@@ -199,7 +199,7 @@
       "role": "Graduate Student",
       "advisor": "Dr. Jeffrey D. Rimer",
       "bio": "Research: Biomaterials, Pathological Crystallization, Microfluidics, Surface Characterization.",
-      "image": "public/images/vraj_chauhan.jpg"
+      "image": "public/images/vraj_chauhan.webp"
     },
     {
       "id": "shivraj_kotkar",
@@ -271,7 +271,7 @@
       "role": "Graduate Student",
       "advisor": "Dr. Peter G. Vekilov & Dr. Jeffrey D. Rimer",
       "bio": "Research: Organic Crystallization: Molecular Mechanisms & Polymorph Control.",
-      "image": "public/images/manasa_yerragunta.jpg"
+      "image": "public/images/manasa_yerragunta.webp"
     },
     {
       "id": "amir_kashkooli",
