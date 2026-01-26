@@ -31,7 +31,7 @@ async function loadEventsContent() {
 
     if (eventsGrid) {
         if (sortedEvents.length === 0) {
-            eventsGrid.innerHTML = `<p class="text-center" style="grid-column: 1/-1; color: #777;">No upcoming events scheduled.</p>`;
+            eventsGrid.innerHTML = `<p class="empty-state-msg">No upcoming events scheduled.</p>`;
         } else {
             eventsGrid.innerHTML = sortedEvents.map(item => createCardHtml(item, 'events')).join('');
         }
@@ -406,12 +406,23 @@ function renderAccordionList(data, container, subField, containerId) {
     let html = '';
     
     if (years.length === 0) {
-        container.innerHTML = '<p style="padding:1rem; font-style:italic; color:#777;">No results found.</p>';
+        // USE CSS CLASS
+        container.innerHTML = '<p class="empty-state-msg">No results found.</p>';
         return;
     }
 
     years.forEach((year, index) => {
-        const items = grouped[year];
+        let items = grouped[year];
+        
+        // FEATURED SORT
+        items.sort((a, b) => {
+            const aFeatured = a.featured === true;
+            const bFeatured = b.featured === true;
+            if (aFeatured && !bFeatured) return -1;
+            if (!aFeatured && bFeatured) return 1;
+            return 0;
+        });
+
         const isOpen = index === 0 ? 'active' : ''; 
         const isShow = index === 0 ? 'show' : '';
         const icon = index === 0 ? 'fa-chevron-up' : 'fa-chevron-down';
@@ -428,7 +439,7 @@ function renderAccordionList(data, container, subField, containerId) {
             if (!isAward) {
                 if(item.authors) extraInfo += `<p class="pub-authors">Authors: ${item.authors}</p>`;
                 if(item.inventors) extraInfo += `<p class="pub-authors">Inventors: ${item.inventors}</p>`;
-                if(item.presenter) extraInfo += `<p class="pub-authors">Presenter: ${item.presenter}</p>`;
+                if(item.presenter) extraInfo += `<p class="pub-authors">${item.presenter}</p>`;
             } else {
                 if(item.recipient) extraInfo += `<p class="pub-authors" style="color:var(--uh-red); font-weight:700;">${item.recipient}</p>`;
             }
@@ -438,25 +449,21 @@ function renderAccordionList(data, container, subField, containerId) {
                 linkHtml = `<a href="${item.link}" target="_blank" class="view-link">VIEW</a>`;
             }
 
-            // Logic: Don't show the "Inventors" list in the middle line for Patents
-            // Because it's already shown in the 'extraInfo' block below.
-            // We create an array of parts and join them to avoid leading/trailing pipes.
             let journalLineParts = [];
             
-            // Part 1: Journal Name or Conference (Hidden for Patents)
             if (!isAward && subField !== 'inventors' && item[subField]) {
                 journalLineParts.push(item[subField]);
             }
             
-            // Part 2: Status
             if (item.status) {
                 journalLineParts.push(item.status);
             }
             
             const journalText = journalLineParts.join(' | ');
 
+            // USE CSS CLASS 'featured-pub' instead of inline style
             return `
-            <div class="pub-item">
+            <div class="pub-item ${item.featured ? 'featured-pub' : ''}">
                 <div class="pub-details">
                     <h4>${item.title} ${item.featured ? '<span class="tag" style="background: var(--uh-red); color: white;">Featured</span>' : ''}</h4>
                     <p class="pub-journal">
@@ -519,14 +526,20 @@ async function loadTeamContent() {
     const teamData = rawTeam.members || [];
 
     const pis = teamData.filter(m => m.is_pi);
-    const groupMembers = teamData.filter(m => !m.is_pi);
+    // SORT FIX: Alphabetical sort for students
+    const groupMembers = teamData.filter(m => !m.is_pi).sort((a, b) => a.name.localeCompare(b.name));
 
     const renderMembers = (members, isPI) => members.map(member => `
         <div class="profile-card">
             ${member.image ? `<div class="profile-img-container"><img src="${member.image}" alt="${member.name}" class="profile-img" loading="lazy"></div>` : ''}
             <div class="profile-info">
                 <h4 class="profile-name">${member.name}</h4>
-                ${isPI && member.title_detail ? `<div class="profile-role" style="font-weight: 700;">${member.role}</div><p style="font-size: 0.9rem; color: var(--uh-slate); margin-top: 5px; margin-bottom: 10px; line-height: 1.3;">${member.title_detail.replace(/\n/g, '<br>')}</p>` : ''}
+                
+                ${/* USE CSS CLASS */ ''}
+                ${isPI && member.role === 'Center Director' ? `<div class="profile-role pi-director-label">${member.role}</div>` : ''}
+                
+                ${isPI && member.title_detail ? `<p class="pi-title-detail">${member.title_detail.replace(/\n/g, '<br>')}</p>` : ''}
+                
                 ${!isPI ? `
                     <div class="profile-role" style="font-weight: 700; margin-bottom: 0;">${member.role}</div>
                     ${member.advisor ? `
@@ -535,6 +548,7 @@ async function loadTeamContent() {
                         </div>` : ''}
                     <p style="font-size: 0.8rem; color: var(--uh-slate); margin-top: 5px; line-height: 1.3;">${member.department || ''}<br>${member.university || ''}</p>
                 ` : ''}
+
                 <p style="font-size: ${isPI ? '0.9rem' : '0.85rem'}; margin-top: ${isPI ? '10px' : '10px'};">${member.bio || ''}</p>
                 ${member.tags && member.tags.length > 0 ? `<div class="profile-tags">${member.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
                 <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
@@ -578,23 +592,38 @@ async function loadHomePageContent() {
     const pageData = await fetchData('pages');
     const home = pageData.home || {};
     
+    // --- HERO SECTION: TEXT CONTENT ---
     const heroContent = document.getElementById('hero-content');
     if (heroContent && home.hero_title) {
+        // USE CSS CLASS (hero-text-overlay)
         heroContent.innerHTML = `
-            <h2>${home.hero_title}</h2>
-            <p>${home.hero_text}</p>
-            <button class="btn" style="background: white; color: var(--uh-red); border-color: white;" onclick="switchPage('research')">Explore Our Research</button>
+            <div class="hero-text-overlay">
+                <h2>${home.hero_title}</h2>
+                <p>${home.hero_text}</p>
+                <button class="btn" style="background: white; color: var(--uh-red); border-color: white;" onclick="switchPage('research')">Explore Our Research</button>
+            </div>
         `;
     }
 
+    // --- HERO SECTION: SLIDER ---
     const sliderContainer = document.getElementById('hero-slider-container');
     const indicatorContainer = document.getElementById('slider-indicators');
     if (sliderContainer && indicatorContainer && home.slides) {
-        sliderContainer.innerHTML = home.slides.map((slide, index) => `
-            <div class="hero-slide ${index === 0 ? 'active' : ''}">
-                <img src="${slide.image}" alt="${slide.alt}" loading="lazy">
-            </div>
-        `).join('');
+        sliderContainer.innerHTML = home.slides.map((slide, index) => {
+            // OPTIMIZATION: Eager load first slide, lazy load others
+            const loadingStrategy = index === 0 ? 'eager' : 'lazy';
+            const fetchPriority = index === 0 ? 'fetchpriority="high"' : '';
+
+            // Note: background-image MUST stay inline as it's dynamic data
+            return `
+                <div class="hero-slide ${index === 0 ? 'active' : ''}" style="background-image: url('${slide.image}');">
+                    <img src="${slide.image}" 
+                         alt="${slide.alt}" 
+                         loading="${loadingStrategy}" 
+                         ${fetchPriority}>
+                </div>
+            `;
+        }).join('');
 
         indicatorContainer.innerHTML = home.slides.map((slide, index) => `
             <div class="indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></div>
@@ -602,6 +631,7 @@ async function loadHomePageContent() {
         if (typeof initializeSlider === 'function') initializeSlider();
     }
 
+    // --- DIRECTOR MESSAGE ---
     const directorSection = document.getElementById('director-message-section');
     if (directorSection && home.director) {
         directorSection.innerHTML = `
@@ -614,19 +644,25 @@ async function loadHomePageContent() {
         `;
     }
 
+    // --- EVENTS PREVIEW ---
     const rawEvents = await fetchData('events');
     const eventsData = rawEvents.events_list || [];
     const eventPreview = document.getElementById('event-preview-grid');
+    
+    // HOME EVENTS LIMIT
+    const eventLimit = home.event_count || 3;
+
     if (eventPreview) {
         const today = new Date();
         today.setHours(0,0,0,0);
         const futureEvents = eventsData
             .filter(e => new Date(e.date) >= today)
             .sort((a, b) => new Date(a.date) - new Date(b.date))
-            .slice(0, 3);
+            .slice(0, eventLimit); 
 
         if (futureEvents.length === 0) {
-             eventPreview.innerHTML = `<p class="text-center" style="grid-column: 1/-1; opacity: 0.7;">No upcoming events scheduled at this time.</p>`;
+             // USE CSS CLASS
+             eventPreview.innerHTML = `<p class="empty-state-msg">No upcoming events scheduled at this time.</p>`;
         } else {
             eventPreview.innerHTML = futureEvents.map(item => `
                 <div class="aim-card">
@@ -651,20 +687,47 @@ async function loadResearchContent() {
     const container = document.getElementById('research-aims-container');
     
     if (container) {
-        container.innerHTML = aims.map(aim => `
-            <div class="aim-card">
-                <span class="aim-number">${aim.number}</span>
-                <h3>${aim.title}</h3>
-                ${aim.images && aim.images.length > 0 ? `<div class="aim-gallery-scroll">${aim.images.map(img => `<img src="${img}" alt="Research Visual" loading="lazy">`).join('')}</div>` : (aim.image ? `<img src="${aim.image}" style="width:100%; border-radius:4px; margin-bottom:15px;" loading="lazy">` : '')}
-                <div class="aim-description">
-                    ${converter.makeHtml(aim.description)}
-                    ${aim.faculty ? `<p style="margin-top:15px; font-size:1rem; line-height:1.6;"><strong style="color:var(--uh-red);">Associated faculty members:</strong><br>${aim.faculty}</p>` : ''}
+        container.innerHTML = aims.map(aim => {
+            let mediaHtml = '';
+
+            // Gallery Rendering Logic
+            if (aim.gallery && aim.gallery.length > 0) {
+                mediaHtml = `
+                    <div class="aim-image-grid">
+                        ${aim.gallery.map(item => `
+                            <div class="aim-image-card">
+                                <img src="${item.src}" alt="${item.caption || 'Research Visual'}" loading="lazy">
+                                <div class="aim-img-caption">
+                                    ${item.caption || ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (aim.images && aim.images.length > 0) {
+                mediaHtml = `<div class="aim-gallery-scroll">${aim.images.map(img => `<img src="${img}" alt="Research Visual" loading="lazy">`).join('')}</div>`;
+            } else if (aim.image) {
+                mediaHtml = `<img src="${aim.image}" style="width:100%; border-radius:4px; margin-bottom:15px;" loading="lazy">`;
+            }
+
+            // USE CSS CLASSES
+            return `
+                <div class="aim-card" id="aim-${aim.number}">
+                    <span class="aim-number">${aim.number}</span>
+                    <h3>${aim.title}</h3>
+                    
+                    ${mediaHtml}
+
+                    <div class="aim-description">
+                        ${converter.makeHtml(aim.description)}
+                        ${aim.faculty ? `<p class="aim-faculty-block"><strong style="color:var(--uh-red);">Associated faculty members:</strong> ${aim.faculty}</p>` : ''}
+                    </div>
+                    <div class="aim-tags-block">
+                        ${aim.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+                    </div>
                 </div>
-                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
-                    ${aim.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 }
 
@@ -677,14 +740,15 @@ async function loadAdvisoryContent() {
             <div class="profile-card text-center">
                  <div class="profile-img-container"><img src="${m.image}" class="profile-img" loading="lazy"></div>
                  <div class="profile-info">
-                     <h4 class="profile-name">${m.name}</h4>
-                     <p class="profile-role">${m.role}</p>
-                     ${m.company_icon ? `<img src="${m.company_icon}" style="height:30px; margin:10px auto; opacity:0.8;" alt="Company Logo">` : ''}
+                      <h4 class="profile-name">${m.name}</h4>
+                      <p class="profile-role">${m.role}</p>
+                      ${m.company_icon ? `<img src="${m.company_icon}" style="height:30px; margin:10px auto; opacity:0.8;" alt="Company Logo">` : ''}
                  </div>
             </div>
         `).join('');
         if (globals.advisory_group_image) {
-            html += `<div style="grid-column: 1 / -1; margin-top: 4rem;">
+            // USE CSS CLASS
+            html += `<div class="advisory-group-wrapper">
                 <h3 class="category-title" style="border-left:none; padding-left:0; text-align:center;">Advisory Board Group</h3>
                 <img src="${globals.advisory_group_image}" style="width:100%; border-radius:4px; box-shadow: var(--shadow-card);" alt="Advisory Board Group Photo">
             </div>`;
@@ -713,6 +777,7 @@ async function loadContactContent() {
     const container = document.getElementById('contact-info-grid');
     const aboutContactPreview = document.getElementById('about-contact-preview');
     if (container) {
+        // USE CSS CLASS (contact-map-container)
         container.innerHTML = `
             <div>
                 <h4>Mailing Address</h4>
@@ -723,7 +788,7 @@ async function loadContactContent() {
                 <p>${contact.phone}</p>
                 ${contact.linkedin ? `<h4 style="margin-top:20px;">Social</h4><a href="${contact.linkedin}" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>` : ''}
             </div>
-            <div style="background: #eee; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden;">
+            <div class="contact-map-container">
                 <iframe src="${contact.map_embed_url}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         `;
