@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: "https://welchuhadmin.netlify.app/.netlify/identity"
-  gateway_url: "https://welchuhadmin.netlify.app/.netlify/git"
+  identity_url: "https://uhwelch01.netlify.app/.netlify/identity"
+  gateway_url: "https://uhwelch01.netlify.app/.netlify/git"
   site_url: https://chbedev.github.io/owxr_crystal/
 
 logo_url: https://chbedev.github.io/owxr_crystal/public/images/logo-1.webp
