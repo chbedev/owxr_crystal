@@ -3,9 +3,9 @@ backend:
   branch: main
   identity_url: "https://welchuhadmin.netlify.app/.netlify/identity"
   gateway_url: "https://welchuhadmin.netlify.app/.netlify/git"
-  site_url: https://github.com/chbedev/owxr_crystal
+  site_url: https://chbedev.github.io/owxr_crystal/
 
-logo_url: https://github.com/chbedev/owxr_crystal/tree/main/public/images/logo-1.webp
+logo_url: https://chbedev.github.io/owxr_crystal/public/images/logo-1.webp
 
 media_folder: "public/images/"
 public_folder: "/public/images/"
