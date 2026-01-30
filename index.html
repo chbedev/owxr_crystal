@@ -27,7 +27,6 @@
             </div>
             <div class="top-links">
                 <a href="#" onclick="switchPage('contact')">Contact Us</a>
-                <a href="#" class="text-gold">Give to the Center</a>
             </div>
         </div>
     </div>
@@ -63,7 +62,7 @@
                     <span class="nav-link">About Us <i class="fas fa-chevron-down"></i></span>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-link" data-page="about" onclick="switchPage('about')">Overview</a></li>
-                        <li><a class="dropdown-link" data-page="advisory" onclick="switchPage('advisory')">Advisory Board</a></li>
+                        <li><a class="dropdown-link" data-page="advisory" onclick="switchPage('advisory')">Industrial Advisory Board</a></li>
                         <li><a class="dropdown-link" data-page="contact" onclick="switchPage('contact')">Map & Contact</a></li>
                     </ul>
                 </li>
@@ -71,9 +70,9 @@
                 <li class="nav-item">
                     <span class="nav-link">Research <i class="fas fa-chevron-down"></i></span>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-1')">Research Aim 1</a></li>
-                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-2')">Research Aim 2</a></li>
-                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-3')">Research Aim 3</a></li>
+                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-01')">Research Aim 1</a></li>
+                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-02')">Research Aim 2</a></li>
+                        <li><a class="dropdown-link" data-page="research" onclick="switchPage('research', true, 'aim-03')">Research Aim 3</a></li>
                     </ul>
                 </li>
 
@@ -121,70 +120,64 @@
     <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
 
     <div id="home" class="page-view active">
-        <section class="hero">
-            <div class="hero-slider-container" id="hero-slider-container"></div>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content" id="hero-content"></div>
-            <div class="slider-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></div>
-            <div class="slider-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></div>
-            <div class="slider-indicators" id="slider-indicators"></div>
-        </section>
+            <section class="hero">
+                <div class="hero-slider-container" id="hero-slider-container"></div>
+                <div class="hero-overlay"></div>
+                <div class="container hero-content" id="hero-content"></div>
+                <div class="slider-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></div>
+                <div class="slider-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></div>
+                <div class="slider-indicators" id="slider-indicators"></div>
+            </section>
 
-        <section class="container section-padding" style="padding-top: 0;">
-            <div class="director-grid" id="director-message-section">
-                <div class="text-center"><p>Loading Director's Message...</p></div>
-            </div>
-        </section>
+            <section class="container section-padding" style="padding-top: 0;">
+                <div class="director-grid" id="director-message-section">
+                    <div class="text-center"><p>Loading Director's Message...</p></div>
+                </div>
+            </section>
+            
+            <section class="section-padding" style="background: var(--uh-slate); color: white;">
+                <div class="container"><div class="team-grid text-center" id="impact-stats-grid"></div></div>
+            </section>
+            <section class="container section-padding">
+                <h3 class="text-uh-red" style="margin-bottom: 40px;">Upcoming Events</h3>
+                <div class="team-grid" id="event-preview-grid"></div>
+            </section>
+        </div>
 
-        <section class="section-padding" style="background: var(--uh-slate); color: white;">
-            <div class="container">
-                <div class="team-grid text-center" id="impact-stats-grid">
-                    <p class="text-center" style="grid-column: 1 / -1;">Loading impact metrics...</p> 
+        <div id="about" class="page-view container section-padding">
+            <h2 class="text-uh-red">About Us</h2>
+            <div class="about-content-grid">
+                
+                <div id="about-main-content">
+                    <p>Loading overview...</p>
+                </div>
+                
+                <div id="about-sidebar">
+                    <h4 class="text-uh-red">Quick Links</h4>
+                    <ul style="margin-top: 15px;">
+                        <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                            <i class="fas fa-chevron-right text-uh-red"></i> 
+                            <a href="#" onclick="switchPage('advisory')">Industrial Advisory Board</a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                            <i class="fas fa-chevron-right text-uh-red"></i> 
+                            <a href="#" onclick="switchPage('team', true, 'team-pis')">Principal Investigators</a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                            <i class="fas fa-chevron-right text-uh-red"></i> 
+                            <a href="#" onclick="switchPage('research')">Research Aims</a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                            <i class="fas fa-chevron-right text-uh-red"></i> 
+                            <a href="#" onclick="switchPage('outputs')">Research Output</a>
+                        </li>
+                    </ul>
+                    <h4 class="text-uh-red">Center Location</h4>
+                    <div id="about-contact-preview">Loading contact details...</div>
                 </div>
             </div>
-        </section>
-
-        <section class="container section-padding">
-            <h3 class="text-uh-red" style="margin-bottom: 40px;">Upcoming Events</h3>
-            <div class="team-grid" id="event-preview-grid">
-                <p class="text-center" style="grid-column: 1 / -1;">Loading latest events...</p>
-            </div>
-        </section>
-    </div>
-
-    <div id="about" class="page-view container section-padding">
-        <h2 class="text-uh-red">About Us</h2>
-        <div class="about-content-grid">
-            <div>
-                <h3>Overview of the Center</h3>
-                <p style="margin-bottom: 20px;">The Welch Center for Advanced Bioactive Materials Crystallization Research at the University of Houston is a world-class facility dedicated to the study of crystal formation mechanisms.</p>
-                <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=1000" alt="Lab Overview" style="margin-top: 20px; border-radius: 4px;" loading="lazy">
-            </div>
-            <div id="about-sidebar">
-                <h4 class="text-uh-red">Quick Links</h4>
-                <ul style="margin-top: 15px;">
-                    <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-                        <i class="fas fa-chevron-right text-uh-red"></i> 
-                        <a href="#" onclick="switchPage('advisory')">Advisory Board</a>
-                    </li>
-                    <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-                        <i class="fas fa-chevron-right text-uh-red"></i> 
-                        <a href="#" onclick="switchPage('team', true, 'team-pis')">Principal Investigators</a>
-                    </li>
-                    <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-                        <i class="fas fa-chevron-right text-uh-red"></i> 
-                        <a href="#" onclick="switchPage('research')">Research Aims</a>
-                    </li>
-                    <li style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-                        <i class="fas fa-chevron-right text-uh-red"></i> 
-                        <a href="#" onclick="switchPage('outputs')">Research Output</a>
-                    </li>
-                </ul>
-                <h4 class="text-uh-red">Center Location</h4>
-                <div id="about-contact-preview">Loading contact details...</div>
-            </div>
         </div>
-    </div>
+
 
     <div id="research" class="page-view container section-padding">
         <h2 class="text-uh-red">Our Research Themes</h2>
@@ -246,10 +239,10 @@
     </div>
 
     <div id="advisory" class="page-view container section-padding">
-        <h2 class="text-uh-red">Advisory Board</h2>
+        <h2 class="text-uh-red">Industrial Advisory Board</h2>
         <p>Our external advisory board consists of industry leaders from major pharmaceutical companies.</p>
         <div class="team-grid" id="advisory-board-grid" style="margin-top: 30px;">
-            <p class="text-center" style="grid-column: 1 / -1;">Loading advisory board members...</p>
+            <p class="text-center" style="grid-column: 1 / -1;">Loading industrial advisory board members...</p>
         </div>
     </div>
 
@@ -309,6 +302,14 @@
                                 <a href="tel:7137434300" style="text-decoration: none; color: #aaa; transition: color 0.3s;">713-743-4300</a>
                             </p>
                         </div>
+                        <div class="contact-block" style="display: flex; justify-content: center; align-items: center;">
+                          <a href="https://www.uh.edu/" target="_blank" rel="noopener">
+                            <img src="public/images/uh_white_red.png" 
+                                 alt="University of Houston"
+                                 style="max-width: 90px; height: auto; opacity: 0.8; margin-top: 5px;"
+                                 onerror="this.style.display='none'">
+                          </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -326,7 +327,7 @@
     <script>
         document.getElementById('copyright-year').textContent = new Date().getFullYear();
     </script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <script src="src/js/app.js"></script>
     <script src="src/js/slider.js"></script>
