@@ -1,35 +1,108 @@
 /* src/js/contentLoader.js */
 
+// Initialize Markdown Converter
 const converter = new showdown.Converter();
 converter.setFlavor('github');
 
+// Global Constants
+const PLACEHOLDER_IMG_HUMAN = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NjYyI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00LTJ6Ii8+PC9zdmc+";
+
+/**
+ * Utility: Fetch JSON content with Error Handling
+ */
 async function fetchData(fileName) {
     try {
-        const response = await fetch(`content/${fileName}.json`); 
-        if (!response.ok) return (fileName === 'globals' || fileName === 'pages') ? {} : [];
+        const response = await fetch(`content/${fileName}.json`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return await response.json();
     } catch (error) {
-        console.error(`Failed to fetch ${fileName}:`, error);
-        return (fileName === 'globals' || fileName === 'pages') ? {} : [];
+        console.warn(`[ContentLoader] Failed to fetch ${fileName}:`, error);
+        return ['globals', 'pages'].includes(fileName) ? {} : [];
     }
 }
 
 // =======================================================
-// RENDERER: EVENTS (With Interactive Calendar)
+// RENDERER: TEAM
+// =======================================================
+async function loadTeamContent() {
+    const rawTeam = await fetchData('team');
+    const teamData = rawTeam.members || [];
+
+    const pis = teamData.filter(m => m.is_pi);
+    // SORT FIX: Alphabetical sort for students
+    const groupMembers = teamData.filter(m => !m.is_pi).sort((a, b) => a.name.localeCompare(b.name));
+
+    const renderMembers = (members, isPI) => members.map(member => `
+        <div class="profile-card">
+            ${member.image ? `<div class="profile-img-container"><img src="${member.image}" alt="${member.name}" class="profile-img" loading="lazy"></div>` : ''}
+            <div class="profile-info">
+                <h4 class="profile-name">${member.name}</h4>
+                
+                ${/* USE CSS CLASS */ ''}
+                ${isPI && member.role === 'Center Director' ? `<div class="profile-role pi-director-label">${member.role}</div>` : ''}
+                
+                ${isPI && member.title_detail ? `<p class="pi-title-detail">${member.title_detail.replace(/\n/g, '<br>')}</p>` : ''}
+                
+                ${!isPI ? `
+                    <div class="profile-role" style="font-weight: 700; margin-bottom: 0;">${member.role}</div>
+                    ${member.advisor ? `
+                        <div class="student-advisor">
+                            <span class="advisor-label">Advisor:</span> <span class="advisor-name">${member.advisor}</span>
+                        </div>` : ''}
+                    <p style="font-size: 0.8rem; color: var(--uh-slate); margin-top: 5px; line-height: 1.3;">${member.department || ''}<br>${member.university || ''}</p>
+                ` : ''}
+
+                <p style="font-size: ${isPI ? '0.9rem' : '0.85rem'}; margin-top: ${isPI ? '10px' : '10px'};">${member.bio || ''}</p>
+                ${member.tags && member.tags.length > 0 ? `<div class="profile-tags">${member.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
+                <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
+                    ${member.email ? `<a href="mailto:${member.email}" title="Email"><i class="fas fa-envelope text-uh-red fa-lg"></i></a>` : ''}
+                    ${member.website ? `<a href="${member.website}" target="_blank" title="Lab Website"><i class="fas fa-globe text-uh-red fa-lg"></i></a>` : ''}
+                    ${member.scholar ? `<a href="${member.scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap text-uh-red fa-lg"></i></a>` : ''}
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    const piGrid = document.getElementById('team-pis');
+    if (piGrid) piGrid.innerHTML = renderMembers(pis, true);
+
+    const groupGrid = document.getElementById('team-group');
+    if (groupGrid) {
+        groupGrid.innerHTML = groupMembers.map(s => `
+            <div class="student-card">
+                <div class="student-img-container">
+                    <img src="${s.image || 'public/images/default-placeholder.jpg'}" class="student-img" alt="${s.name}" loading="lazy">
+                </div>
+                <div class="student-info">
+                    <div class="student-name">${s.name}</div>
+                    <div class="student-role">${s.role}</div>
+                    ${s.advisor ? `
+                        <div class="student-advisor">
+                            <span class="advisor-label">Advisor:</span> <span class="advisor-name">${s.advisor}</span>
+                        </div>
+                    ` : ''}
+                    <div class="student-bio">${s.bio || ''}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+// =======================================================
+// 2. EVENTS RENDERER (Calendar System)
 // =======================================================
 let currentCalDate = new Date();
 
 async function loadEventsContent() {
     const rawEvents = await fetchData('events');
     const eventsData = rawEvents.events_list || [];
-    window.eventsStore = eventsData;
+    window.eventsStore = eventsData; // Global store for detail view
 
     renderCalendar(eventsData);
 
     const eventsGrid = document.getElementById('events-grid');
-    const sortedEvents = eventsData.sort((a, b) => new Date(a.date) - new Date(b.date));
-
     if (eventsGrid) {
+        const sortedEvents = eventsData.sort((a, b) => new Date(a.date) - new Date(b.date));
         if (sortedEvents.length === 0) {
             eventsGrid.innerHTML = `<p class="empty-state-msg">No upcoming events scheduled.</p>`;
         } else {
@@ -38,11 +111,10 @@ async function loadEventsContent() {
     }
 }
 
-function changeMonth(offset) {
+window.changeMonth = function(offset) {
     currentCalDate.setMonth(currentCalDate.getMonth() + offset);
-    renderCalendar(window.eventsStore);
-}
-window.changeMonth = changeMonth;
+    renderCalendar(window.eventsStore || []);
+};
 
 function renderCalendar(events) {
     const container = document.getElementById('events-calendar-container');
@@ -50,14 +122,12 @@ function renderCalendar(events) {
 
     const currentMonth = currentCalDate.getMonth();
     const currentYear = currentCalDate.getFullYear();
-    
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    let html = `
+    let calendarHtml = `
         <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
             <h3 style="margin: 0;"><i class="far fa-calendar-alt" style="color:var(--uh-red); margin-right:10px;"></i> ${monthNames[currentMonth]} ${currentYear}</h3>
             <div class="calendar-controls" style="color: var(--uh-slate); font-size: 1.2rem;">
@@ -75,60 +145,138 @@ function renderCalendar(events) {
             <div class="calendar-day-name">Sat</div>
     `;
 
+    // Empty cells for days before the 1st
     for (let i = 0; i < firstDay; i++) {
-        html += `<div class="calendar-day empty"></div>`;
+        calendarHtml += `<div class="calendar-day empty"></div>`;
     }
 
+    // Days with events
     for (let day = 1; day <= daysInMonth; day++) {
         const dayEvents = events.filter(e => {
             const eDate = new Date(e.date);
-            const eYear = eDate.getUTCFullYear(); 
-            const eMonth = eDate.getUTCMonth();
-            const eDay = eDate.getUTCDate();
-            return eDay === day && eMonth === currentMonth && eYear === currentYear;
+            // Use UTC to avoid timezone shifts showing wrong day
+            return eDate.getUTCDate() === day && 
+                   eDate.getUTCMonth() === currentMonth && 
+                   eDate.getUTCFullYear() === currentYear;
         });
 
         const hasEvent = dayEvents.length > 0;
         let tooltip = '';
 
         if (hasEvent) {
-            const eventItem = dayEvents[0]; 
+            const evt = dayEvents[0];
             tooltip = `
                 <div class="event-tooltip">
-                    <h5>${eventItem.title}</h5>
-                    <span class="tooltip-meta"><i class="far fa-clock"></i> ${eventItem.time || 'All Day'}</span>
-                    <span class="tooltip-meta"><i class="fas fa-map-marker-alt"></i> ${eventItem.location || 'TBA'}</span>
+                    <h5>${evt.title}</h5>
+                    <span class="tooltip-meta"><i class="far fa-clock"></i> ${evt.time || 'All Day'}</span>
+                    <span class="tooltip-meta"><i class="fas fa-map-marker-alt"></i> ${evt.location || 'TBA'}</span>
                     <div style="margin-top:5px; font-size:0.7rem; color:#aaa;">Click for details</div>
-                </div>
-            `;
+                </div>`;
         }
 
-        html += `
+        calendarHtml += `
             <div class="calendar-day ${hasEvent ? 'has-event' : ''}" 
                  ${hasEvent ? `onclick="openDetailView(event, '${dayEvents[0].id}', 'events')"` : ''}>
                 <span style="position:relative; z-index:2;">${day}</span>
                 ${tooltip}
-            </div>
-        `;
+            </div>`;
     }
-    html += `</div>`; 
-    container.innerHTML = html;
+    
+    calendarHtml += `</div>`;
+    container.innerHTML = calendarHtml;
 }
 
 // =======================================================
-// RENDERERS: NEWS & OUTREACH
+// 3. RESEARCH RENDERER (Optimized)
 // =======================================================
+async function loadResearchContent() {
+    // Load Pages AND Team data simultaneously for faculty linking
+    const [pageData, teamData] = await Promise.all([
+        fetchData('pages'),
+        fetchData('team')
+    ]);
+    
+    const aims = pageData.research_aims || [];
+    const container = document.getElementById('research-aims-container');
+    const members = teamData.members || [];
+    const SHOW_AIM_NUMBERS = false;
 
+    if (container) {
+        container.innerHTML = aims.map(aim => {
+            // Media Logic
+            let mediaHtml = '';
+            if (aim.gallery && aim.gallery.length > 0) {
+                const galleryItems = aim.gallery.map(item => {
+                    const isVideo = item.src.endsWith('.mp4') || item.src.endsWith('.webm');
+                    const mediaTag = isVideo 
+                        ? `<video src="${item.src}" class="aim-media" autoplay loop muted playsinline></video>`
+                        : `<img src="${item.src}" alt="${item.caption || 'Visual'}" class="aim-media" loading="lazy">`;
+                    
+                    return `
+                        <div class="aim-image-card">
+                            <div class="aim-media-stage">${mediaTag}</div>
+                            <div class="aim-img-caption">${item.caption || ''}</div>
+                        </div>`;
+                }).join('');
+                mediaHtml = `<div class="aim-image-grid">${galleryItems}</div>`;
+            } else if (aim.image) {
+                mediaHtml = `<img src="${aim.image}" style="width:100%; border-radius:4px; margin-bottom:15px;" loading="lazy">`;
+            }
+
+            // Faculty Matching Logic
+            let facultyHtml = '';
+            if (aim.faculty) {
+                const associatedFaculty = aim.faculty.split(',').map(nameStr => {
+                    const cleanName = nameStr.trim();
+                    const member = members.find(m => m.name.includes(cleanName));
+                    if (member) {
+                        return `<li>
+                                    <span>${member.name}</span>
+                                    ${member.website ? `<a href="${member.website}" target="_blank" title="Visit Lab Website" style="color:var(--uh-red); margin-left:5px;"><i class="fas fa-globe"></i></a>` : ''}
+                                </li>`;
+                    }
+                    return `<li>${cleanName}</li>`;
+                }).join('');
+
+                facultyHtml = `
+                    <div style="margin-top: 20px;">
+                        <strong style="color:var(--uh-red); display:block; margin-bottom:10px;">Associated PIs:</strong>
+                        <ul class="aim-faculty-list">${associatedFaculty}</ul>
+                    </div>`;
+            }
+
+            return `
+                <div class="aim-card" id="aim-${aim.number}">
+                    ${SHOW_AIM_NUMBERS ? `<span class="aim-number">${aim.number}</span>` : ''}
+                    <h3>${aim.title}</h3>
+                    ${mediaHtml}
+                    <div class="aim-description">
+                        ${converter.makeHtml(aim.description)}
+                        ${facultyHtml}
+                    </div>
+                    <div class="aim-tags-block">
+                        ${(aim.tags || []).map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+}
+
+// =======================================================
+// 4. NEWS & OUTREACH RENDERER
+// =======================================================
 async function loadNewsContent() {
     const rawNews = await fetchData('news');
     const newsData = rawNews.articles || [];
     window.newsStore = newsData;
 
     const newsGrid = document.getElementById('news-grid');
-    const sortedNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
     if (newsGrid) {
-        newsGrid.innerHTML = sortedNews.map(item => createCardHtml(item, 'news')).join('');
+        newsGrid.innerHTML = newsData
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map(item => createCardHtml(item, 'news'))
+            .join('');
     }
 }
 
@@ -138,80 +286,52 @@ async function loadOutreachContent() {
     window.outreachStore = outreachData;
 
     const outreachGrid = document.getElementById('outreach-grid');
-    const sortedOutreach = outreachData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
     if (outreachGrid) {
-        outreachGrid.innerHTML = sortedOutreach.map(item => createCardHtml(item, 'outreach')).join('');
+        outreachGrid.innerHTML = outreachData
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map(item => createCardHtml(item, 'outreach'))
+            .join('');
     }
 }
 
 function createCardHtml(item, type) {
-    let metaIcon = 'calendar-alt';
-    let btnText = 'Read Story';
-    let metaText = new Date(item.date).toLocaleDateString();
-    
-    let placeholderLabel = "Update";
-    let placeholderIcon = "newspaper"; 
+    let config = { icon: 'calendar-alt', btnText: 'Read Story', phLabel: 'News', phIcon: 'newspaper' };
+    if (type === 'outreach') config = { icon: 'heart', btnText: 'View Report', phLabel: 'Outreach', phIcon: 'hand-holding-heart' };
+    if (type === 'events') config = { icon: 'clock', btnText: 'Event Details', phLabel: 'Event', phIcon: 'calendar-check' };
 
-    if (type === 'outreach') {
-        metaIcon = 'heart';
-        btnText = 'View Report';
-        placeholderLabel = "Outreach";
-        placeholderIcon = "hand-holding-heart";
-        if(item.tags && item.tags.length > 0) metaText = item.tags[0]; 
-    } else if (type === 'events') {
-        metaIcon = 'clock';
-        btnText = 'Event Details';
-        placeholderLabel = "Event";
-        placeholderIcon = "calendar-check";
-        if (item.time) metaText += ` | ${item.time}`;
-    } else {
-        placeholderLabel = "News";
-        placeholderIcon = "newspaper";
-    }
+    let metaDisplay = new Date(item.date).toLocaleDateString();
+    if (type === 'events' && item.time) metaDisplay += ` | ${item.time}`;
+    if (type === 'outreach' && item.tags && item.tags.length) metaDisplay = item.tags[0];
 
-    let categoryLabel = item.category || (item.tags && item.tags.length > 0 ? item.tags[0] : 'Update');
+    const categoryLabel = item.category || (item.tags && item.tags.length > 0 ? item.tags[0] : 'Update');
 
-    let externalLinkHtml = '';
-    if (item.link) {
-        externalLinkHtml = `
-            <div style="margin-top: 12px; border-top: 1px solid #eee; padding-top: 10px;">
-                <a href="${item.link}" target="_blank" class="view-link" style="margin-left: 0;">
-                    GO TO WEBSITE <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
-                </a>
-            </div>
-        `;
-    }
-
-    let imageHtml = '';
-    if (item.image) {
-        imageHtml = `<img src="${item.image}" alt="${item.title}" loading="lazy">`;
-    } else {
-        imageHtml = `
-            <div class="placeholder-img">
-                <i class="far fa-${placeholderIcon} placeholder-icon"></i>
-                <span class="placeholder-label">${placeholderLabel}</span>
-            </div>
-        `;
-    }
+    const imageHtml = item.image 
+        ? `<img src="${item.image}" alt="${item.title}" loading="lazy">`
+        : `<div class="placeholder-img">
+             <i class="far fa-${config.phIcon} placeholder-icon"></i>
+             <span class="placeholder-label">${config.phLabel}</span>
+           </div>`;
 
     return `
         <div class="news-card">
-            <div class="news-img-wrapper">
-                ${imageHtml}
-            </div>
+            <div class="news-img-wrapper">${imageHtml}</div>
             <div class="news-content">
                 <div class="news-meta">
-                    <i class="far fa-${metaIcon}"></i> ${metaText}
+                    <i class="far fa-${config.icon}"></i> ${metaDisplay}
                     <span style="margin:0 5px; opacity:0.5;">|</span> ${categoryLabel}
                 </div>
                 <h3 class="news-title">${item.title}</h3>
                 <p class="news-excerpt">${item.preview}</p>
                 <div style="margin-top: auto;">
                     <a href="#" class="news-link" onclick="openDetailView(event, '${item.id}', '${type}')">
-                        ${btnText} <i class="fas fa-arrow-right"></i>
+                        ${config.btnText} <i class="fas fa-arrow-right"></i>
                     </a>
-                    ${externalLinkHtml}
+                    ${item.link && type !== 'events' ? `
+                        <div style="margin-top: 12px; border-top: 1px solid #eee; padding-top: 10px;">
+                            <a href="${item.link}" target="_blank" class="view-link" style="margin-left: 0;">
+                                GO TO WEBSITE <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                            </a>
+                        </div>` : ''}
                 </div>
             </div>
         </div>
@@ -219,57 +339,34 @@ function createCardHtml(item, type) {
 }
 
 // =======================================================
-// SHARED DETAIL VIEWER
+// 5. DETAIL VIEW (Popup/Page Switch)
 // =======================================================
-function openDetailView(e, itemId, type) {
+window.openDetailView = async function(e, itemId, type) {
     if (e) e.preventDefault();
 
-    let dataStore;
-    if (type === 'news') dataStore = window.newsStore;
-    else if (type === 'outreach') dataStore = window.outreachStore;
-    else if (type === 'events') dataStore = window.eventsStore;
+    // Lazy load data if user accessed via direct link logic
+    if (!window[`${type}Store`]) {
+        const raw = await fetchData(type);
+        window[`${type}Store`] = raw.events_list || raw.articles || raw.programs || [];
+    }
 
-    const item = dataStore ? dataStore.find(n => n.id === itemId || n.id == itemId) : null;
-    if (!item) return;
+    const item = window[`${type}Store`].find(n => n.id == itemId); 
+    if (!item) return console.error("Item not found");
 
     const containerId = `${type}-detail-content`;
     const detailContainer = document.getElementById(containerId);
     if (!detailContainer) return;
 
+    // Content Parsing
     let contentHtml = '';
-    let heroImageHtml = '';
-    
-    if (item.image) {
-        heroImageHtml = `<img src="${item.image}" alt="${item.title}">`;
-    } else {
-        let phIcon = 'newspaper';
-        let phLabel = 'News';
-        if (type === 'events') { phIcon = 'calendar-check'; phLabel = 'Event'; }
-        if (type === 'outreach') { phIcon = 'hand-holding-heart'; phLabel = 'Outreach'; }
-
-        heroImageHtml = `
-            <div class="placeholder-img">
-                <i class="far fa-${phIcon} placeholder-icon" style="font-size: 5rem; margin-bottom: 1rem;"></i>
-                <span class="placeholder-label" style="font-size: 3rem;">${phLabel}</span>
-            </div>
-        `;
-    }
-
-    let fullTitle = item.title;
-    let category = type.charAt(0).toUpperCase() + type.slice(1); 
-    if (item.category) category = item.category;
-
     if (typeof item.body === 'object' && item.body !== null) {
         const b = item.body;
-        if(b.full_title) fullTitle = b.full_title;
-        if(b.category) category = b.category;
         if (b.lead_text) contentHtml += `<p class="article-lead">${b.lead_text}</p>`;
-
-        if (b.content_blocks && Array.isArray(b.content_blocks)) {
+        if (Array.isArray(b.content_blocks)) {
             contentHtml += b.content_blocks.map(block => {
                 if (block.type === 'quote') return `<div class="article-quote"><p>"${block.content}"</p>${block.author ? `<span>— ${block.author}</span>` : ''}</div>`;
-                else if (block.type === 'highlight_box') return `<div class="highlight-box"><h3><i class="fas fa-info-circle"></i> ${block.title || 'Key Details'}</h3><ul>${block.items.map(li => `<li>${li}</li>`).join('')}</ul></div>`;
-                else if (block.type === 'text') return `<div class="article-text">${converter.makeHtml(block.content || '')}</div>`;
+                if (block.type === 'highlight_box') return `<div class="highlight-box"><h3>${block.title}</h3><ul>${block.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;
+                if (block.type === 'text') return `<div class="article-text">${converter.makeHtml(block.content || '')}</div>`;
                 return '';
             }).join('');
         }
@@ -277,49 +374,31 @@ function openDetailView(e, itemId, type) {
         contentHtml = converter.makeHtml(item.body || '');
     }
 
-    let extraMetaHtml = '';
-    let linkSection = '';
-    
-    if (item.link) {
-        linkSection = `
-            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);">
-                <a href="${item.link}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white; text-decoration: none; display: inline-block;">
-                    GO TO WEBSITE <i class="fas fa-external-link-alt" style="margin-left:8px;"></i>
-                </a>
-            </div>
-        `;
-    }
-
-    if (type === 'events') {
-        extraMetaHtml = `
-            <div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);">
-                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                    <div><strong><i class="far fa-clock text-uh-red"></i> Time:</strong> ${item.time || 'TBA'}</div>
-                    <div><strong><i class="fas fa-map-marker-alt text-uh-red"></i> Location:</strong> ${item.location || 'TBA'}</div>
-                </div>
-                ${linkSection}
-            </div>
-        `;
-    } else if (linkSection) {
-        extraMetaHtml = `
-            <div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);">
-                ${linkSection}
-            </div>
-        `;
-    }
+    // Hero Image
+    let heroImageHtml = item.image 
+        ? `<img src="${item.image}" alt="${item.title}">` 
+        : `<div class="placeholder-img" style="height:300px"><span class="placeholder-label">${type.toUpperCase()}</span></div>`;
 
     detailContainer.innerHTML = `
         <article class="article-container">
             <div class="article-hero">
                  ${heroImageHtml}
-                 <span class="article-category-badge">${category}</span>
+                 <span class="article-category-badge">${item.category || type}</span>
             </div>
             <header class="article-header">
                 <div class="article-meta-row">
                     <span><i class="far fa-calendar-alt"></i> ${new Date(item.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </div>
-                <h1 class="article-title text-uh-red">${fullTitle}</h1>
-                ${extraMetaHtml}
+                <h1 class="article-title text-uh-red">${item.title}</h1>
+                ${type === 'events' ? `
+                    <div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);">
+                        <div><strong><i class="far fa-clock text-uh-red"></i> Time:</strong> ${item.time || 'TBA'}</div>
+                        <div><strong><i class="fas fa-map-marker-alt text-uh-red"></i> Location:</strong> ${item.location || 'TBA'}</div>
+                    </div>` : ''}
+                 ${item.link ? `
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);">
+                        <a href="${item.link}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white;">GO TO WEBSITE <i class="fas fa-external-link-alt"></i></a>
+                    </div>` : ''}
             </header>
             <div class="article-body">${contentHtml}</div>
             <div class="article-footer">
@@ -327,33 +406,70 @@ function openDetailView(e, itemId, type) {
             </div>
         </article>
     `;
-    switchPage(type + '-detail');
+    if (typeof switchPage === 'function') switchPage(`${type}-detail`);
     window.scrollTo(0,0);
-}
-window.openDetailView = openDetailView;
+};
+
 
 // =======================================================
-// RENDERER: OUTPUTS
+// 6. ADVISORY BOARD & OUTPUTS
 // =======================================================
+async function loadAdvisoryContent() {
+    const globals = await fetchData('globals');
+    let board = globals.advisory_board || [];
+    
+    board.sort((a, b) => {
+        const lastA = a.name.trim().split(' ').pop();
+        const lastB = b.name.trim().split(' ').pop();
+        return lastA.localeCompare(lastB);
+    });
+
+    const container = document.getElementById('advisory-board-grid');
+    if (container) {
+        const cardsHtml = board.map(m => `
+            <div class="profile-card text-center">
+                 <div class="profile-img-container">
+                    <img src="${m.image}" class="profile-img" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG_HUMAN}'">
+                 </div>
+                 <div class="profile-info">
+                      <h4 class="profile-name">${m.name}</h4>
+                      <p class="profile-role">${m.role}</p>
+                      ${m.company_icon ? `<img src="${m.company_icon}" style="height:30px; margin:10px auto; opacity:0.8;" alt="Company Logo">` : ''}
+                 </div>
+            </div>
+        `).join(''); // SAFE JOIN
+
+        let fullHtml = cardsHtml;
+        if (globals.advisory_group_image) {
+            fullHtml += `<div class="advisory-group-wrapper">
+                <h3 class="category-title" style="border-left:none; padding-left:0; text-align:center;">Center's Advisory Board and Principal Investigators</h3>
+                <img src="${globals.advisory_group_image}" style="width:100%; border-radius:4px; box-shadow: var(--shadow-card);" alt="Advisory Board Group Photo">
+            </div>`;
+        }
+        container.innerHTML = fullHtml;
+    }
+}
 
 async function loadOutputsContent() {
     const rawPubs = await fetchData('publications');
-    const publications = rawPubs.papers || [];
-    renderAccordion(publications, 'publications-list', 'journal', true);
+    const pubHeader = document.getElementById('publications-heading');
+    if(pubHeader) pubHeader.textContent = "Publications";
+    
+    renderAccordion(rawPubs.papers || [], 'publications-list', 'journal', true);
 
     const rawPatents = await fetchData('patents');
-    const patents = rawPatents.patents || [];
-    renderAccordion(patents, 'patents-list', 'inventors', true);
+    renderAccordion(rawPatents.patents || [], 'patents-list', 'inventors', true);
 
     const rawPres = await fetchData('presentations');
-    const presentations = rawPres.talks || [];
-    renderAccordion(presentations, 'presentations-list', 'conference', true);
+    renderAccordion(rawPres.talks || [], 'presentations-list', 'conference', true);
 
     const rawAwards = await fetchData('awards');
-    const awards = rawAwards.awards || [];
-    renderAccordion(awards, 'awards-list', 'recipient', true);
+    renderAccordion(rawAwards.awards || [], 'awards-list', 'recipient', true);
 }
 
+// =======================================================
+// 7. ACCORDION UTILITIES
+// =======================================================
 function renderAccordion(data, containerId, subField, enableSearch = false) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -465,7 +581,7 @@ function renderAccordionList(data, container, subField, containerId) {
             return `
             <div class="pub-item ${item.featured ? 'featured-pub' : ''}">
                 <div class="pub-details">
-                    <h4>${item.title} ${item.featured ? '<span class="tag" style="background: var(--uh-red); color: white;">Featured</span>' : ''}</h4>
+                    <h4>${item.title} ${item.featured ? '<span></span>' : ''}</h4>
                     <p class="pub-journal">
                         ${journalText}
                         ${linkHtml}
@@ -490,7 +606,7 @@ function renderAccordionList(data, container, subField, containerId) {
                         <div class="hidden-list" style="display:none;">
                             ${hiddenItems.map(renderItem).join('')}
                         </div>
-                        <button class="toggle-btn" onclick="toggleMore(this)">View All (${items.length}) <i class="fas fa-plus"></i></button>
+                        <button class="toggle-btn" onclick="toggleMore(this)" data-count="${items.length}">View All (${items.length}) <i class="fas fa-plus"></i></button>
                     ` : ''}
                 </div>
             </div>
@@ -502,136 +618,59 @@ function renderAccordionList(data, container, subField, containerId) {
 window.toggleAccordion = function(header) {
     header.classList.toggle('active');
     const content = header.nextElementSibling;
+    const icon = header.querySelector('i');
     if (content.classList.contains('show')) {
         content.classList.remove('show');
-        header.querySelector('i').className = 'fas fa-chevron-down';
+        icon.className = 'fas fa-chevron-down';
     } else {
         content.classList.add('show');
-        header.querySelector('i').className = 'fas fa-chevron-up';
+        icon.className = 'fas fa-chevron-up';
     }
-}
+};
 
 window.toggleMore = function(btn) {
-    const hiddenDiv = btn.previousElementSibling;
-    const isHidden = hiddenDiv.style.display === 'none';
-    hiddenDiv.style.display = isHidden ? 'block' : 'none';
-    btn.innerHTML = isHidden ? 'Show Less <i class="fas fa-minus"></i>' : `View All <i class="fas fa-plus"></i>`;
-}
+    const hiddenList = btn.previousElementSibling;
+    if (!hiddenList) return;
 
-// =======================================================
-// RENDERER: TEAM
-// =======================================================
-async function loadTeamContent() {
-    const rawTeam = await fetchData('team');
-    const teamData = rawTeam.members || [];
-
-    const pis = teamData.filter(m => m.is_pi);
-    // SORT FIX: Alphabetical sort for students
-    const groupMembers = teamData.filter(m => !m.is_pi).sort((a, b) => a.name.localeCompare(b.name));
-
-    const renderMembers = (members, isPI) => members.map(member => `
-        <div class="profile-card">
-            ${member.image ? `<div class="profile-img-container"><img src="${member.image}" alt="${member.name}" class="profile-img" loading="lazy"></div>` : ''}
-            <div class="profile-info">
-                <h4 class="profile-name">${member.name}</h4>
-                
-                ${/* USE CSS CLASS */ ''}
-                ${isPI && member.role === 'Center Director' ? `<div class="profile-role pi-director-label">${member.role}</div>` : ''}
-                
-                ${isPI && member.title_detail ? `<p class="pi-title-detail">${member.title_detail.replace(/\n/g, '<br>')}</p>` : ''}
-                
-                ${!isPI ? `
-                    <div class="profile-role" style="font-weight: 700; margin-bottom: 0;">${member.role}</div>
-                    ${member.advisor ? `
-                        <div class="student-advisor">
-                            <span class="advisor-label">Advisor:</span> <span class="advisor-name">${member.advisor}</span>
-                        </div>` : ''}
-                    <p style="font-size: 0.8rem; color: var(--uh-slate); margin-top: 5px; line-height: 1.3;">${member.department || ''}<br>${member.university || ''}</p>
-                ` : ''}
-
-                <p style="font-size: ${isPI ? '0.9rem' : '0.85rem'}; margin-top: ${isPI ? '10px' : '10px'};">${member.bio || ''}</p>
-                ${member.tags && member.tags.length > 0 ? `<div class="profile-tags">${member.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
-                <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
-                    ${member.email ? `<a href="mailto:${member.email}" title="Email"><i class="fas fa-envelope text-uh-red fa-lg"></i></a>` : ''}
-                    ${member.website ? `<a href="${member.website}" target="_blank" title="Lab Website"><i class="fas fa-globe text-uh-red fa-lg"></i></a>` : ''}
-                    ${member.scholar ? `<a href="${member.scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap text-uh-red fa-lg"></i></a>` : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    const piGrid = document.getElementById('team-pis');
-    if (piGrid) piGrid.innerHTML = renderMembers(pis, true);
-
-    const groupGrid = document.getElementById('team-group');
-    if (groupGrid) {
-        groupGrid.innerHTML = groupMembers.map(s => `
-            <div class="student-card">
-                <div class="student-img-container">
-                    <img src="${s.image || 'public/images/default-placeholder.jpg'}" class="student-img" alt="${s.name}" loading="lazy">
-                </div>
-                <div class="student-info">
-                    <div class="student-name">${s.name}</div>
-                    <div class="student-role">${s.role}</div>
-                    ${s.advisor ? `
-                        <div class="student-advisor">
-                            <span class="advisor-label">Advisor:</span> <span class="advisor-name">${s.advisor}</span>
-                        </div>
-                    ` : ''}
-                    <div class="student-bio">${s.bio || ''}</div>
-                </div>
-            </div>
-        `).join('');
+    if (hiddenList.style.display === 'none') {
+        hiddenList.style.display = 'block';
+        btn.innerHTML = 'Show Less <i class="fas fa-minus"></i>';
+    } else {
+        hiddenList.style.display = 'none';
+        const count = btn.getAttribute('data-count') || '';
+        btn.innerHTML = `View All (${count}) <i class="fas fa-plus"></i>`;
     }
-}
+};
 
 // =======================================================
-// RENDERERS: GENERAL
+// 8. MASTER LOADER (Home & General)
 // =======================================================
 async function loadHomePageContent() {
     const pageData = await fetchData('pages');
     const home = pageData.home || {};
     
-    // --- HERO SECTION: TEXT CONTENT ---
     const heroContent = document.getElementById('hero-content');
     if (heroContent && home.hero_title) {
-        // USE CSS CLASS (hero-text-overlay)
         heroContent.innerHTML = `
             <div class="hero-text-overlay">
                 <h2>${home.hero_title}</h2>
                 <p>${home.hero_text}</p>
                 <button class="btn" style="background: white; color: var(--uh-red); border-color: white;" onclick="switchPage('research')">Explore Our Research</button>
-            </div>
-        `;
+            </div>`;
     }
 
-    // --- HERO SECTION: SLIDER ---
     const sliderContainer = document.getElementById('hero-slider-container');
     const indicatorContainer = document.getElementById('slider-indicators');
     if (sliderContainer && indicatorContainer && home.slides) {
-        sliderContainer.innerHTML = home.slides.map((slide, index) => {
-            // OPTIMIZATION: Eager load first slide, lazy load others
-            const loadingStrategy = index === 0 ? 'eager' : 'lazy';
-            const fetchPriority = index === 0 ? 'fetchpriority="high"' : '';
-
-            // Note: background-image MUST stay inline as it's dynamic data
-            return `
-                <div class="hero-slide ${index === 0 ? 'active' : ''}" style="background-image: url('${slide.image}');">
-                    <img src="${slide.image}" 
-                         alt="${slide.alt}" 
-                         loading="${loadingStrategy}" 
-                         ${fetchPriority}>
-                </div>
-            `;
-        }).join('');
-
+        sliderContainer.innerHTML = home.slides.map((slide, index) => `
+            <div class="hero-slide ${index === 0 ? 'active' : ''}" style="background-image: url('${slide.image}');">
+                <img src="${slide.image}" alt="${slide.alt}" loading="${index===0?'eager':'lazy'}">
+            </div>`).join('');
         indicatorContainer.innerHTML = home.slides.map((slide, index) => `
-            <div class="indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></div>
-        `).join('');
+            <div class="indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></div>`).join('');
         if (typeof initializeSlider === 'function') initializeSlider();
     }
 
-    // --- DIRECTOR MESSAGE ---
     const directorSection = document.getElementById('director-message-section');
     if (directorSection && home.director) {
         directorSection.innerHTML = `
@@ -640,28 +679,21 @@ async function loadHomePageContent() {
                 <h3 class="text-uh-red">Director's Message</h3>
                 <p class="mission-text" style="margin: 20px 0;">${home.director.message}</p>
                 <p><strong>${home.director.name}</strong><br>${home.director.role}</p>
-            </div>
-        `;
+            </div>`;
     }
-
-    // --- EVENTS PREVIEW ---
+    
+    // Events Preview
     const rawEvents = await fetchData('events');
     const eventsData = rawEvents.events_list || [];
-    const eventPreview = document.getElementById('event-preview-grid');
+    window.eventsStore = eventsData;
     
-    // HOME EVENTS LIMIT
-    const eventLimit = home.event_count || 3;
-
+    const eventPreview = document.getElementById('event-preview-grid');
     if (eventPreview) {
         const today = new Date();
         today.setHours(0,0,0,0);
-        const futureEvents = eventsData
-            .filter(e => new Date(e.date) >= today)
-            .sort((a, b) => new Date(a.date) - new Date(b.date))
-            .slice(0, eventLimit); 
+        const futureEvents = eventsData.filter(e => new Date(e.date) >= today).slice(0, 4); 
 
         if (futureEvents.length === 0) {
-             // USE CSS CLASS
              eventPreview.innerHTML = `<p class="empty-state-msg">No upcoming events scheduled at this time.</p>`;
         } else {
             eventPreview.innerHTML = futureEvents.map(item => `
@@ -674,103 +706,21 @@ async function loadHomePageContent() {
                     <div style="font-size:0.85rem; color:var(--uh-slate); margin-bottom:10px;">
                         <i class="far fa-clock"></i> ${item.time || 'TBA'}
                     </div>
-                    <a href="#" onclick="switchPage('events')" class="text-uh-red" style="font-weight:700; font-size:0.9rem;">View Calendar &rarr;</a>
-                </div>
-            `).join('');
+                    <a href="#" onclick="openDetailView(event, '${item.id}', 'events')" class="text-uh-red" style="font-weight:700; font-size:0.9rem;">Event Details &rarr;</a>
+                </div>`).join('');
         }
     }
 }
 
-async function loadResearchContent() {
-    const pageData = await fetchData('pages');
-    const aims = pageData.research_aims || [];
-    const container = document.getElementById('research-aims-container');
-    
-    if (container) {
-        container.innerHTML = aims.map(aim => {
-            let mediaHtml = '';
-
-            // Gallery Rendering Logic
-            if (aim.gallery && aim.gallery.length > 0) {
-                mediaHtml = `
-                    <div class="aim-image-grid">
-                        ${aim.gallery.map(item => `
-                            <div class="aim-image-card">
-                                <img src="${item.src}" alt="${item.caption || 'Research Visual'}" loading="lazy">
-                                <div class="aim-img-caption">
-                                    ${item.caption || ''}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            } else if (aim.images && aim.images.length > 0) {
-                mediaHtml = `<div class="aim-gallery-scroll">${aim.images.map(img => `<img src="${img}" alt="Research Visual" loading="lazy">`).join('')}</div>`;
-            } else if (aim.image) {
-                mediaHtml = `<img src="${aim.image}" style="width:100%; border-radius:4px; margin-bottom:15px;" loading="lazy">`;
-            }
-
-            // USE CSS CLASSES
-            return `
-                <div class="aim-card" id="aim-${aim.number}">
-                    <span class="aim-number">${aim.number}</span>
-                    <h3>${aim.title}</h3>
-                    
-                    ${mediaHtml}
-
-                    <div class="aim-description">
-                        ${converter.makeHtml(aim.description)}
-                        ${aim.faculty ? `<p class="aim-faculty-block"><strong style="color:var(--uh-red);">Associated faculty members:</strong> ${aim.faculty}</p>` : ''}
-                    </div>
-                    <div class="aim-tags-block">
-                        ${aim.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
-}
-
-async function loadAdvisoryContent() {
-    const globals = await fetchData('globals');
-    const board = globals.advisory_board || [];
-    const container = document.getElementById('advisory-board-grid');
-    if (container) {
-        let html = board.map(m => `
-            <div class="profile-card text-center">
-                 <div class="profile-img-container"><img src="${m.image}" class="profile-img" loading="lazy"></div>
-                 <div class="profile-info">
-                      <h4 class="profile-name">${m.name}</h4>
-                      <p class="profile-role">${m.role}</p>
-                      ${m.company_icon ? `<img src="${m.company_icon}" style="height:30px; margin:10px auto; opacity:0.8;" alt="Company Logo">` : ''}
-                 </div>
-            </div>
-        `).join('');
-        if (globals.advisory_group_image) {
-            // USE CSS CLASS
-            html += `<div class="advisory-group-wrapper">
-                <h3 class="category-title" style="border-left:none; padding-left:0; text-align:center;">Advisory Board Group</h3>
-                <img src="${globals.advisory_group_image}" style="width:100%; border-radius:4px; box-shadow: var(--shadow-card);" alt="Advisory Board Group Photo">
-            </div>`;
-        }
-        container.innerHTML = html;
-    }
-}
-
+// IMPACT STATS & CONTACT (Placeholders to prevent errors)
 async function loadImpactStats() {
     const globals = await fetchData('globals');
     const stats = globals.impact_stats || [];
     const container = document.getElementById('impact-stats-grid');
-    if (container) {
-        container.innerHTML = stats.map(stat => `
-            <div>
-                <h2 style="font-size: 3rem; color: ${stat.color || '#F4D03F'};">${stat.value}</h2>
-                <p>${stat.label}</p>
-            </div>
-        `).join('');
-    }
+    if (container) container.innerHTML = stats.map(stat => `
+        <div><h2 style="font-size: 3rem; color: ${stat.color || '#F4D03F'};">${stat.value}</h2><p>${stat.label}</p></div>
+    `).join('');
 }
-
 async function loadContactContent() {
     const globals = await fetchData('globals');
     const contact = globals.contact || {};
@@ -798,10 +748,39 @@ async function loadContactContent() {
     }
 }
 
-function loadContent(pageId) {
+async function loadAboutContent() {
+    const pageData = await fetchData('pages');
+    const about = pageData.about || {};
+    const container = document.getElementById('about-main-content');
+
+    if (container && about.overview) {
+        const ov = about.overview;
+        // Format body text
+        const formattedBody = ov.body
+            ? ov.body.split('\n\n').map(p => `<p style="margin-bottom: 1.5rem;">${p}</p>`).join('')
+            : '';
+
+        container.innerHTML = `
+            <h3 style="margin-top:0;">${ov.title}</h3>
+            <p style="font-size: 1.2rem; font-weight: 500; color: var(--uh-red); margin-bottom: 1.5rem; line-height: 1.4;">
+                ${ov.lead}
+            </p>
+            <div style="color: var(--text-main); font-size: 1rem; line-height: 1.7;">
+                ${formattedBody}
+            </div>
+            <img src="${ov.image}" alt="${ov.image_alt}" 
+                 style="width: 100%; border-radius: 4px; margin-top: 30px; box-shadow: var(--shadow-card);" 
+                 loading="lazy">
+        `;
+    }
+}
+// MAIN EXPORT
+window.loadContent = function(pageId) {
     if (typeof loadImpactStats === 'function') loadImpactStats();
     if (typeof loadContactContent === 'function') loadContactContent(); 
+    
     if (pageId === 'home') loadHomePageContent();
+    else if (pageId === 'about') loadAboutContent(); // ADDED THIS
     else if (pageId === 'team') loadTeamContent();
     else if (pageId === 'outputs') loadOutputsContent(); 
     else if (pageId === 'research') loadResearchContent();
@@ -809,5 +788,6 @@ function loadContent(pageId) {
     else if (pageId === 'news') loadNewsContent();
     else if (pageId === 'outreach') loadOutreachContent();
     else if (pageId === 'events') loadEventsContent(); 
-}
-window.loadContent = loadContent;
+};
+
+
