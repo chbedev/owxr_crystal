@@ -28,7 +28,7 @@
     "director": {
       "photo": "public/images/rimer.webp",
       "message": "Welcome to the Welch Center for Advanced Bioactive Materials Crystallization. Our mission is to create a meaningful connection between fundamental molecular science and its industrial applications. By enhancing our understanding of how crystals form at the atomic level, we are dedicated to developing safer medicines, cleaner energy solutions, and cutting-edge materials for the next generation. Central to the Welch Center's mission is our goal of elucidating the fundamental mechanisms that govern crystal nucleation and guiding crystallization towards desired structures. We are tackling significant challenges in crystal materials synthesis, such as controlling nucleation rates, predicting the structures of emerging crystals, and selectively influencing transformations between different crystal forms. Through our research, we aim to facilitate a transformative shift in our understanding of crystal nucleation mechanisms and structure selection, leading to advancements that will have a lasting impact across various fields.",
-      "name": "Dr. Jeffrey D. Rimer",
+      "name": "Dr. Jeffrey Rimer",
       "role": "Director, Welch Center for Advanced Bioactive Materials Crystallization"
     }
   },
@@ -37,8 +37,8 @@
       "title": "Overview of the Center",
       "lead": "The Welch Center for Advanced Bioactive Materials Crystallization Research at the University of Houston is a world-class facility dedicated to the study of crystal formation mechanisms.",
       "body": "The Welch Center’s mission is to uncover the fundamental mechanisms underlying crystal nucleation and to direct crystallization toward desired structures. The Center addresses major challenges in crystal materials synthesis, including controlling nucleation rates, predicting crystal structures as they form, and steering transformations between different crystal forms. Achieving these goals requires a new conceptual framework for understanding nucleation and structure selection, which the Center pursues through three integrated research aims. Together, these efforts seek to transform how scientists predict and manipulate crystalline materials by uncovering molecular-level insights and applying them to guide nucleation outcomes.\n\nThe first aim investigates nonclassical nucleation pathways by systematically studying crystallization precursors and developing methods to control the nucleation of inorganic biominerals and organic pharmaceutical compounds. This work leverages molecular modifiers along with modeling and advanced in situ characterization to illuminate pre-nucleation clusters and growth units. The second aim expands control strategies by using designed nanoparticle templates and polyelectrolyte-based coacervates to create unconventional crystallization environments with unprecedented structure-directing capabilities. The third aim advances predictive models of crystal polymorphism by incorporating nonclassical pathways into theory and simulation, enabling improved forecasting of crystal structure multiplicity and more reliable control of polymorphic transformations. Collectively, these aims establish powerful experimental and theoretical tools for predicting and directing crystal formation with far greater precision than current approaches allow.",
-      "image": "",
-      "image_alt": ""
+      "image": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=1000",
+      "image_alt": "Lab Overview"
     }
   },
   "research_aims": [
@@ -53,11 +53,11 @@
           "caption": "Hematin molecule incorporation"
         },
         {
-          "src": "public/images/aim1_bent_crystal_2.webp",
+          "src": "public/images/aim1_bent_crystal_2.mp4",
           "caption": "High-resolution imaging of surface growth steps and cluster dynamics."
         },
         {
-          "src": "public/images/hematin_growth.gif",
+          "src": "public/images/hematin_growth.mp4",
           "caption": "Classical growth of Hematin"
         }
       ],
