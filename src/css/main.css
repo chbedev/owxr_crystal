@@ -694,28 +694,37 @@ img {
 }
 
 /* =========================================
-   6. RESEARCH AIMS (Fixed for Square Videos)
+   8. RESEARCH AIMS
    ========================================= */
 .aim-card {
-    background: var(--uh-white); border-left: 0.3rem solid var(--uh-slate);
+    background: var(--uh-white); border-left: 0.3rem solid var(--uh-white);
     padding: 1.875rem; margin-bottom: 1.875rem; box-shadow: var(--shadow-card);
     position: relative;
 }
-.aim-card:hover { border-left-color: var(--uh-red); }
 
 .aim-image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 1.5rem 0 2rem;
+    display: flex;           
+    overflow-x: auto;          
+    gap: 1.5rem;             
+    padding-bottom: 0.5rem;   
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 1.5rem 0 2rem 0;
+    -webkit-overflow-scrolling: touch;
 }
-
+.aim-image-grid::-webkit-scrollbar { height: 10px; }
+.aim-image-grid::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 5px; }
+.aim-image-grid::-webkit-scrollbar-thumb { background: var(--uh-slate); border-radius: 5px; border: 2px solid #f1f1f1; }
+.aim-image-grid::-webkit-scrollbar-thumb:hover { background: var(--uh-red); }
 .aim-image-card {
-    background: #fff; border: 1px solid #eee; border-radius: 6px;
+    flex: 0 0 350px;           
+    width: 350px;
+    scroll-snap-align: start;
+    background: #fff; border: 1px solid #eee; border-radius: 6px; 
     overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    display: flex; flex-direction: column;
+    display: flex; flex-direction: column; height: auto;
 }
-
 .aim-media-stage {
     width: 100%;
     aspect-ratio: 1 / 1; 
@@ -723,26 +732,24 @@ img {
     border-bottom: 1px solid #eee;
     position: relative;
 }
+.aim-media { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.aim-media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
+#aim-03 .aim-image-card {
+    flex: 0 0 70rem;
+    width: 70rem;
 }
-
 #aim-03 .aim-media-stage {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1920 / 708;
 }
 #aim-03 .aim-media {
-    object-fit: contain;
+    object-fit: cover; 
 }
 
-/* Captions & Tags */
 .aim-img-caption {
     padding: 1rem; background-color: #f9f9f9; color: var(--uh-slate);
     font-size: 0.9rem; text-align: center; font-weight: 500;
     flex-grow: 1; display: flex; align-items: center; justify-content: center;
+    white-space: normal;
 }
 
 .aim-faculty-list { list-style: disc inside; padding-left: 0.5rem; margin-top: 0.5rem; color: var(--uh-slate); }
@@ -870,6 +877,136 @@ img {
     margin-bottom: 0.5rem;
 }
 
+/* =========================================
+   ARTICLE PEOPLE GRID (New Feature)
+   ========================================= */
+.people-grid-section {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.people-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .people-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important; 
+    }
+}
+.person-mini-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.person-mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-color: var(--uh-red);
+}
+
+.person-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square headshot */
+    background: #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+.person-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 3rem;
+    background: #eee;
+}
+
+.person-info {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.person-name {
+    color: var(--uh-red);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+    line-height: 1.2;
+}
+
+.person-role {
+    font-size: 0.75rem;
+    color: #777;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.person-caption {
+    font-size: 0.85rem;
+    color: var(--uh-slate);
+    line-height: 1.4;
+    margin-top: auto; /* Pushes caption to bottom if cards vary in height */
+}
+
+/* =========================================
+   ARTICLE VIDEO BLOCK
+   ========================================= */
+.article-video-wrapper {
+    margin: 2.5rem 0;
+    width: 100%;
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.article-video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 600px;
+}
+
+.article-video-wrapper figcaption {
+    background: #f4f4f4;
+    padding: 0.75rem 1rem;
+    color: var(--uh-slate);
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.article-video-wrapper figcaption i {
+    color: var(--uh-red);
+    margin-right: 5px;
+}
 /* =========================================
    10. SECTION: PUBLICATIONS (ACCORDION)
    ========================================= */
