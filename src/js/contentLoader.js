@@ -344,72 +344,213 @@ function createCardHtml(item, type) {
 window.openDetailView = async function(e, itemId, type) {
     if (e) e.preventDefault();
 
-    // Lazy load data if user accessed via direct link logic
+    // 1. LAZY LOAD DATA
     if (!window[`${type}Store`]) {
-        const raw = await fetchData(type);
-        window[`${type}Store`] = raw.events_list || raw.articles || raw.programs || [];
+        try {
+            const raw = await fetchData(type);
+            window[`${type}Store`] = raw.events_list || raw.articles || raw.programs || [];
+        } catch (err) {
+            console.error("Failed to load data for detail view", err);
+            return;
+        }
     }
 
+    // 2. FIND THE ITEM
     const item = window[`${type}Store`].find(n => n.id == itemId); 
-    if (!item) return console.error("Item not found");
+    if (!item) return console.error("Item not found:", itemId);
 
     const containerId = `${type}-detail-content`;
     const detailContainer = document.getElementById(containerId);
     if (!detailContainer) return;
 
-    // Content Parsing
+    // 3. PARSE CONTENT BLOCKS
     let contentHtml = '';
+    
+    // Helper to safely convert Markdown if the converter exists
+    const safeMarkdown = (text) => (typeof converter !== 'undefined' ? converter.makeHtml(text || '') : text);
+
     if (typeof item.body === 'object' && item.body !== null) {
         const b = item.body;
-        if (b.lead_text) contentHtml += `<p class="article-lead">${b.lead_text}</p>`;
+        
+        // A. Lead Text
+        if (b.lead_text) {
+            contentHtml += `<p class="article-lead">${b.lead_text}</p>`;
+        }
+        
+        // B. Loop through Blocks
         if (Array.isArray(b.content_blocks)) {
             contentHtml += b.content_blocks.map(block => {
-                if (block.type === 'quote') return `<div class="article-quote"><p>"${block.content}"</p>${block.author ? `<span>— ${block.author}</span>` : ''}</div>`;
-                if (block.type === 'highlight_box') return `<div class="highlight-box"><h3>${block.title}</h3><ul>${block.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;
-                if (block.type === 'text') return `<div class="article-text">${converter.makeHtml(block.content || '')}</div>`;
+                
+                // --- BLOCK: PEOPLE GRID (Images, Videos & Custom Columns) ---
+                if (block.type === 'people_grid') {
+                    const gridItems = block.items.map(person => {
+                        let mediaHtml = '';
+                        
+                        // 1. Video (Controls enabled, no autoplay)
+                        if (person.video) {
+                            const posterAttr = person.image ? `poster="${person.image}"` : '';
+                            mediaHtml = `
+                                <video 
+                                    src="${person.video}" 
+                                    class="person-media" 
+                                    controls 
+                                    preload="metadata" 
+                                    playsinline 
+                                    ${posterAttr}>
+                                </video>`;
+                        } 
+                        // 2. Image Only
+                        else if (person.image) {
+                            mediaHtml = `<img src="${person.image}" alt="${person.name}" class="person-media" loading="lazy">`;
+                        } 
+                        // 3. Fallback Placeholder
+                        else {
+                            mediaHtml = `<div class="person-placeholder"><i class="fas fa-user"></i></div>`;
+                        }
+
+                        return `
+                            <div class="person-mini-card">
+                                <div class="person-img-wrapper">
+                                    ${mediaHtml}
+                                </div>
+                                <div class="person-info">
+                                    <h4 class="person-name">${person.name}</h4>
+                                    <div class="person-role">${person.role}</div>
+                                    ${person.caption ? `<p class="person-caption">${person.caption}</p>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    // Logic to check if user wants a specific number of columns
+                    const customStyle = block.columns 
+                        ? `style="grid-template-columns: repeat(${block.columns}, 1fr);"` 
+                        : ''; 
+
+                    return `
+                        <div class="people-grid-section">
+                            ${block.title ? `<h3 class="text-uh-red" style="margin-bottom:0.5rem; border:none; padding-left:0;">${block.title}</h3>` : ''}
+                            ${block.description ? `<p style="margin-bottom:1.5rem; font-style:italic; color:#666;">${block.description}</p>` : ''}
+                            
+                            <div class="people-grid-container" ${customStyle}>
+                                ${gridItems}
+                            </div>
+                        </div>`;
+                }
+
+                // --- BLOCK: STANDALONE VIDEO ---
+                if (block.type === 'video') {
+                    return `
+                        <figure class="article-video-wrapper">
+                            <video 
+                                src="${block.src}" 
+                                controls 
+                                preload="metadata" 
+                                playsinline 
+                                ${block.poster ? `poster="${block.poster}"` : ''}>
+                                Your browser does not support the video tag.
+                            </video>
+                            ${block.caption ? `<figcaption><i class="fas fa-play-circle"></i> ${block.caption}</figcaption>` : ''}
+                        </figure>
+                    `;
+                }
+
+                // --- BLOCK: QUOTE ---
+                if (block.type === 'quote') {
+                    return `
+                        <div class="article-quote">
+                            <p>"${block.content}"</p>
+                            ${block.author ? `<span>— ${block.author}</span>` : ''}
+                        </div>`;
+                }
+
+                // --- BLOCK: HIGHLIGHT BOX ---
+                if (block.type === 'highlight_box') {
+                    return `
+                        <div class="highlight-box">
+                            <h3>${block.title}</h3>
+                            <ul>${block.items.map(i => `<li>${i}</li>`).join('')}</ul>
+                        </div>`;
+                }
+
+                // --- BLOCK: LIST (Bullet Points) ---
+                if (block.type === 'list') {
+                    const listItems = block.items.map(li => `<li>${li}</li>`).join('');
+                    return `
+                        <div class="highlight-box" style="border-left-color: var(--uh-slate); background: #fff; border: 1px solid #eee; border-left: 4px solid var(--uh-slate);">
+                            <ul>${listItems}</ul>
+                        </div>`;
+                }
+
+                // --- BLOCK: SECTION HEADER ---
+                if (block.type === 'header') {
+                    return `<h3 class="text-uh-red" style="margin-top: 2.5rem; border-left: none; padding-left: 0;">${block.content}</h3>`;
+                }
+
+                // --- BLOCK: STANDARD TEXT ---
+                if (block.type === 'text') {
+                    return `<div class="article-text">${safeMarkdown(block.content)}</div>`;
+                }
+
                 return '';
             }).join('');
         }
     } else {
-        contentHtml = converter.makeHtml(item.body || '');
+        // Fallback for simple string bodies
+        contentHtml = safeMarkdown(item.body || '');
     }
 
-    // Hero Image
-    let heroImageHtml = item.image 
+    // 4. PREPARE TEMPLATE VARIABLES
+    const heroImageHtml = item.image 
         ? `<img src="${item.image}" alt="${item.title}">` 
         : `<div class="placeholder-img" style="height:300px"><span class="placeholder-label">${type.toUpperCase()}</span></div>`;
 
+    const captionHtml = (item.body && item.body.image_caption)
+        ? `<div class="article-category-badge" style="bottom:0; left:0; width:100%; padding:10px; background:rgba(0,0,0,0.7); font-size:0.8rem; text-transform:none;">${item.body.image_caption}</div>`
+        : `<span class="article-category-badge">${item.category || type}</span>`;
+
+    const displayTitle = (item.body && item.body.full_title) ? item.body.full_title : item.title;
+
+    // 5. INJECT HTML
     detailContainer.innerHTML = `
         <article class="article-container">
             <div class="article-hero">
                  ${heroImageHtml}
-                 <span class="article-category-badge">${item.category || type}</span>
+                 ${captionHtml}
             </div>
+            
             <header class="article-header">
                 <div class="article-meta-row">
                     <span><i class="far fa-calendar-alt"></i> ${new Date(item.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </div>
-                <h1 class="article-title text-uh-red">${item.title}</h1>
+                <h1 class="article-title text-uh-red">${displayTitle}</h1>
+                
                 ${type === 'events' ? `
                     <div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);">
                         <div><strong><i class="far fa-clock text-uh-red"></i> Time:</strong> ${item.time || 'TBA'}</div>
                         <div><strong><i class="fas fa-map-marker-alt text-uh-red"></i> Location:</strong> ${item.location || 'TBA'}</div>
                     </div>` : ''}
-                 ${item.link ? `
+                
+                ${item.link ? `
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);">
                         <a href="${item.link}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white;">GO TO WEBSITE <i class="fas fa-external-link-alt"></i></a>
                     </div>` : ''}
             </header>
-            <div class="article-body">${contentHtml}</div>
+            
+            <div class="article-body">
+                ${contentHtml}
+            </div>
+            
             <div class="article-footer">
                  <a href="#" onclick="switchPage('${type}')" class="btn">Back to ${type.charAt(0).toUpperCase() + type.slice(1)}</a>
             </div>
         </article>
     `;
-    if (typeof switchPage === 'function') switchPage(`${type}-detail`);
-    window.scrollTo(0,0);
-};
 
+    // 6. SWITCH PAGE & SCROLL
+    if (typeof switchPage === 'function') switchPage(`${type}-detail`);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+};
 
 // =======================================================
 // 6. ADVISORY BOARD & OUTPUTS
