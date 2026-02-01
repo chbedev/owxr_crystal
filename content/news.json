@@ -1,54 +1,147 @@
 {
   "articles": [
     {
-      "id": "nih-grant",
-      "date": "2024-09-15",
-      "title": "Center Receives $2M NIH Grant",
-      "preview": "The Welch Center has been awarded a new R01 grant to investigate novel pathways of hematin crystallization.",
-      "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800",
+      "id": "summer-school-2026",
+      "date": "2026-02-01",
+      "title": "Announcing Welch Summer School 2026",
+      "preview": "A remarkable opportunity for high school students and freshmen to engage in hands-on crystallization research this summer.",
+      "image": "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
       "body": {
-        "full_title": "Center Receives $2M NIH Grant for Malaria Research",
-        "category": "Grants & Funding",
-        "main_image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200",
-        "image_caption": "Liquid-cell TEM used for crystallization analysis.",
-        "lead_text": "The Welch Center of Crystallization Research has been awarded a prestigious R01 grant from the National Institutes of Health (NIH) to investigate novel pathways of hematin crystallization in malaria parasites.",
+        "full_title": "Welch Summer School 2026: Hands-on Research Experience",
+        "category": "Education & Outreach",
+        "main_image": "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1200",
+        "image_caption": "Students working in the lab under the mentorship of senior researchers.",
+        "lead_text": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the Welch Summer School 2026. This initiative offers a remarkable opportunity for high school students and freshmen who are passionate about science, technology, and research.",
         "content_blocks": [
           {
             "type": "text",
-            "content": "Malaria parasites survive by digesting hemoglobin, releasing toxic heme. They detoxify this heme by crystallizing it into hemozoin. Understanding the exact molecular mechanism of this crystallization is key to developing new antimalarial drugs that can inhibit this process."
-          },
-          {
-            "type": "quote",
-            "content": "This grant allows us to see what was previously invisible.",
-            "author": "Dr. Peter Rimer, Principal Investigator"
+            "content": "Participants will engage in scientific research focused on crystallization and its applications within pharmaceuticals, energy, and agriculture. They will have the opportunity to work in the laboratories of the center's seven faculty members from three different departments, benefiting from the guidance and mentorship of over 30 postdoctoral fellows and Ph.D. students."
           },
           {
             "type": "text",
-            "content": "Using the center's advanced liquid-cell transmission electron microscopy (TEM), our team will observe this crystallization process in real-time at the nanoscale. The project is a collaboration between the College of Engineering and the College of Natural Sciences."
+            "content": "The program is scheduled to run from June to August 2026, with flexible start and end dates to accommodate participants' schedules. To ensure students can fully engage with the work, applicants should have at least one year of chemistry experience. Each participant is typically paired with a postdoc or a PhD student who acts as a daily mentor, assisting with experimental training, project guidance, and helping them integrate into the lab environment."
+          },
+          {
+            "type": "text",
+            "content": "We regularly collaborate with faculty across the college to organize lectures and activities aimed at introducing students to STEM research, academic pathways, and related career options."
+          },
+          {
+            "type": "text",
+            "content": "We are proud of the positive impact our previous summer schools have had. Last year, 11 high school students and freshmen from various schools and universities around Houston gained invaluable hands-on experience in our state-of-the-art laboratories. This year, we anticipate admitting an even larger cohort of enthusiastic learners."
+          },
+          {
+            "type": "text",
+            "content": "If you have any questions or need further information, please don't hesitate to reach out to smhatre@central.uh.edu."
           }
         ]
       }
     },
     {
-      "id": "student-award",
-      "date": "2024-08-20",
-      "title": "Student Best Paper Award",
-      "preview": "PhD Candidate Jane Doe won the Best Paper Award at the International Conference on Crystal Growth.",
-      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+      "id": "summer-students-2025",
+      "date": "2025-08-15",
+      "title": "Nurturing Innovation: Summer Students 2025",
+      "preview": "Eleven dedicated high school and university freshman students embarked on an exciting journey, preparing for future endeavors in scientific research.",
+      "image": "public/images/summer_students_2025_group.webp",
       "body": {
-        "full_title": "PhD Candidate Jane Doe Wins Best Paper",
-        "category": "Awards",
-        "main_image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200",
-        "lead_text": "Jane Doe was recognized for her groundbreaking work on 'Non-Classical Nucleation Pathways' at the ICCG conference in Boston.",
+        "full_title": "Nurturing Innovation: Summer Students Develop Research Skills and Futures at the Welch Center",
+        "category": "Education & Outreach",
+        "main_image": "public/images/summer_students_2025_group.webp",
+        "image_caption": "The 2025 cohort of summer researchers at the Sushila & Durga Agrawal Engineering Research Building.",
+        "lead_text": "Eleven dedicated high school and university freshman students are embarking on an exciting journey, preparing for future endeavors in scientific research and industry.",
         "content_blocks": [
           {
             "type": "text",
-            "content": "Her paper challenges existing paradigms about how porous materials form. Using a combination of X-ray diffraction and computational modeling, Jane demonstrated that precursor clusters play a more significant role than previously thought."
+            "content": "At this pivotal moment in their careers, they are being mentored by experienced researchers at the Welch Center for Advanced Bioactive Materials Crystallization, immersing themselves in a variety of inspiring research themes. The center's researchers are not only spearheading innovations but also cultivating the next generation to confront the challenges of the dynamic field of crystallization, crucial for advancements in healthcare, energy, and environmental sustainability."
           },
           {
-            "type": "quote",
-            "content": "Jane's work provides the first experimental evidence of these clusters in zeolite systems.",
-            "author": "Dr. Sarah Chen, Advisor"
+            "type": "text",
+            "content": "These students are engaged in meaningful research that has the potential to benefit humanity. Among them, Kayla Nguyen, a freshman, and Sarah Morrison, a junior in Chemical Engineering at the University of Houston, are making significant strides. Kayla's exploration of evaporation methods in pyrazinamide crystallization, a vital treatment in the fight against tuberculosis, exemplifies the impact of this work. Sarah, alongside freshman Imad Shaikh from the University of Texas at San Antonio, is investigating the crystallization and growth patterns of cholesterol in blood vessels, seeking ways to manage its development."
+          },
+          {
+            "type": "text",
+            "content": "Sravya Dutta, an incoming junior in Cell and Molecular Biology at Baylor University, is delving into biocrystallization studies under the mentorship of senior researchers, laying a solid foundation for her future career. High school students Krithika Srinivas, Mahika Shah, and Sanjita Chinta are witnessing firsthand the transformative nature of scientific research and its application for the betterment of society."
+          },
+          {
+            "type": "text",
+            "content": "Beyond bioactive materials, several students are channeling their efforts into optimizing catalysts for energy extraction. Kaiden Stassen, a freshman at UH, is developing methods to create bifunctional zeolite catalysts, employed in the oil and petrochemical industries. Raquel Nwosu from the University of Texas at Arlington is enhancing the catalyst effectiveness by modifying microstructures. Penda Diop (Houston Community College) and Annabelle Choi (Carnegie Vanguard High School) are also exploring ways to amplify the catalytic activity of zeolites through innovative functionalization and structural transformation."
+          },
+          {
+            "type": "people_grid",
+            "title": "2025 Summer Student Cohort",
+            "description": "Meet the eleven students driving innovation.",
+            "columns": 4,
+            "items": [
+              {
+                "name": "Annabelle Choi",
+                "role": "Carnegie Vanguard HS",
+                "image": "public/images/student_annabelle.webp",
+                "caption": "Functionalization and structural transformation."
+              },
+              {
+                "name": "Imad Shaikh",
+                "role": "Freshman, UTSA",
+                "image": "public/images/student_imad.webp",
+                "caption": "Cholesterol growth in blood vessels."
+              },
+              {
+                "name": "Kaiden Stassen",
+                "role": "Freshman, UH",
+                "image": "public/images/student_kaiden.webp",
+                "caption": "Bifunctional zeolite catalysts."
+              },
+              {
+                "name": "Kayla Nguyen",
+                "role": "Freshman",
+                "image": "public/images/student_kayla.webp",
+                "caption": "Exploration of evaporation methods in pyrazinamide."
+              },
+              {
+                "name": "Krithika Srinivas",
+                "role": "High School",
+                "image": "public/images/student_krithika.webp",
+                "caption": "Witnessing transformative scientific research."
+              },
+              {
+                "name": "Mahika Shah",
+                "role": "High School",
+                "image": "public/images/student_mahika.webp",
+                "caption": "Witnessing transformative scientific research."
+              },
+              {
+                "name": "Penda Diop",
+                "role": "HCC",
+                "image": "public/images/student_penda.webp",
+                "caption": "Amplifying catalytic activity of zeolites."
+              },
+              {
+                "name": "Raquel Nwosu",
+                "role": "UT Arlington",
+                "image": "public/images/student_raquel.webp",
+                "caption": "Catalyst microstructures."
+              },
+              {
+                "name": "Sanjita Chinta",
+                "role": "High School",
+                "image": "public/images/student_sanjita.webp",
+                "caption": "Witnessing transformative scientific research."
+              },
+              {
+                "name": "Sarah Morrison",
+                "role": "Junior, UH",
+                "image": "public/images/student_sarah.webp",
+                "caption": "Investigating cholesterol crystallization."
+              },
+              {
+                "name": "Sravya Dutta",
+                "role": "Junior, Baylor",
+                "image": "public/images/student_sravya.webp",
+                "caption": "Biocrystallization studies."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "content": "The guidance from the center's experts, paired with access to state-of-the-art facilities, is shaping a bright future for the biomedical and energy sectors in Texas and across the nation. The invaluable experiences that these students are accumulating at the center are nurturing the seeds of innovation and creativity, laying the foundation for a transformative future that holds great potential."
           }
         ]
       }
