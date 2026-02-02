@@ -116,10 +116,14 @@ window.changeMonth = function(offset) {
     renderCalendar(window.eventsStore || []);
 };
 
+// =======================================================
+// 6. CALENDAR WIDGET RENDERER (Updated for Recurrence)
+// =======================================================
 function renderCalendar(events) {
     const container = document.getElementById('events-calendar-container');
     if (!container) return;
 
+    // Use global currentCalDate (make sure this is initialized in your code)
     const currentMonth = currentCalDate.getMonth();
     const currentYear = currentCalDate.getFullYear();
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -152,12 +156,36 @@ function renderCalendar(events) {
 
     // Days with events
     for (let day = 1; day <= daysInMonth; day++) {
+        // Create a precise date object for this specific grid cell
+        const cellDate = new Date(currentYear, currentMonth, day);
+
         const dayEvents = events.filter(e => {
-            const eDate = new Date(e.date);
-            // Use UTC to avoid timezone shifts showing wrong day
-            return eDate.getUTCDate() === day && 
-                   eDate.getUTCMonth() === currentMonth && 
-                   eDate.getUTCFullYear() === currentYear;
+            // Force local time to prevent timezone issues (e.g., "2026-06-01" -> "2026-06-01T00:00:00")
+            const eDate = new Date(e.date + 'T00:00:00');
+
+            // 1. Skip if the event hasn't started yet
+            if (cellDate < eDate) return false;
+
+            // 2. Exact Match (One-time event)
+            // Note: We use .toDateString() to compare dates ignoring time
+            if (eDate.toDateString() === cellDate.toDateString()) return true;
+
+            // 3. Weekly Recurrence
+            if (e.recurrence === 'weekly') {
+                return eDate.getDay() === cellDate.getDay();
+            }
+
+            // 4. Monthly Recurrence
+            if (e.recurrence === 'monthly') {
+                return eDate.getDate() === day;
+            }
+
+            // 5. Yearly Recurrence
+            if (e.recurrence === 'yearly') {
+                return eDate.getMonth() === currentMonth && eDate.getDate() === day;
+            }
+
+            return false;
         });
 
         const hasEvent = dayEvents.length > 0;
@@ -165,11 +193,14 @@ function renderCalendar(events) {
 
         if (hasEvent) {
             const evt = dayEvents[0];
+            const extraCount = dayEvents.length - 1;
+            
             tooltip = `
                 <div class="event-tooltip">
                     <h5>${evt.title}</h5>
                     <span class="tooltip-meta"><i class="far fa-clock"></i> ${evt.time || 'All Day'}</span>
                     <span class="tooltip-meta"><i class="fas fa-map-marker-alt"></i> ${evt.location || 'TBA'}</span>
+                    ${extraCount > 0 ? `<div style="margin-top:4px; font-weight:bold; color:var(--uh-red);">+${extraCount} more</div>` : ''}
                     <div style="margin-top:5px; font-size:0.7rem; color:#aaa;">Click for details</div>
                 </div>`;
         }
