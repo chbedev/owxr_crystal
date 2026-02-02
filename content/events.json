@@ -1,5 +1,15 @@
 {
   "events_list": [
+    {"id": "weekly-meeting",
+      "date": "2026-01-16",
+      "recurrence": "weekly",
+      "date_display": "Every Friday",
+      "title": "Center's Weekly Friday Meeting",
+      "time": "9:00 AM - 10:00 AM",
+      "location": "AERB 100, Durga D. and Sushila Agrawal Engineering Research Building",
+      "preview": "Weekly Center Meeting.",
+      "tags": ["Meeting"]
+    },
     {
       "id": "welch-summer-2026",
       "date": "2026-06-01",
