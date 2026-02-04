@@ -1,42 +1,42 @@
 {
   "programs": [
-    {
-      "id": "crystal-growth-challenge",
-      "date": "2024-05-18",
-      "title": "High School Crystal Growth Challenge 2024",
-      "preview": "The annual challenge brought together 50 students to learn about supersaturation, nucleation, and crystal habit in our labs.",
-      "image": "",
-      "tags": ["Competition", "High School"],
-      "body": {
-        "full_title": "Event Success: High School Crystal Growth Challenge",
-        "category": "K-12 Education",
-        "main_image": "",
-        "lead_text": "The Welch Center hosted its annual High School Crystal Growth Challenge, bringing together 50 talented students from various Houston-area high schools.",
-        "content_blocks": [
-          {
-            "type": "text",
-            "content": "Participants spent a full day in our advanced microscopy and wet labs. The focus was on applied physical chemistry, teaching students the principles of <strong>controlled crystallization</strong> that underpin pharmaceutical development."
-          },
-          {
-            "type": "highlight_box",
-            "title": "Key Takeaways",
-            "items": [
-              "<strong>Nucleation:</strong> Understanding the critical size required for a crystal seed to survive.",
-              "<strong>Growth:</strong> The influence of temperature and agitation on growth kinetics.",
-              "<strong>Purity:</strong> Techniques for minimizing impurities to achieve perfect crystal habit."
-            ]
-          },
-          {
-            "type": "quote",
-            "content": "It was amazing to see science in action.",
-            "author": "Maria Rodriguez, Team Leader"
-          },
-          {
-            "type": "text",
-            "content": "The winning team, 'Crystal Clear Minds,' grew the largest and most perfect potassium alum crystal, earning them scholarships to the UH summer science program. We look forward to next year's competition!"
-          }
-        ]
-      }
-    }
+    // {
+    //   "id": "crystal-growth-challenge",
+    //   "date": "2024-05-18",
+    //   "title": "High School Crystal Growth Challenge 2024",
+    //   "preview": "The annual challenge brought together 50 students to learn about supersaturation, nucleation, and crystal habit in our labs.",
+    //   "image": "",
+    //   "tags": ["Competition", "High School"],
+    //   "body": {
+    //     "full_title": "Event Success: High School Crystal Growth Challenge",
+    //     "category": "K-12 Education",
+    //     "main_image": "",
+    //     "lead_text": "The Welch Center hosted its annual High School Crystal Growth Challenge, bringing together 50 talented students from various Houston-area high schools.",
+    //     "content_blocks": [
+    //       {
+    //         "type": "text",
+    //         "content": "Participants spent a full day in our advanced microscopy and wet labs. The focus was on applied physical chemistry, teaching students the principles of <strong>controlled crystallization</strong> that underpin pharmaceutical development."
+    //       },
+    //       {
+    //         "type": "highlight_box",
+    //         "title": "Key Takeaways",
+    //         "items": [
+    //           "<strong>Nucleation:</strong> Understanding the critical size required for a crystal seed to survive.",
+    //           "<strong>Growth:</strong> The influence of temperature and agitation on growth kinetics.",
+    //           "<strong>Purity:</strong> Techniques for minimizing impurities to achieve perfect crystal habit."
+    //         ]
+    //       },
+    //       {
+    //         "type": "quote",
+    //         "content": "It was amazing to see science in action.",
+    //         "author": "Maria Rodriguez, Team Leader"
+    //       },
+    //       {
+    //         "type": "text",
+    //         "content": "The winning team, 'Crystal Clear Minds,' grew the largest and most perfect potassium alum crystal, earning them scholarships to the UH summer science program. We look forward to next year's competition!"
+    //       }
+    //     ]
+    //   }
+    // }
   ]
 }
