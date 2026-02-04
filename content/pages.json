@@ -34,7 +34,7 @@
   },
   "about": {
     "overview": {
-      "title": "Overview of the Center",
+      "title": "Overview",
       "lead": "The Welch Center for Advanced Bioactive Materials Crystallization Research at the University of Houston is a world-class facility dedicated to the study of crystal formation mechanisms.",
       "body": "The Welch Center’s mission is to uncover the fundamental mechanisms underlying crystal nucleation and to direct crystallization toward desired structures. The Center addresses major challenges in crystal materials synthesis, including controlling nucleation rates, predicting crystal structures as they form, and steering transformations between different crystal forms. Achieving these goals requires a new conceptual framework for understanding nucleation and structure selection, which the Center pursues through three integrated research aims. Together, these efforts seek to transform how scientists predict and manipulate crystalline materials by uncovering molecular-level insights and applying them to guide nucleation outcomes.\n\nThe first aim investigates nonclassical nucleation pathways by systematically studying crystallization precursors and developing methods to control the nucleation of inorganic biominerals and organic pharmaceutical compounds. This work leverages molecular modifiers along with modeling and advanced in situ characterization to illuminate pre-nucleation clusters and growth units. The second aim expands control strategies by using designed nanoparticle templates and polyelectrolyte-based coacervates to create unconventional crystallization environments with unprecedented structure-directing capabilities. The third aim advances predictive models of crystal polymorphism by incorporating nonclassical pathways into theory and simulation, enabling improved forecasting of crystal structure multiplicity and more reliable control of polymorphic transformations. Collectively, these aims establish powerful experimental and theoretical tools for predicting and directing crystal formation with far greater precision than current approaches allow.",
       "image": "",
@@ -54,7 +54,7 @@
         },
         {
           "src": "public/images/aim1_bent_crystal_2.mp4",
-          "caption": "Surface growth steps and cluster dynamics."
+          "caption": "Pyrazinamide bent crystal formed in the presence of block sebacic acid"
         },
         {
           "src": "public/images/hematin_growth.mp4",
@@ -80,7 +80,7 @@
         },
         {
           "src": "public/images/aim2_glycine_2.webp",
-          "caption": "Cu2O-Truncated Octahedra"
+          "caption": "Cu₂O-truncated octahedra"
         }
       ],
       "tags": [
@@ -97,7 +97,7 @@
       "gallery": [
         {
           "src": "public/images/etioporphyrin.mp4",
-          "caption": "Non classical growth of Etioporphyrin"
+          "caption": "Nonclassical growth of Etioporphyrin"
         }
       ],
       "tags": [
