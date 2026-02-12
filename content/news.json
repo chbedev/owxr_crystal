@@ -185,7 +185,7 @@
       "full_title": "Welch Crystallization Symposium: Fostering Collaboration and Advancing Chemistry",
       "category": "Events & Symposia",
       "main_image": "public/images/iab_group.webp",
-      "image_caption": "Attendees of the inaugural Welch Crystallization Symposium gathered at the Agrawal Engineering Research Building.",
+      "image_caption": "The inaugural biennial Welch Crystallization Symposium.",
       "lead_text": "The inaugural biennial Welch Crystallization Symposium was conducted on September 5, 2025, at the Agrawal Engineering Research Building of the University of Houston (UH). This full-day event drew nearly 100 participants from the pharmaceutical industry nationwide, as well as representatives from academia.",
       "content_blocks": [
         {
@@ -204,12 +204,12 @@
           "type": "list",
           "title": "Plenary & Keynote Highlights",
           "items": [
-            "Dr. Christopher Burcham (Eli Lilly) discussed the advantages and challenges of continuous crystallization.",
-            "Dr. Kevin Girard (Pfizer) elaborated on advancements in continuous crystallization, isolation, and drying capabilities.",
-            "Dr. Christopher Marton (Bristol Myers Squibb) presented on high-throughput polymorph screening.",
-            "Dr. Manish Kelkar (AbbVie) examined emerging technologies in pharmaceutical crystallization.",
-            "Dr. Megan Ketchum (GlaxoSmithKline) discussed semi-continuous crystallization and batch manufacturing strategies.",
-            "Dr. Xiaolong Zhu (Merck) focused on polymorphism and the impact of molecular physical properties."
+            "Dr. Christopher Burcham (Eli Lilly) discussed the advantages and challenges associated with continuous crystallization within the pharmaceutical sector.",
+            "Dr. Kevin Girard (Pfizer) elaborated on advancements in continuous crystallization, isolation, and drying capabilities at Pfizer.",
+            "Dr. Christopher Marton (Bristol Myers Squibb) recent developments in high-throughput polymorph screening and crystallization techniques from the Materials Engineering and Crystallization group at Bristol Myers Squibb.",
+            "Dr. Manish Kelkar (AbbVie) examined emerging technologies in pharmaceutical crystallization, specifically highlighting AbbVie’s ongoing development efforts.",
+            "Dr. Megan Ketchum (GlaxoSmithKline)discussed semi-continuous crystallization, illustrating a case study involving active pharmaceutical ingredient (API) wherein both continuous and batch manufacturing methods were strategically applied to fulfill specific quality requirements.",
+            "Dr. Xiaolong Zhu (Merck) focused on polymorphism and the impact of molecular physical properties, demonstrating how such properties can influence the design of polymorphs."
           ]
         },
           {
@@ -239,15 +239,15 @@
         },
         {
           "type": "text",
-          "content": "Invited academic speakers included Professor Peter Vekilov and Dr. Gul Zerze from the UH Department of Chemical and Biomolecular Engineering. Dr. Vekilov advocated for leveraging nonclassical mechanisms in nucleation to suppress malaria parasites, while Dr. Zerze presented a multi-scale framework linking human transcription factor effector domains with phase behavior."
+          "content": "Invited academic speakers included Professor Peter Vekilov and Dr. Gul Zerze from the UH Department of Chemical and Biomolecular Engineering. Dr. Vekilov advocated for leveraging nonclassical mechanisms in nucleation, growth, and inhibition of hematin crystals as an effective strategy to suppress malaria parasites. Meanwhile, Dr. Zerze presented a multi-scale framework linking sequence-based classification of human transcription factor effector domains with the phase behavior and nucleation landscapes of their assemblies."
         },
         {
           "type": "text",
-          "content": "A poster session featured 33 graduate students who showcased their research findings. Three winners were announced at the conclusion of the event: Kosar Rahimi Nosrabadi (1st Place), Arshia Nosrati (2nd Place), and Radhika Menon (3rd Place)."
+          "content": "A poster session featured 33 graduate students who showcased their research findings and engaged with their peers and industry professionals. Three winners were announced at the conclusion of the event: Kosar Rahimi Nosrabadi (1st Place), Arshia Nosrati (2nd Place), and Radhika Menon (3rd Place)."
         },
         {
           "type": "text",
-          "content": "The symposium was a significant success, achieving its primary objective of fostering collaboration between pharmaceutical professionals and academia, enabling participants to deliberate on future directions in pharmaceutical crystallization research."
+          "content": "The symposium was a significant success, achieving its primary objective of fostering collaboration between pharmaceutical professionals and academia, enabling participants to present their scientific discoveries, exchange ideas, and deliberate on future directions in pharmaceutical crystallization research and development."
         }
       ]
     }
