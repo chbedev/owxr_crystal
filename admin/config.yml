@@ -48,10 +48,12 @@ collections:
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Role", name: "role", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-              - {label: "Company Icon", name: "company_icon", widget: "image", required: false}
+              - {label: "Image", name: "image", widget: "image", hint: "⚠️ Max 100KB"}
+              - {label: "Company Icon", name: "company_icon", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+              - {label: "Company Icon 2", name: "company_icon_2", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+              - {label: "Company Icon 3", name: "company_icon_3", widget: "image", required: false, hint: "⚠️ Max 100KB"}
           
-          - {label: "Advisory Group Photo", name: "advisory_group_image", widget: "image", required: false}
+          - {label: "Advisory Group Photo", name: "advisory_group_image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
 
   # =========================================
   # 2. PAGE CONTENT (Home, Research)
@@ -73,14 +75,14 @@ collections:
                 name: "slides"
                 widget: "list"
                 fields:
-                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Image", name: "image", widget: "image", hint: "⚠️ Max 100KB"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - label: "Director Section"
                 name: "director"
                 widget: "object"
                 fields:
-                  - {label: "Photo", name: "photo", widget: "image"}
-                  - {label: "Signature", name: "signature", widget: "image", required: false}
+                  - {label: "Photo", name: "photo", widget: "image", hint: "⚠️ Max 100KB"}
+                  - {label: "Signature", name: "signature", widget: "image", required: false, hint: "⚠️ Max 100KB"}
                   - {label: "Message", name: "message", widget: "text"}
                   - {label: "Name", name: "name", widget: "string"}
                   - {label: "Role", name: "role", widget: "string"}
@@ -92,9 +94,15 @@ collections:
               - {label: "Number", name: "number", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "markdown"}
-              - {label: "Image", name: "image", widget: "image", required: false}
-              - {label: "Gallery Images", name: "images", widget: "list", required: false, field: {label: "Image", name: "image", widget: "image"}}
-              - {label: "Faculty", name: "faculty", widget: "string", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+              - label: "Gallery Images"
+                name: "gallery"
+                widget: "list"
+                required: false
+                fields: 
+                  - {label: "Media File", name: "src", widget: "image", hint: "⚠️ Max 100KB"}
+                  - {label: "Caption", name: "caption", widget: "string"}
+              - {label: "Associated Faculty (Comma Separated)", name: "faculty", widget: "string", required: false}
               - {label: "Tags", name: "tags", widget: "list"}
 
   # =========================================
@@ -120,7 +128,7 @@ collections:
               - {label: "Department", name: "department", widget: "string", required: false}
               - {label: "University", name: "university", widget: "string", required: false}
               - {label: "Bio", name: "bio", widget: "text", required: false}
-              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
               - {label: "Tags", name: "tags", widget: "list", required: false}
               - {label: "Email", name: "email", widget: "string", required: false}
               - {label: "Lab Website", name: "website", widget: "string", required: false}
@@ -138,7 +146,7 @@ collections:
               - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Preview", name: "preview", widget: "text"}
-              - {label: "Thumbnail", name: "image", widget: "image", required: false}
+              - {label: "Thumbnail", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
               - {label: "External Link", name: "link", widget: "string", required: false}
               - label: "Article Body"
                 name: "body"
@@ -147,7 +155,8 @@ collections:
                 fields:
                   - {label: "Full Title", name: "full_title", widget: "string"}
                   - {label: "Category", name: "category", widget: "string"}
-                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Main Image", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+                  - {label: "Image Caption", name: "image_caption", widget: "string", required: false}
                   - {label: "Lead Text", name: "lead_text", widget: "text"}
                   - label: "Content Blocks"
                     name: "content_blocks"
@@ -157,11 +166,62 @@ collections:
                         name: "text"
                         widget: "object"
                         fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      
+                      - label: "Single Image"
+                        name: "image"
+                        widget: "object"
+                        fields:
+                          - {label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}
+                          - {label: "Caption", name: "caption", widget: "string", required: false}
+
+                      - label: "Image Row (Side-by-Side)"
+                        name: "image_row"
+                        widget: "object"
+                        fields:
+                          - label: "Images"
+                            name: "items"
+                            widget: "list"
+                            fields:
+                              - {label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}
+                              - {label: "Caption", name: "caption", widget: "string", required: false}
+
+                      - label: "People Grid"
+                        name: "people_grid"
+                        widget: "object"
+                        fields:
+                          - {label: "Title", name: "title", widget: "string", required: false}
+                          - {label: "Description", name: "description", widget: "text", required: false}
+                          - {label: "Columns", name: "columns", widget: "number", default: 3}
+                          - label: "People"
+                            name: "items"
+                            widget: "list"
+                            fields:
+                              - {label: "Name", name: "name", widget: "string"}
+                              - {label: "Role", name: "role", widget: "string"}
+                              - {label: "Photo", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+                              - {label: "Video", name: "video", widget: "file", required: false, hint: "⚠️ Uploading video files slows down the site! Please use a Link if possible."}
+                              - {label: "Caption", name: "caption", widget: "text", required: false}
+
+                      - label: "Video"
+                        name: "video"
+                        widget: "object"
+                        fields:
+                          - {label: "Video File or URL", name: "src", widget: "file", hint: "⚠️ Uploading video files slows down the site! We strongly recommend pasting a YouTube/Vimeo link instead."}
+                          - {label: "Poster Image", name: "poster", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+                          - {label: "Caption", name: "caption", widget: "string", required: false}
+
+                      - label: "Section Header"
+                        name: "header"
+                        widget: "object"
+                        fields:
+                          - {label: "Heading Text", name: "content", widget: "string"}
+
                       - label: "Quote"
                         name: "quote"
                         widget: "object"
                         fields: [{label: "Content", name: "content", widget: "text"}, {label: "Author", name: "author", widget: "string"}]
-                      - label: "Highlights"
+                      
+                      - label: "Highlights/List"
                         name: "highlight_box"
                         widget: "object"
                         fields: [{label: "Title", name: "title", widget: "string"}, {label: "Items", name: "items", widget: "list"}]
@@ -182,6 +242,7 @@ collections:
               - {label: "Preview", name: "preview", widget: "text"}
               - {label: "External Link", name: "link", widget: "string", required: false}
               - {label: "Tags", name: "tags", widget: "list"}
+              - {label: "Recurrence", name: "recurrence", widget: "select", options: ["none", "weekly", "monthly", "yearly"], default: "none"}
               - label: "Event Details Body"
                 name: "body"
                 widget: "object"
@@ -189,7 +250,8 @@ collections:
                 fields:
                   - {label: "Full Title", name: "full_title", widget: "string"}
                   - {label: "Category", name: "category", widget: "string"}
-                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Main Image", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+                  - {label: "Image Caption", name: "image_caption", widget: "string", required: false}
                   - {label: "Lead Text", name: "lead_text", widget: "text"}
                   - label: "Content Blocks"
                     name: "content_blocks"
@@ -199,6 +261,30 @@ collections:
                         name: "text"
                         widget: "object"
                         fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      - label: "Single Image"
+                        name: "image"
+                        widget: "object"
+                        fields:
+                          - {label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}
+                          - {label: "Caption", name: "caption", widget: "string", required: false}
+                      - label: "Image Row"
+                        name: "image_row"
+                        widget: "object"
+                        fields:
+                          - label: "Images"
+                            name: "items"
+                            widget: "list"
+                            fields: [{label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}, {label: "Caption", name: "caption", widget: "string"}]
+                      - label: "People Grid"
+                        name: "people_grid"
+                        widget: "object"
+                        fields:
+                          - {label: "Title", name: "title", widget: "string"}
+                          - {label: "Columns", name: "columns", widget: "number", default: 3}
+                          - label: "People"
+                            name: "items"
+                            widget: "list"
+                            fields: [{label: "Name", name: "name", widget: "string"}, {label: "Role", name: "role", widget: "string"}, {label: "Photo", name: "image", widget: "image", hint: "⚠️ Max 100KB"}]
                       - label: "Details Box"
                         name: "highlight_box"
                         widget: "object"
@@ -216,7 +302,7 @@ collections:
               - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Preview", name: "preview", widget: "text"}
-              - {label: "Thumbnail", name: "image", widget: "image", required: false}
+              - {label: "Thumbnail", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
               - {label: "External Link", name: "link", widget: "string", required: false}
               - {label: "Tags", name: "tags", widget: "list"}
               - label: "Body"
@@ -226,7 +312,8 @@ collections:
                 fields:
                   - {label: "Full Title", name: "full_title", widget: "string"}
                   - {label: "Category", name: "category", widget: "string"}
-                  - {label: "Main Image", name: "main_image", widget: "image"}
+                  - {label: "Main Image", name: "image", widget: "image", required: false, hint: "⚠️ Max 100KB"}
+                  - {label: "Image Caption", name: "image_caption", widget: "string", required: false}
                   - {label: "Lead Text", name: "lead_text", widget: "text"}
                   - label: "Content Blocks"
                     name: "content_blocks"
@@ -236,14 +323,30 @@ collections:
                         name: "text"
                         widget: "object"
                         fields: [{label: "Content", name: "content", widget: "markdown"}]
+                      - label: "Single Image"
+                        name: "image"
+                        widget: "object"
+                        fields:
+                          - {label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}
+                          - {label: "Caption", name: "caption", widget: "string", required: false}
+                      - label: "Image Row"
+                        name: "image_row"
+                        widget: "object"
+                        fields:
+                          - label: "Images"
+                            name: "items"
+                            widget: "list"
+                            fields: [{label: "Image", name: "src", widget: "image", hint: "⚠️ Max 100KB"}, {label: "Caption", name: "caption", widget: "string"}]
+                      - label: "Video"
+                        name: "video"
+                        widget: "object"
+                        fields: 
+                          - {label: "Video File or URL", name: "src", widget: "file", hint: "⚠️ Uploading video files slows down the site! We strongly recommend pasting a YouTube/Vimeo link instead."}
+                          - {label: "Caption", name: "caption", widget: "string"}
                       - label: "Quote"
                         name: "quote"
                         widget: "object"
                         fields: [{label: "Content", name: "content", widget: "text"}, {label: "Author", name: "author", widget: "string"}]
-                      - label: "Highlights"
-                        name: "highlight_box"
-                        widget: "object"
-                        fields: [{label: "Title", name: "title", widget: "string"}, {label: "Items", name: "items", widget: "list"}]
 
       - name: "publications"
         label: "Publications"
