@@ -131,14 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Menu
     initMobileMenu();
-
-    // --- FIX: COMMENTED OUT THIS BLOCK ---
-    // We let contentLoader.js handle the initial routing now!
-    /*
-    const initialPageId = window.location.hash.substring(1) || 'home'; 
-    switchPage(initialPageId);
-    */
-    // -------------------------------------
     
     // Handle browser back/forward buttons
     window.addEventListener('hashchange', () => {
@@ -151,9 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/**
- * Enhanced Router: Switches pages and handles scrolling.
- */
+
 function switchPage(pageId, updateHistory = true, scrollToId = null) {
     const pages = document.querySelectorAll('.page-view');
     pages.forEach(page => page.classList.remove('active'));
@@ -201,18 +191,16 @@ function switchPage(pageId, updateHistory = true, scrollToId = null) {
     });
 
     if (updateHistory) {
-        // Only update hash if it's a simple page switch
-        // We don't want to overwrite deep links like #news/123 with just #news
-        if (!window.location.hash.includes('/')) {
-            window.location.hash = pageId;
-        }
+        // FIX: Always update the hash when switching to a main page
+        // This ensures the URL updates even when coming from a detail view
+        window.location.hash = pageId;
     }
     
     // Update active link state
     document.querySelectorAll('.main-nav .nav-link').forEach(link => link.classList.remove('active'));
     
     const activeLink = document.querySelector(`.nav-list a[data-page="${pageId}"]`) || 
-                       document.querySelector(`.nav-list a[onclick*="'${pageId}'"]`);
+                      document.querySelector(`.nav-list a[onclick*="'${pageId}'"]`);
     
     if(activeLink) {
         activeLink.classList.add('active');

@@ -944,7 +944,6 @@ function initRouter() {
         const hash = decodeURIComponent(window.location.hash.slice(1));
 
         // CASE 1: No Hash? (User is at root "/")
-        // Since we removed loadContent('home') from app.js, we MUST handle it here.
         if (!hash) {
             if (typeof switchPage === 'function') switchPage('home');
             return;
@@ -953,20 +952,26 @@ function initRouter() {
         // CASE 2: Deep Link (User is at "#news/123")
         const [section, id] = hash.split('/');
 
-        // 50ms delay gives the page a moment to be ready before we switch
-        setTimeout(() => {
-            if (section && id) {
-                // Specific Article
+        // Check if this is a valid main page section
+        const validMainPages = ['home', 'about', 'team', 'research', 'outputs', 'advisory', 'news', 'outreach', 'events'];
+        
+        // If it's a main page (no ID), switch to that page
+        if (section && !id && validMainPages.includes(section)) {
+            if (typeof switchPage === 'function') switchPage(section);
+        } 
+        // If it's a detail view (has ID), open the detail view
+        else if (section && id) {
+            // Give the page a moment to be ready before we switch
+            setTimeout(() => {
                 if (typeof window.openDetailView === 'function') {
                     window.openDetailView(null, id, section);
                 }
-            } else if (section) {
-                // Main List (e.g. just #news)
-                if (typeof switchPage === 'function') switchPage(section);
-            }
-        }, 50);
+            }, 50);
+        }
     }
 
+    // Remove the existing hashchange listener to avoid duplicates
+    window.removeEventListener('hashchange', handleHash);
     window.addEventListener('hashchange', handleHash);
     
     if (document.readyState === 'loading') {
