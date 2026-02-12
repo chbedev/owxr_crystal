@@ -56,11 +56,8 @@ function initMobileMenu() {
         if (dropdown) {
             // If this link controls a dropdown, override default click
             toggle.addEventListener('click', function(e) {
-                // Determine if we are on desktop or mobile to adjust behavior if needed
-                // For now, we apply click-behavior to both as requested.
                 
                 // Only prevent default if it's strictly a toggle (not a link to a page)
-                // Assuming 'span' tags are toggles and 'a' tags are links.
                 if (toggle.tagName === 'SPAN' || toggle.getAttribute('href') === '#') {
                     e.preventDefault();
                     e.stopPropagation();
@@ -135,14 +132,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Menu
     initMobileMenu();
 
-    // Initialize SPA Router
+    // --- FIX: COMMENTED OUT THIS BLOCK ---
+    // We let contentLoader.js handle the initial routing now!
+    /*
     const initialPageId = window.location.hash.substring(1) || 'home'; 
     switchPage(initialPageId);
+    */
+    // -------------------------------------
     
     // Handle browser back/forward buttons
     window.addEventListener('hashchange', () => {
         const hashPageId = window.location.hash.substring(1);
-        if (hashPageId) {
+        // Only switch if it's a MAIN page (no slash)
+        // If there is a slash (e.g. news/123), let contentLoader handle it
+        if (hashPageId && !hashPageId.includes('/')) { 
             switchPage(hashPageId, false); 
         }
     });
@@ -170,8 +173,10 @@ function switchPage(pageId, updateHistory = true, scrollToId = null) {
             window.scrollTo(0, 0); 
         }
     } else {
+        // Fallback to home if page not found
         pageId = 'home';
-        document.getElementById('home').classList.add('active');
+        const homePage = document.getElementById('home');
+        if(homePage) homePage.classList.add('active');
         window.scrollTo(0, 0);
     }
 
@@ -196,7 +201,11 @@ function switchPage(pageId, updateHistory = true, scrollToId = null) {
     });
 
     if (updateHistory) {
-        window.location.hash = pageId;
+        // Only update hash if it's a simple page switch
+        // We don't want to overwrite deep links like #news/123 with just #news
+        if (!window.location.hash.includes('/')) {
+            window.location.hash = pageId;
+        }
     }
     
     // Update active link state
@@ -211,5 +220,8 @@ function switchPage(pageId, updateHistory = true, scrollToId = null) {
         if (parentSpan) parentSpan.classList.add('active');
     }
 
-    loadContent(pageId);
+    // Load content for that page (if needed)
+    if (typeof loadContent === 'function') {
+        loadContent(pageId);
+    }
 }

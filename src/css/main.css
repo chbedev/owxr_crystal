@@ -973,6 +973,91 @@ img {
     margin-top: auto; /* Pushes caption to bottom if cards vary in height */
 }
 
+/* --- Modern Article Image Styling --- */
+.article-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3.5rem auto;       /* Generous whitespace is key to modern design */
+    width: 100%;
+    max-width: 900px;          /* Constrains width nicely on large screens */
+}
+
+.article-image-wrapper img {
+    max-width: 100%;
+    height: auto;              /* Let height adapt naturally */
+    max-height: 650px;         /* Cap it so vertical images don't take over */
+    
+    border-radius: 12px;       /* Smoother, larger radius (12px is the modern standard) */
+    
+    /* Modern "Soft Elevation" Shadow */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    
+    /* Smooth Animation */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+/* Interactive Hover Effect */
+.article-image-wrapper img:hover {
+    transform: translateY(-4px); /* Subtle lift */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.article-image-wrapper figcaption {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(0,0,0,0.05); /* Subtle separator line */
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--uh-slate);    /* Brand color */
+    
+    text-align: center;
+    max-width: 600px;          /* Keep caption narrow for readability */
+    
+    font-style: normal;        /* Modern captions are rarely italic */
+    font-weight: 500;          /* Slightly bolder for legibility */
+    letter-spacing: 0.02em;
+}
+
+/* --- Side-by-Side Image Row --- */
+.article-image-row {
+    display: flex;
+    flex-wrap: wrap;        /* Wraps to vertical on mobile */
+    gap: 30px;              /* Space between the images */
+    margin: 3.5rem auto;
+    align-items: flex-start; /* Aligns images to the top */
+    width: 100%;
+    max-width: 1000px;
+}
+
+.image-row-item {
+    flex: 1;                /* Each image takes equal width */
+    min-width: 300px;       /* Forces stacking on small screens */
+    margin: 0;              /* Resets default browser margins */
+}
+
+.image-row-item img {
+    width: 100%;            /* Fills the column */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); /* Matches your modern style */
+    transition: transform 0.3s ease;
+}
+
+.image-row-item img:hover {
+    transform: translateY(-4px);
+}
+
+.image-row-item figcaption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--uh-slate);
+}
 /* =========================================
    ARTICLE VIDEO BLOCK
    ========================================= */
@@ -1006,6 +1091,27 @@ img {
 .article-video-wrapper figcaption i {
     color: var(--uh-red);
     margin-right: 5px;
+}
+
+/* --- Responsive Video Embeds --- */
+.video-embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+    background: #000;
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 /* =========================================
    10. SECTION: PUBLICATIONS (ACCORDION)
@@ -1503,6 +1609,27 @@ img {
 .advisory-group-wrapper {
     grid-column: 1 / -1;
     margin-top: 4rem;
+}
+
+.affiliation-logos-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    gap: 15px;               
+    margin-top: 12px;
+    flex-wrap: wrap;         
+}
+
+.affiliation-logo {
+    height: 35px;            
+    width: auto;           
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+}
+
+.affiliation-logo:hover {
+    opacity: 1;
 }
 
 /* =========================================
