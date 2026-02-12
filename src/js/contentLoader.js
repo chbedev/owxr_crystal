@@ -343,6 +343,8 @@ function createCardHtml(item, type) {
              <span class="placeholder-label">${config.phLabel}</span>
            </div>`;
 
+    const showExternalLink = item.link && !['news', 'outreach', 'events'].includes(type);
+
     return `
         <div class="news-card">
             <div class="news-img-wrapper">${imageHtml}</div>
@@ -354,10 +356,11 @@ function createCardHtml(item, type) {
                 <h3 class="news-title">${item.title}</h3>
                 <p class="news-excerpt">${item.preview}</p>
                 <div style="margin-top: auto;">
-                    <a href="#" class="news-link" onclick="openDetailView(event, '${item.id}', '${type}')">
+                    <a href="#${type}/${item.id}" class="news-link">
                         ${config.btnText} <i class="fas fa-arrow-right"></i>
                     </a>
-                    ${item.link && type !== 'events' ? `
+                    
+                    ${showExternalLink ? `
                         <div style="margin-top: 12px; border-top: 1px solid #eee; padding-top: 10px;">
                             <a href="${item.link}" target="_blank" class="view-link" style="margin-left: 0;">
                                 GO TO WEBSITE <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
@@ -368,170 +371,157 @@ function createCardHtml(item, type) {
         </div>
     `;
 }
-
 // =======================================================
-// 5. DETAIL VIEW (Popup/Page Switch)
+// 5. DETAIL VIEW (Robust Version)
 // =======================================================
 window.openDetailView = async function(e, itemId, type) {
     if (e) e.preventDefault();
-
-    // 1. LAZY LOAD DATA
-    if (!window[`${type}Store`]) {
-        try {
-            const raw = await fetchData(type);
-            window[`${type}Store`] = raw.events_list || raw.articles || raw.programs || [];
-        } catch (err) {
-            console.error("Failed to load data for detail view", err);
-            return;
-        }
-    }
-
-    // 2. FIND THE ITEM
-    const item = window[`${type}Store`].find(n => n.id == itemId); 
-    if (!item) return console.error("Item not found:", itemId);
 
     const containerId = `${type}-detail-content`;
     const detailContainer = document.getElementById(containerId);
     if (!detailContainer) return;
 
-    // 3. PARSE CONTENT BLOCKS
-    let contentHtml = '';
+    // --- FIX 1: SWITCH PAGE IMMEDIATELY (Show Loading) ---
+    // This prevents app.js from overriding us with "Home" while we wait for data
+    if (typeof switchPage === 'function') switchPage(`${type}-detail`);
+    window.scrollTo({ top: 0, behavior: 'auto' });
     
-    // Helper to safely convert Markdown if the converter exists
+    // Show loading spinner
+    detailContainer.innerHTML = `
+        <div style="text-align:center; padding: 4rem 0; color: var(--uh-slate);">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p style="margin-top:1rem;">Loading content...</p>
+        </div>`;
+
+    // --- FIX 2: ENSURE DATA IS LOADED ---
+    if (!window[`${type}Store`] || window[`${type}Store`].length === 0) {
+        try {
+            const raw = await fetchData(type);
+            window[`${type}Store`] = raw.events_list || raw.articles || raw.programs || [];
+        } catch (err) {
+            detailContainer.innerHTML = `<p class="error-msg">Error loading content.</p>`;
+            return;
+        }
+    }
+
+    // Find the item
+    const item = window[`${type}Store`].find(n => n.id == itemId); 
+
+    if (!item) {
+        console.warn(`Item not found: ${itemId}`);
+        detailContainer.innerHTML = `
+            <div style="text-align:center; padding: 4rem;">
+                <h3>Content Not Found</h3>
+                <button class="btn" onclick="switchPage('${type}')" style="margin-top:20px;">Return to ${type}</button>
+            </div>`;
+        return;
+    }
+
+    // --- RENDER CONTENT (ALL FEATURES PRESERVED) ---
+    let contentHtml = '';
     const safeMarkdown = (text) => (typeof converter !== 'undefined' ? converter.makeHtml(text || '') : text);
 
     if (typeof item.body === 'object' && item.body !== null) {
         const b = item.body;
+        if (b.lead_text) contentHtml += `<p class="article-lead">${b.lead_text}</p>`;
         
-        // A. Lead Text
-        if (b.lead_text) {
-            contentHtml += `<p class="article-lead">${b.lead_text}</p>`;
-        }
-        
-        // B. Loop through Blocks
         if (Array.isArray(b.content_blocks)) {
             contentHtml += b.content_blocks.map(block => {
-                
-                // --- BLOCK: PEOPLE GRID (Images, Videos & Custom Columns) ---
+                // IMAGE ROW
+                if (block.type === 'image_row') {
+                    const imagesHtml = block.items.map(img => `
+                        <figure class="image-row-item">
+                            <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+                            ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ''}
+                        </figure>
+                    `).join('');
+                    return `<div class="article-image-row">${imagesHtml}</div>`;
+                }
+
+                // SINGLE IMAGE
+                if (block.type === 'image') {
+                    return `<figure class="article-image-wrapper">
+                        <img src="${block.src}" alt="${block.caption || ''}" loading="lazy">
+                        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                    </figure>`;
+                }
+
+                // PEOPLE GRID
                 if (block.type === 'people_grid') {
                     const gridItems = block.items.map(person => {
                         let mediaHtml = '';
-                        
-                        // 1. Video (Controls enabled, no autoplay)
                         if (person.video) {
                             const posterAttr = person.image ? `poster="${person.image}"` : '';
-                            mediaHtml = `
-                                <video 
-                                    src="${person.video}" 
-                                    class="person-media" 
-                                    controls 
-                                    preload="metadata" 
-                                    playsinline 
-                                    ${posterAttr}>
-                                </video>`;
-                        } 
-                        // 2. Image Only
-                        else if (person.image) {
+                            mediaHtml = `<video src="${person.video}" class="person-media" controls preload="metadata" playsinline ${posterAttr}></video>`;
+                        } else if (person.image) {
                             mediaHtml = `<img src="${person.image}" alt="${person.name}" class="person-media" loading="lazy">`;
-                        } 
-                        // 3. Fallback Placeholder
-                        else {
+                        } else {
                             mediaHtml = `<div class="person-placeholder"><i class="fas fa-user"></i></div>`;
                         }
-
-                        return `
-                            <div class="person-mini-card">
-                                <div class="person-img-wrapper">
-                                    ${mediaHtml}
-                                </div>
-                                <div class="person-info">
-                                    <h4 class="person-name">${person.name}</h4>
-                                    <div class="person-role">${person.role}</div>
-                                    ${person.caption ? `<p class="person-caption">${person.caption}</p>` : ''}
-                                </div>
-                            </div>
-                        `;
+                        return `<div class="person-mini-card"><div class="person-img-wrapper">${mediaHtml}</div><div class="person-info"><h4 class="person-name">${person.name}</h4><div class="person-role">${person.role}</div>${person.caption ? `<p class="person-caption">${person.caption}</p>` : ''}</div></div>`;
                     }).join('');
-
-                    // Logic to check if user wants a specific number of columns
-                    const customStyle = block.columns 
-                        ? `style="grid-template-columns: repeat(${block.columns}, 1fr);"` 
-                        : ''; 
-
-                    return `
-                        <div class="people-grid-section">
-                            ${block.title ? `<h3 class="text-uh-red" style="margin-bottom:0.5rem; border:none; padding-left:0;">${block.title}</h3>` : ''}
-                            ${block.description ? `<p style="margin-bottom:1.5rem; font-style:italic; color:#666;">${block.description}</p>` : ''}
-                            
-                            <div class="people-grid-container" ${customStyle}>
-                                ${gridItems}
-                            </div>
-                        </div>`;
+                    const customStyle = block.columns ? `style="grid-template-columns: repeat(${block.columns}, 1fr);"` : ''; 
+                    return `<div class="people-grid-section">${block.title ? `<h3 class="text-uh-red" style="margin-bottom:0.5rem; border:none; padding-left:0;">${block.title}</h3>` : ''}${block.description ? `<p style="margin-bottom:1.5rem; font-style:italic; color:#666;">${block.description}</p>` : ''}<div class="people-grid-container" ${customStyle}>${gridItems}</div></div>`;
                 }
-
-                // --- BLOCK: STANDALONE VIDEO ---
+                // --- ULTRA-SAFE VIDEO HANDLER ---
                 if (block.type === 'video') {
-                    return `
-                        <figure class="article-video-wrapper">
-                            <video 
-                                src="${block.src}" 
-                                controls 
-                                preload="metadata" 
-                                playsinline 
-                                ${block.poster ? `poster="${block.poster}"` : ''}>
-                                Your browser does not support the video tag.
-                            </video>
-                            ${block.caption ? `<figcaption><i class="fas fa-play-circle"></i> ${block.caption}</figcaption>` : ''}
-                        </figure>
-                    `;
-                }
+                    const url = block.src || '';
+                    let mediaHtml = '';
 
-                // --- BLOCK: QUOTE ---
-                if (block.type === 'quote') {
-                    return `
-                        <div class="article-quote">
-                            <p>"${block.content}"</p>
-                            ${block.author ? `<span>— ${block.author}</span>` : ''}
+                    // 1. YouTube
+                    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+                    
+                    // 2. Vimeo
+                    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+
+                    // 3. Direct File (MP4/WEBM/OGG) - Check if it ends in a video extension
+                    const isDirectFile = url.match(/\.(mp4|webm|ogg|mov)$/i);
+
+                    if (ytMatch) {
+                        mediaHtml = `<div class="video-embed-container"><iframe src="https://www.youtube.com/embed/${ytMatch[1]}" frameborder="0" allowfullscreen></iframe></div>`;
+                    } else if (vimeoMatch) {
+                        mediaHtml = `<div class="video-embed-container"><iframe src="https://player.vimeo.com/video/${vimeoMatch[1]}" frameborder="0" allowfullscreen></iframe></div>`;
+                    } else if (isDirectFile) {
+                        mediaHtml = `<video src="${url}" controls preload="metadata" playsinline style="width:100%; border-radius:8px; box-shadow:var(--shadow-card);">Your browser does not support the video tag.</video>`;
+                    } else {
+                        // 4. UNKNOWN LINK (Safe Fallback) -> Show a button instead of a broken player
+                        mediaHtml = `<div style="text-align:center; padding: 2rem; background:#f8f9fa; border-radius:8px; border:1px solid #ddd;">
+                            <p style="margin-bottom:10px; font-weight:bold; color:#555;">External Video Content</p>
+                            <a href="${url}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white;">
+                                <i class="fas fa-external-link-alt"></i> Watch Video
+                            </a>
                         </div>`;
+                    }
+
+                    return `<figure class="article-video-wrapper" style="margin: 2.5rem 0;">
+                        ${mediaHtml}
+                        ${block.caption ? `<figcaption style="text-align:center; font-style:italic; color:#666; margin-top:0.5rem; font-size:0.9rem;"><i class="fas fa-play-circle"></i> ${block.caption}</figcaption>` : ''}
+                    </figure>`;
+                }
+                // ------------------------------------------------
+
+                // QUOTE
+                if (block.type === 'quote') return `<div class="article-quote"><p>"${block.content}"</p>${block.author ? `<span>— ${block.author}</span>` : ''}</div>`;
+
+                // LIST
+                if (block.type === 'highlight_box' || block.type === 'list') {
+                    const styleOverride = block.type === 'list' ? 'border-left-color: var(--uh-slate); background: #fff; border: 1px solid #eee; border-left: 4px solid var(--uh-slate);' : '';
+                    return `<div class="highlight-box" style="${styleOverride}">${block.title ? `<h3>${block.title}</h3>` : ''}<ul>${block.items.map(i => `<li>${i}</li>`).join('')}</ul></div>`;
                 }
 
-                // --- BLOCK: HIGHLIGHT BOX ---
-                if (block.type === 'highlight_box') {
-                    return `
-                        <div class="highlight-box">
-                            <h3>${block.title}</h3>
-                            <ul>${block.items.map(i => `<li>${i}</li>`).join('')}</ul>
-                        </div>`;
-                }
+                // HEADER
+                if (block.type === 'header') return `<h3 class="text-uh-red" style="margin-top: 2.5rem; border-left: none; padding-left: 0;">${block.content}</h3>`;
 
-                // --- BLOCK: LIST (Bullet Points) ---
-                if (block.type === 'list') {
-                    const listItems = block.items.map(li => `<li>${li}</li>`).join('');
-                    return `
-                        <div class="highlight-box" style="border-left-color: var(--uh-slate); background: #fff; border: 1px solid #eee; border-left: 4px solid var(--uh-slate);">
-                            <ul>${listItems}</ul>
-                        </div>`;
-                }
-
-                // --- BLOCK: SECTION HEADER ---
-                if (block.type === 'header') {
-                    return `<h3 class="text-uh-red" style="margin-top: 2.5rem; border-left: none; padding-left: 0;">${block.content}</h3>`;
-                }
-
-                // --- BLOCK: STANDARD TEXT ---
-                if (block.type === 'text') {
-                    return `<div class="article-text">${safeMarkdown(block.content)}</div>`;
-                }
+                // TEXT
+                if (block.type === 'text') return `<div class="article-text">${safeMarkdown(block.content)}</div>`;
 
                 return '';
             }).join('');
         }
     } else {
-        // Fallback for simple string bodies
         contentHtml = safeMarkdown(item.body || '');
     }
 
-    // 4. PREPARE TEMPLATE VARIABLES
     const heroImageHtml = item.image 
         ? `<img src="${item.image}" alt="${item.title}">` 
         : `<div class="placeholder-img" style="height:300px"><span class="placeholder-label">${type.toUpperCase()}</span></div>`;
@@ -541,48 +531,29 @@ window.openDetailView = async function(e, itemId, type) {
         : `<span class="article-category-badge">${item.category || type}</span>`;
 
     const displayTitle = (item.body && item.body.full_title) ? item.body.full_title : item.title;
+    const dateString = item.date_display || new Date(item.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-    // 5. INJECT HTML
     detailContainer.innerHTML = `
         <article class="article-container">
-            <div class="article-hero">
-                 ${heroImageHtml}
-                 ${captionHtml}
-            </div>
-            
+            <div class="article-hero">${heroImageHtml}${captionHtml}</div>
             <header class="article-header">
-                <div class="article-meta-row">
-                    <span><i class="far fa-calendar-alt"></i> ${new Date(item.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                </div>
+                <div class="article-meta-row"><span><i class="far fa-calendar-alt"></i> ${dateString}</span></div>
                 <h1 class="article-title text-uh-red">${displayTitle}</h1>
-                
-                ${type === 'events' ? `
-                    <div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);">
-                        <div><strong><i class="far fa-clock text-uh-red"></i> Time:</strong> ${item.time || 'TBA'}</div>
-                        <div><strong><i class="fas fa-map-marker-alt text-uh-red"></i> Location:</strong> ${item.location || 'TBA'}</div>
-                    </div>` : ''}
-                
-                ${item.link ? `
-                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <a href="${item.link}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white;">GO TO WEBSITE <i class="fas fa-external-link-alt"></i></a>
-                    </div>` : ''}
+                ${type === 'events' ? `<div style="background: var(--uh-light-gray); padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid var(--uh-red);"><div><strong><i class="far fa-clock text-uh-red"></i> Time:</strong> ${item.time || 'TBA'}</div><div><strong><i class="fas fa-map-marker-alt text-uh-red"></i> Location:</strong> ${item.location || 'TBA'}</div></div>` : ''}
+                ${item.link ? `<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);"><a href="${item.link}" target="_blank" class="btn" style="background-color: var(--uh-red); color: white;">GO TO WEBSITE <i class="fas fa-external-link-alt"></i></a></div>` : ''}
             </header>
-            
-            <div class="article-body">
-                ${contentHtml}
-            </div>
-            
+            <div class="article-body">${contentHtml}</div>
             <div class="article-footer">
-                 <a href="#" onclick="switchPage('${type}')" class="btn">Back to ${type.charAt(0).toUpperCase() + type.slice(1)}</a>
+                 <a href="#${type}" onclick="switchPage('${type}')" class="btn">Back to ${type.charAt(0).toUpperCase() + type.slice(1)}</a>
             </div>
         </article>
     `;
 
-    // 6. SWITCH PAGE & SCROLL
-    if (typeof switchPage === 'function') switchPage(`${type}-detail`);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    // 7. RESTORE URL SILENTLY
+    setTimeout(() => {
+        history.replaceState(null, null, `#${type}/${itemId}`);
+    }, 50);
 };
-
 // =======================================================
 // 6. ADVISORY BOARD & OUTPUTS
 // =======================================================
@@ -590,6 +561,7 @@ async function loadAdvisoryContent() {
     const globals = await fetchData('globals');
     let board = globals.advisory_board || [];
     
+    // Sort by Last Name
     board.sort((a, b) => {
         const lastA = a.name.trim().split(' ').pop();
         const lastB = b.name.trim().split(' ').pop();
@@ -598,7 +570,24 @@ async function loadAdvisoryContent() {
 
     const container = document.getElementById('advisory-board-grid');
     if (container) {
-        const cardsHtml = board.map(m => `
+        const cardsHtml = board.map(m => {
+            // --- NEW LOGIC FOR MULTIPLE LOGOS ---
+            const logos = [];
+            if (m.company_icon) logos.push(m.company_icon);
+            if (m.company_icon_2) logos.push(m.company_icon_2); // Checks for second logo
+            
+            let logoSection = '';
+            if (logos.length > 0) {
+                // Creates a flex container to hold logos side-by-side
+                const imagesHtml = logos.map(src => 
+                    `<img src="${src}" class="affiliation-logo" alt="Affiliation Logo" loading="lazy">`
+                ).join('');
+                
+                logoSection = `<div class="affiliation-logos-wrapper">${imagesHtml}</div>`;
+            }
+            // ------------------------------------
+
+            return `
             <div class="profile-card text-center">
                  <div class="profile-img-container">
                     <img src="${m.image}" class="profile-img" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG_HUMAN}'">
@@ -606,10 +595,10 @@ async function loadAdvisoryContent() {
                  <div class="profile-info">
                       <h4 class="profile-name">${m.name}</h4>
                       <p class="profile-role">${m.role}</p>
-                      ${m.company_icon ? `<img src="${m.company_icon}" style="height:30px; margin:10px auto; opacity:0.8;" alt="Company Logo">` : ''}
+                      ${logoSection}
                  </div>
             </div>
-        `).join(''); // SAFE JOIN
+        `}).join(''); 
 
         let fullHtml = cardsHtml;
         if (globals.advisory_group_image) {
@@ -621,7 +610,6 @@ async function loadAdvisoryContent() {
         container.innerHTML = fullHtml;
     }
 }
-
 async function loadOutputsContent() {
     const rawPubs = await fetchData('publications');
     const pubHeader = document.getElementById('publications-heading');
@@ -946,6 +934,51 @@ async function loadAboutContent() {
         `;
     }
 }
+
+// =======================================================
+// 7. HASH ROUTER (Master Controller)
+// =======================================================
+function initRouter() {
+    function handleHash() {
+        // Decode fixes issues if ID has spaces (e.g. "Summer%20School" -> "Summer School")
+        const hash = decodeURIComponent(window.location.hash.slice(1));
+
+        // CASE 1: No Hash? (User is at root "/")
+        // Since we removed loadContent('home') from app.js, we MUST handle it here.
+        if (!hash) {
+            if (typeof switchPage === 'function') switchPage('home');
+            return;
+        }
+
+        // CASE 2: Deep Link (User is at "#news/123")
+        const [section, id] = hash.split('/');
+
+        // 50ms delay gives the page a moment to be ready before we switch
+        setTimeout(() => {
+            if (section && id) {
+                // Specific Article
+                if (typeof window.openDetailView === 'function') {
+                    window.openDetailView(null, id, section);
+                }
+            } else if (section) {
+                // Main List (e.g. just #news)
+                if (typeof switchPage === 'function') switchPage(section);
+            }
+        }, 50);
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    
+    if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', handleHash);
+    } else {
+        handleHash();
+    }
+}
+
+// Start the engine!
+initRouter();
+
 // MAIN EXPORT
 window.loadContent = function(pageId) {
     if (typeof loadImpactStats === 'function') loadImpactStats();
@@ -961,5 +994,7 @@ window.loadContent = function(pageId) {
     else if (pageId === 'outreach') loadOutreachContent();
     else if (pageId === 'events') loadEventsContent(); 
 };
+
+
 
 
