@@ -145,6 +145,112 @@
           }
         ]
       }
+    },
+    {
+      "id": "burcham-nae-election-2026",
+      "date": "2026-02-10",
+      "title": "Prof. Burcham Elected to National Academy of Engineering",
+      "preview": "Prof. Christopher Burcham, a distinguished member of our Industrial Advisory Board, has been elected to the prestigious National Academy of Engineering.",
+      "image": "public/images/christopher_burcham.webp",
+      "link": "https://www.nae.edu/345149/NAENewClass2026",
+      "body": {
+        "full_title": "Congratulations! Prof. Burcham Elected to the National Academy of Engineering",
+        "category": "Awards & Honors",
+        "main_image": "public/images/christopher_burcham.webp",
+        "image_caption": "Prof. Christopher Burcham, NAE Class of 2026",
+        "lead_text": "Prof. Christopher Burcham, a distinguished member of our Industrial Advisory Board, has been elected to the prestigious National Academy of Engineering (NAE).",
+        "content_blocks": [
+          {
+            "type": "text",
+            "content": "This distinguished recognition underscores his pioneering contributions in the areas of crystallization, particle engineering, and process control. Through his innovative research and its practical applications, Prof. Burcham has significantly advanced pharmaceutical engineering, leading to the development and market introduction of new and effective therapies."
+          },
+          {
+            "type": "text",
+            "content": "This year, Prof. Burcham is among the 130 exceptional individuals from the United States elected to the academy and is included within a total of 2,534 members who possess the highest professional distinctions in the engineering discipline. Membership in the academy is reserved for those who have made extraordinary contributions to engineering research, practice, or education."
+          },
+          {
+            "type": "text",
+            "content": "We extend our warmest congratulations to Prof. Burcham on this well-deserved honor."
+          }
+        ]
+      }
+    },
+    {
+    "id": "welch-crystallization-symposium-2025",
+    "date": "2025-09-05",
+    "title": "Inaugural Welch Crystallization Symposium",
+    "preview": "The inaugural biennial symposium brought together nearly 100 participants from industry and academia to discuss nucleation, polymorphism, and crystal growth.",
+    "image": "public/images/first_welch.webp",
+    "body": {
+      "full_title": "Welch Crystallization Symposium: Fostering Collaboration and Advancing Chemistry",
+      "category": "Events & Symposia",
+      "main_image": "public/images/iab_group.webp",
+      "image_caption": "Attendees of the inaugural Welch Crystallization Symposium gathered at the Agrawal Engineering Research Building.",
+      "lead_text": "The inaugural biennial Welch Crystallization Symposium was conducted on September 5, 2025, at the Agrawal Engineering Research Building of the University of Houston (UH). This full-day event drew nearly 100 participants from the pharmaceutical industry nationwide, as well as representatives from academia.",
+      "content_blocks": [
+        {
+          "type": "text",
+          "content": "The program commenced with opening remarks delivered by Dr. Adam Kuspa, President of the Welch Foundation, and Prof. Jeffrey Rimer, Program Director of the Welch Center for Advanced Bioactive Materials Crystallization at UH. Dr. Kuspa emphasized the Foundation's significant contributions to advancing chemistry in Texas through grants, endowed chairs, and specialized initiatives like the 'Catalyst for Discovery Program Grants,' which support the center's mission to foster collaboration across the state."
+        },
+        {
+          "type": "header",
+          "content": "Industry Perspectives & Keynote Speakers"
+        },
+        {
+          "type": "text",
+          "content": "The symposium facilitated a vigorous exchange of knowledge concerning crystallization, focusing on nucleation, polymorphism, and crystal growth. The agenda featured two plenary sessions and four keynote presentations by senior scientists from leading American pharmaceutical companies."
+        },
+        {
+          "type": "list",
+          "title": "Plenary & Keynote Highlights",
+          "items": [
+            "Dr. Christopher Burcham (Eli Lilly) discussed the advantages and challenges of continuous crystallization.",
+            "Dr. Kevin Girard (Pfizer) elaborated on advancements in continuous crystallization, isolation, and drying capabilities.",
+            "Dr. Christopher Marton (Bristol Myers Squibb) presented on high-throughput polymorph screening.",
+            "Dr. Manish Kelkar (AbbVie) examined emerging technologies in pharmaceutical crystallization.",
+            "Dr. Megan Ketchum (GlaxoSmithKline) discussed semi-continuous crystallization and batch manufacturing strategies.",
+            "Dr. Xiaolong Zhu (Merck) focused on polymorphism and the impact of molecular physical properties."
+          ]
+        },
+          {
+          "type": "image_row",
+          "items": [
+            {
+              "src": "public/images/symposium_2025_speaker.webp",
+              "caption": "Dr. Christopher Burcham delivering a plenary address on continuous crystallization."
+            },
+            {
+              "src": "public/images/iab_group.webp",
+              "caption": "Principal Investigators and the Industrial Advisory Board members."
+            },
+            {
+              "src": "public/images/q_and_a.webp",
+              "caption": "Q and A with Dr. T. Randall Lee and Dr. Peter G. Vekilov."
+            },
+            {
+              "src": "public/images/symposium_2025_winners.webp",
+              "caption": "Poster competition winners: Radhika Menon, Arshia Nosrati, and Kosar Rahimi Nosrabadi."
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Academic Insights & Student Research"
+        },
+        {
+          "type": "text",
+          "content": "Invited academic speakers included Professor Peter Vekilov and Dr. Gul Zerze from the UH Department of Chemical and Biomolecular Engineering. Dr. Vekilov advocated for leveraging nonclassical mechanisms in nucleation to suppress malaria parasites, while Dr. Zerze presented a multi-scale framework linking human transcription factor effector domains with phase behavior."
+        },
+        {
+          "type": "text",
+          "content": "A poster session featured 33 graduate students who showcased their research findings. Three winners were announced at the conclusion of the event: Kosar Rahimi Nosrabadi (1st Place), Arshia Nosrati (2nd Place), and Radhika Menon (3rd Place)."
+        },
+        {
+          "type": "text",
+          "content": "The symposium was a significant success, achieving its primary objective of fostering collaboration between pharmaceutical professionals and academia, enabling participants to deliberate on future directions in pharmaceutical crystallization research."
+        }
+      ]
     }
+  }
   ]
 }
