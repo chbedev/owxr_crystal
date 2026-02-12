@@ -18,9 +18,11 @@
   "advisory_board": [
     {
       "name": "Dr. Christopher Burcham",
-      "role": "Eli Lilly",
+      "role": "Eli Lilly (Retired) & UIUC",
       "image": "public/images/christopher_burcham.webp",
-      "company_icon": "public/images/lili.png"
+      "company_icon": "public/images/lili.png",
+      "company_icon_2": "public/images/uiuc.png",
+      "company_icon_3": "public/images/uiuc.png"
     },
     {
       "name": "Dr. Kevin Girard",
@@ -44,25 +46,25 @@
       "name": "Dr. Megan Ketchum",
       "role": "GlaxoSmithKline",
       "image": "public/images/megan_ketchum.webp",
-      "company_icon": "public/images/gsk.png"
+      "company_icon": "public/images/gsk.webp"
     },
     {
       "name": "Dr. Xiaolong Zhu",
       "role": "Merck",
       "image": "public/images/xiaolong_zhu.webp",
-      "company_icon": "public/images/merck.png"
+      "company_icon": "public/images/merck.webp"
     },
     {
       "name": "Dr. Monika Warzecha",
       "role": "Vertex Pharmaceuticals, Inc",
       "image": "public/images/monika_warzecha.webp",
-      "company_icon": "public/images/vertex.png"
+      "company_icon": "public/images/vertex.webp"
     },
     {
       "name": "Dr. Mark Barrett",
       "role": "apc",
       "image": "public/images/mark_barrett.webp",
-      "company_icon": "public/images/apc.png"
+      "company_icon": "public/images/apc.webp"
     }
   ],
   "advisory_group_image": "public/images/iab_group.webp"
