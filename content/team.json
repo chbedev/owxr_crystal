@@ -1,88 +1,128 @@
 {
   "members": [
     {
+      "scholar": "https://scholar.google.com/citations?user=cgsdR7cAAAAJ&hl=en",
       "name": "Dr. Jeffrey D. Rimer",
       "is_pi": true,
       "role": "Center Director & PI",
       "title_detail": "Abraham E. Dukler Professor\nDepartment of Chemical and Biomolecular Engineering",
-      "tags": ["Crystal Engineering", "Biomineralization & Bio‑inspired Design", "Polymorphism & Intercrystalline Transformations","Crystal growth modifiers & inhibitors", "Zeolite synthesis & crystallization"],
+      "tags": [
+        "Crystal Engineering",
+        "Biomineralization & Bio‑inspired Design",
+        "Polymorphism & Intercrystalline Transformations",
+        "Crystal growth modifiers & inhibitors",
+        "Zeolite synthesis & crystallization"
+      ],
+      "website": "http://rimergroup.com/",
       "id": "rimer",
       "image": "public/images/rimer.webp",
-      "email": "jrimer@central.uh.edu",
-      "website": "http://rimergroup.com/",
-      "scholar": "https://scholar.google.com/citations?user=cgsdR7cAAAAJ&hl=en"
+      "email": "jrimer@central.uh.edu"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=g2dzQr0AAAAJ&hl=en",
       "name": "Dr. Peter G. Vekilov",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Frank Worley Professor\nDepartment of Chemical and Biomolecular Engineering",
-      "tags": ["Molecular mechanisms of fibrillization and toxicity of amyloid β", "Nucleation of pharmaceutical crystals", "Polymorph control", "Methods to control organic crystal nucleation and growth", "Hematin crystallization (malaria)"],
+      "tags": [
+        "Molecular mechanisms of fibrillization and toxicity of amyloid β",
+        "Nucleation of pharmaceutical crystals",
+        "Polymorph control",
+        "Methods to control organic crystal nucleation and growth",
+        "Hematin crystallization (malaria)"
+      ],
+      "website": "http://vekilovgroup.chee.uh.edu",
       "id": "vekilov",
       "image": "public/images/vekilov.webp",
-      "email": "vekilov@uh.edu",
-      "website": "http://vekilovgroup.chee.uh.edu",
-      "scholar": "https://scholar.google.com/citations?user=g2dzQr0AAAAJ&hl=en"
+      "email": "vekilov@uh.edu"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=UHQARgwAAAAJ&hl=en",
       "name": "Dr. Alamgir Karim",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Dow Chair and Welch Foundation Professor\nDirector, International Polymer & Soft Matter Center (IPSMC)",
-      "tags": ["Polymer coacervates", "Crystallization", "Self-Assembly and Self Organization", "Polymer membranes", "Energy and Sustainability"],
+      "tags": [
+        "Polymer coacervates",
+        "Crystallization",
+        "Self-Assembly and Self Organization",
+        "Polymer membranes",
+        "Energy and Sustainability"
+      ],
+      "website": "https://karimlab.chee.uh.edu/",
       "id": "karim",
       "image": "public/images/karim.webp",
-      "email": "akarim3@central.uh.edu",
-      "website": "https://karimlab.chee.uh.edu/",
-      "scholar": "https://scholar.google.com/citations?user=UHQARgwAAAAJ&hl=en"
+      "email": "akarim3@central.uh.edu"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=wtJ5no0AAAAJ&hl=en",
       "name": "Dr. T. Randall Lee",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Cullen Distinguished Professor and Associate\nChair, Department of Chemistry",
-      "tags": ["Applied nanomaterials", "Magnetic and photonic nanoparticles", "2-dimensional materials synthesis", "Self-assembled monolayers and functionalized interfaces", "Structured interfaces for controlled crystal nucleation"],
+      "tags": [
+        "Applied nanomaterials",
+        "Magnetic and photonic nanoparticles",
+        "2-dimensional materials synthesis",
+        "Self-assembled monolayers and functionalized interfaces",
+        "Structured interfaces for controlled crystal nucleation"
+      ],
+      "website": "http://lee.chem.uh.edu/",
       "id": "lee",
       "image": "public/images/lee.webp",
-      "email": "trlee@uh.edu",
-      "website": "http://lee.chem.uh.edu/",
-      "scholar": "https://scholar.google.com/citations?user=wtJ5no0AAAAJ&hl=en"
+      "email": "trlee@uh.edu"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=zOW6kSsAAAAJ&hl=en",
       "name": "Dr. Jeremy C. Palmer",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Ernest J and Barbara M Henley Professor\nDepartment of Chemical and Biomolecular Engineering",
-      "tags": ["Computational studies of molecule – crystal interactions", "Properties of crystalline materials", "Soft and complex media", "Glasses and metastable liquids"],
+      "tags": [
+        "Computational studies of molecule – crystal interactions",
+        "Properties of crystalline materials",
+        "Soft and complex media",
+        "Glasses and metastable liquids"
+      ],
+      "website": "http://palmer.chee.uh.edu/",
       "id": "palmer",
       "image": "public/images/palmer.webp",
-      "email": "jcpalmer@uh.edu",
-      "website": "http://palmer.chee.uh.edu/",
-      "scholar": "https://scholar.google.com/citations?user=zOW6kSsAAAAJ&hl=en"
+      "email": "jpalmer2@Central.UH.EDU"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=-yjAGasAAAAJ&hl=en",
       "name": "Dr. Gul Zerze",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Assistant Professor\nCancer Prevention and Research Institute of Texas Scholar\nDepartment of Chemical and Biomolecular Engineering",
-      "tags": ["Computational modeling of crystal precursor assembly", "Biomolecular self-assembly in oncogenic/neurodegenerative diseases", "Interplay between polymorphism and disordered intermediates", "Role of structural disorder in immune system evading virulence factors"],
+      "tags": [
+        "Computational modeling of crystal precursor assembly",
+        "Biomolecular self-assembly in oncogenic/neurodegenerative diseases",
+        "Interplay between polymorphism and disordered intermediates",
+        "Role of structural disorder in immune system evading virulence factors"
+      ],
+      "website": "https://ghzlab.chee.uh.edu/",
       "id": "zerze",
       "image": "public/images/zerze.webp",
-      "email": "gzerze@central.uh.edu",
-      "website": "https://ghzlab.chee.uh.edu/",
-      "scholar": "https://scholar.google.com/citations?user=-yjAGasAAAAJ&hl=en"
+      "email": "gzerze@central.uh.edu"
     },
     {
+      "scholar": "https://scholar.google.com/citations?user=j26yO8sAAAAJ&hl=en",
       "name": "Dr. Francisco C. Robles Hernandez",
       "is_pi": true,
       "role": "Co-Principal Investigator",
       "title_detail": "Professor\nMechanical Engineering Technology\nJoint Appointments: Materials Science and Engineering, Electrical and Computer Engineering, and Chemistry",
-      "tags": ["Electron microscopy expert", "Synthesis of nanostructured metal oxides: sensing and catalysis", "Carbon nanostructure synthesis", "Alloys, alloy design, processing, post-processing, and properties", "Manufacturing and testing of superconductors, semiconductors"],
+      "tags": [
+        "Electron microscopy expert",
+        "Synthesis of nanostructured metal oxides: sensing and catalysis",
+        "Carbon nanostructure synthesis",
+        "Alloys, alloy design, processing, post-processing, and properties",
+        "Manufacturing and testing of superconductors, semiconductors"
+      ],
+      "website": "https://mt-group.egr.uh.edu/",
       "id": "robles",
       "image": "public/images/robles.webp",
-      "email": "fcrobles@Central.UH.EDU",
-      "website": "https://mt-group.egr.uh.edu/",
-      "scholar": "https://scholar.google.com/citations?user=j26yO8sAAAAJ&hl=en"
+      "email": "fcrobles@Central.UH.EDU"
     },
     {
       "id": "arshia_nosrati",
