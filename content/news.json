@@ -10,7 +10,7 @@
         "full_title": "Welch Summer School 2026: Hands-on Research Experience",
         "category": "Education & Outreach",
         "main_image": "",
-        "image_caption": "Students working in the lab under the mentorship of senior researchers.",
+        "image_caption": "",
         "lead_text": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the Welch Summer School 2026. This initiative offers a remarkable opportunity for high school students and freshmen who are passionate about science, technology, and research.",
         "content_blocks": [
           {
@@ -176,81 +176,81 @@
       }
     },
     {
-    "id": "welch-crystallization-symposium-2025",
-    "date": "2025-09-05",
-    "title": "Inaugural Welch Crystallization Symposium",
-    "preview": "The inaugural biennial symposium brought together nearly 100 participants from industry and academia to discuss nucleation, polymorphism, and crystal growth.",
-    "image": "public/images/first_welch.webp",
-    "body": {
-      "full_title": "Welch Crystallization Symposium: Fostering Collaboration and Advancing Chemistry",
-      "category": "Events & Symposia",
-      "main_image": "public/images/iab_group.webp",
-      "image_caption": "The inaugural biennial Welch Crystallization Symposium.",
-      "lead_text": "The inaugural biennial Welch Crystallization Symposium was conducted on September 5, 2025, at the Agrawal Engineering Research Building of the University of Houston (UH). This full-day event drew nearly 100 participants from the pharmaceutical industry nationwide, as well as representatives from academia.",
-      "content_blocks": [
-        {
-          "type": "text",
-          "content": "The program commenced with opening remarks delivered by Dr. Adam Kuspa, President of the Welch Foundation, and Prof. Jeffrey Rimer, Program Director of the Welch Center for Advanced Bioactive Materials Crystallization at UH. Dr. Kuspa emphasized the Foundation's significant contributions to advancing chemistry in Texas through single-investigator research grants, departmental programs, endowed chairs, and other specialized initiatives. The Foundation’s Catalyst for Discovery Program Grants, which also support the Welch Center for Advanced Bioactive Materials Crystallization at UH, aim to foster collaboration by funding research teams across the state addressing critical challenges at the forefront of chemistry."
-        },
-        {
-          "type": "header",
-          "content": "Industry Perspectives & Keynote Speakers"
-        },
-        {
-          "type": "text",
-          "content": "The symposium facilitated a vigorous exchange of knowledge concerning crystallization, focusing on nucleation, polymorphism, and crystal growth. The agenda featured two plenary sessions and four keynote presentations by senior scientists from leading American pharmaceutical companies."
-        },
-        {
-          "type": "list",
-          "title": "Plenary & Keynote Highlights",
-          "items": [
-            "Dr. Christopher Burcham (Eli Lilly) discussed the advantages and challenges associated with continuous crystallization within the pharmaceutical sector.",
-            "Dr. Kevin Girard (Pfizer) elaborated on advancements in continuous crystallization, isolation, and drying capabilities at Pfizer.",
-            "Dr. Christopher Marton (Bristol Myers Squibb) recent developments in high-throughput polymorph screening and crystallization techniques from the Materials Engineering and Crystallization group at Bristol Myers Squibb.",
-            "Dr. Manish Kelkar (AbbVie) examined emerging technologies in pharmaceutical crystallization, specifically highlighting AbbVie’s ongoing development efforts.",
-            "Dr. Megan Ketchum (GlaxoSmithKline)discussed semi-continuous crystallization, illustrating a case study involving active pharmaceutical ingredient (API) wherein both continuous and batch manufacturing methods were strategically applied to fulfill specific quality requirements.",
-            "Dr. Xiaolong Zhu (Merck) focused on polymorphism and the impact of molecular physical properties, demonstrating how such properties can influence the design of polymorphs."
-          ]
-        },
+      "id": "welch-crystallization-symposium-2025",
+      "date": "2025-09-05",
+      "title": "Inaugural Welch Crystallization Symposium",
+      "preview": "The inaugural biennial symposium brought together nearly 100 participants from industry and academia to discuss nucleation, polymorphism, and crystal growth.",
+      "image": "public/images/first_welch.webp",
+      "body": {
+        "full_title": "Welch Crystallization Symposium: Fostering Collaboration and Advancing Chemistry",
+        "category": "Events & Symposia",
+        "main_image": "public/images/iab_group.webp",
+        "image_caption": "The inaugural biennial Welch Crystallization Symposium.",
+        "lead_text": "The inaugural biennial Welch Crystallization Symposium was conducted on September 5, 2025, at the Agrawal Engineering Research Building of the University of Houston (UH). This full-day event drew nearly 100 participants from the pharmaceutical industry nationwide, as well as representatives from academia.",
+        "content_blocks": [
           {
-          "type": "image_row",
-          "items": [
-            {
-              "src": "public/images/symposium_2025_speaker.webp",
-              "caption": "Dr. Christopher Burcham delivering a plenary address on continuous crystallization."
-            },
-            {
-              "src": "public/images/iab_group.webp",
-              "caption": "Principal Investigators and the Industrial Advisory Board members."
-            },
-            {
-              "src": "public/images/q_and_a.webp",
-              "caption": "Q and A with Dr. T. Randall Lee and Dr. Peter G. Vekilov."
-            },
-            {
-              "src": "public/images/symposium_2025_winners.webp",
-              "caption": "Poster competition winners: Radhika Menon, Arshia Nosrati, and Kosar Rahimi Nosrabadi."
-            }
-          ]
-        },
-        {
-          "type": "header",
-          "content": "Academic Insights & Student Research"
-        },
-        {
-          "type": "text",
-          "content": "Invited academic speakers included Professor Peter Vekilov and Dr. Gul Zerze from the UH Department of Chemical and Biomolecular Engineering. Dr. Vekilov advocated for leveraging nonclassical mechanisms in nucleation, growth, and inhibition of hematin crystals as an effective strategy to suppress malaria parasites. Meanwhile, Dr. Zerze presented a multi-scale framework linking sequence-based classification of human transcription factor effector domains with the phase behavior and nucleation landscapes of their assemblies."
-        },
-        {
-          "type": "text",
-          "content": "A poster session featured 33 graduate students who showcased their research findings and engaged with their peers and industry professionals. Three winners were announced at the conclusion of the event: Kosar Rahimi Nosrabadi (1st Place), Arshia Nosrati (2nd Place), and Radhika Menon (3rd Place)."
-        },
-        {
-          "type": "text",
-          "content": "The symposium was a significant success, achieving its primary objective of fostering collaboration between pharmaceutical professionals and academia, enabling participants to present their scientific discoveries, exchange ideas, and deliberate on future directions in pharmaceutical crystallization research and development."
-        }
-      ]
+            "type": "text",
+            "content": "The program commenced with opening remarks delivered by Dr. Adam Kuspa, President of the Welch Foundation, and Prof. Jeffrey Rimer, Program Director of the Welch Center for Advanced Bioactive Materials Crystallization at UH. Dr. Kuspa emphasized the Foundation's significant contributions to advancing chemistry in Texas through single-investigator research grants, departmental programs, endowed chairs, and other specialized initiatives. The Foundation’s Catalyst for Discovery Program Grants, which also support the Welch Center for Advanced Bioactive Materials Crystallization at UH, aim to foster collaboration by funding research teams across the state addressing critical challenges at the forefront of chemistry."
+          },
+          {
+            "type": "header",
+            "content": "Industry Perspectives & Keynote Speakers"
+          },
+          {
+            "type": "text",
+            "content": "The symposium facilitated a vigorous exchange of knowledge concerning crystallization, focusing on nucleation, polymorphism, and crystal growth. The agenda featured two plenary sessions and four keynote presentations by senior scientists from leading American pharmaceutical companies."
+          },
+          {
+            "type": "list",
+            "title": "Plenary & Keynote Highlights",
+            "items": [
+              "Dr. Christopher Burcham (Eli Lilly) discussed the advantages and challenges associated with continuous crystallization within the pharmaceutical sector.",
+              "Dr. Kevin Girard (Pfizer) elaborated on advancements in continuous crystallization, isolation, and drying capabilities at Pfizer.",
+              "Dr. Christopher Marton (Bristol Myers Squibb) recent developments in high-throughput polymorph screening and crystallization techniques from the Materials Engineering and Crystallization group at Bristol Myers Squibb.",
+              "Dr. Manish Kelkar (AbbVie) examined emerging technologies in pharmaceutical crystallization, specifically highlighting AbbVie’s ongoing development efforts.",
+              "Dr. Megan Ketchum (GlaxoSmithKline)discussed semi-continuous crystallization, illustrating a case study involving active pharmaceutical ingredient (API) wherein both continuous and batch manufacturing methods were strategically applied to fulfill specific quality requirements.",
+              "Dr. Xiaolong Zhu (Merck) focused on polymorphism and the impact of molecular physical properties, demonstrating how such properties can influence the design of polymorphs."
+            ]
+          },
+          {
+            "type": "image_row",
+            "items": [
+              {
+                "src": "public/images/symposium_2025_speaker.webp",
+                "caption": "Dr. Christopher Burcham delivering a plenary address on continuous crystallization."
+              },
+              {
+                "src": "public/images/iab_group.webp",
+                "caption": "Principal Investigators and the Industrial Advisory Board members."
+              },
+              {
+                "src": "public/images/q_and_a.webp",
+                "caption": "Q and A with Dr. T. Randall Lee and Dr. Peter G. Vekilov."
+              },
+              {
+                "src": "public/images/symposium_2025_winners.webp",
+                "caption": "Poster competition winners: Radhika Menon, Arshia Nosrati, and Kosar Rahimi Nosrabadi."
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "Academic Insights & Student Research"
+          },
+          {
+            "type": "text",
+            "content": "Invited academic speakers included Professor Peter Vekilov and Dr. Gul Zerze from the UH Department of Chemical and Biomolecular Engineering. Dr. Vekilov advocated for leveraging nonclassical mechanisms in nucleation, growth, and inhibition of hematin crystals as an effective strategy to suppress malaria parasites. Meanwhile, Dr. Zerze presented a multi-scale framework linking sequence-based classification of human transcription factor effector domains with the phase behavior and nucleation landscapes of their assemblies."
+          },
+          {
+            "type": "text",
+            "content": "A poster session featured 33 graduate students who showcased their research findings and engaged with their peers and industry professionals. Three winners were announced at the conclusion of the event: Kosar Rahimi Nosrabadi (1st Place), Arshia Nosrati (2nd Place), and Radhika Menon (3rd Place)."
+          },
+          {
+            "type": "text",
+            "content": "The symposium was a significant success, achieving its primary objective of fostering collaboration between pharmaceutical professionals and academia, enabling participants to present their scientific discoveries, exchange ideas, and deliberate on future directions in pharmaceutical crystallization research and development."
+          }
+        ]
+      }
     }
-  }
   ]
 }
