@@ -673,21 +673,23 @@
     },
     {
       "featured": false,
-      "id": "10.1002/adfm.202521179",
-      "year": 2025,
+      "id": "Vekilov_AFM_2025",
+      "year": 2024,
       "date": "2025-10-28",
       "title": "Nonclassical Modes to Inhibit β-Hematin Crystallization",
       "journal": "Advanced Functional Materials",
-      "authors": "P. Vekilov, J. Rimer et al."
+      "authors": "P. Vekilov, J. Rimer et al.",
+      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202521179"
     },
     {
       "featured": false,
-      "id": "DOI: 10.1021/acsami.5c21109",
+      "id": "Rimer_ACS_AMI_2026",
       "title": "Hydroxycitrate is a Unique Inhibitor of Pathologically-Relevant Brushite Crystallization",
       "year": 2026,
       "date": "2026-01-28",
       "journal": "ACS Applied Materials & Interfaces",
-      "authors": "J. Rimer et al."
+      "authors": "J. Rimer et al.",
+      "link": "https://pubs.acs.org/doi/10.1021/acsami.5c21109"
     }
   ]
 }
