@@ -709,6 +709,15 @@
       "year": 2026,
       "date": "2026-04-14",
       "id": "Vekilov_CGD_2026"
+    },
+    {
+      "featured": false,
+      "title": "Mechanistic Insights into Molecular Modifiers that Promote Urate Crystallization Through Solute Assembly Regulation",
+      "year": 2026,
+      "date": "2026-04-01",
+      "id": "Rimer_JACsAu_2026",
+      "journal": "JACS Au",
+      "authors": "Rimer et al."
     }
   ]
 }
