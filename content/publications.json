@@ -3,7 +3,7 @@
     {
       "authors": "J. Rimer et al.",
       "pdf_file": null,
-      "featured": false,
+      "featured": true,
       "date": "2024-01-01",
       "journal": "Chemical Reviews, 124, 3416-3493",
       "title": "The Current Understanding of Mechanistic Pathways in Zeolite Crystallization",
@@ -14,7 +14,7 @@
     {
       "authors": "J. Rimer et al.",
       "pdf_file": null,
-      "featured": false,
+      "featured": true,
       "date": "2024-01-01",
       "journal": "Small, 20, 2308166",
       "title": "High-Index NiO Particle Synthesis in Alkali Chloride Salts: Nonclassical Crystallization Pathways and Thermally-Induced Surface Restructuring",
@@ -69,7 +69,7 @@
     {
       "authors": "P. Vekilov, J. Palmer et al.",
       "pdf_file": null,
-      "featured": false,
+      "featured": true,
       "date": "2024-01-01",
       "journal": "PNAS, 121, e2320201121",
       "title": "The elementary reactions for incorporation into crystals",
@@ -126,7 +126,7 @@
       "pdf_file": null,
       "featured": false,
       "date": "2024-01-01",
-      "journal": "Science Advances, 10, eadn9657",
+      "journal": "Science Advances",
       "title": "Did the exposure of coacervate droplets to rain make them the first stable protocells?",
       "link": "https://www.science.org/doi/pdf/10.1126/sciadv.adn9657",
       "id": "coacervate-droplets-protocells-2024",
