@@ -1,14 +1,17 @@
 {
   "events_list": [
-    {"id": "weekly-meeting",
+    {
+      "preview": "Weekly Center Meeting.",
+      "time": "9:00 AM - 10:00 AM",
       "date": "2026-01-16",
       "recurrence": "weekly",
       "date_display": "Every Friday",
-      "title": "Center's Weekly Friday Meeting",
-      "time": "9:00 AM - 10:00 AM",
       "location": "AERB 100, Durga D. and Sushila Agrawal Engineering Research Building",
-      "preview": "Weekly Center Meeting.",
-      "tags": ["Meeting"]
+      "title": "Center's Weekly Friday Meeting",
+      "tags": [
+        "Meeting"
+      ],
+      "id": "weekly-meeting"
     },
     {
       "id": "welch-summer-2026",
@@ -17,7 +20,9 @@
       "time": "June - August 2026",
       "location": "University of Houston",
       "preview": "Annual summer school for crystallization fundamentals.",
-      "tags": ["Summer School"]
+      "tags": [
+        "Summer School"
+      ]
     },
     {
       "id": "grc-crystal-2026",
@@ -27,7 +32,9 @@
       "location": "Newry, Maine, United States",
       "preview": "Gordon Research Conference on Crystal Engineering.",
       "link": "https://www.grc.org/crystal-engineering-conference/2026/",
-      "tags": ["Conference"]
+      "tags": [
+        "Conference"
+      ]
     },
     {
       "id": "aacg-2026",
@@ -37,7 +44,9 @@
       "location": "Fallen Leaf Lake, California, USA",
       "preview": "Western Section Conference on Crystal Growth & Epitaxy.",
       "link": "https://www.aacgwest.org/",
-      "tags": ["Conference"]
+      "tags": [
+        "Conference"
+      ]
     },
     {
       "id": "acs-spring-2026",
@@ -47,7 +56,22 @@
       "location": "Atlanta, GA & Digital",
       "preview": "American Chemical Society National Meeting.",
       "link": "https://www.acs.org/events/spring.html",
-      "tags": ["Conference"]
+      "tags": [
+        "Conference"
+      ]
+    },
+    {
+      "preview": "26th Larson Workshop",
+      "time": "May 17 - 20, 2026",
+      "date": "2026-05-17",
+      "recurrence": "none",
+      "location": "Minneapolis, MN 55402",
+      "title": "26th Larson Workshop",
+      "tags": [
+        "Workshop"
+      ],
+      "link": "https://www.regcytes.extension.iastate.edu/larson/",
+      "id": "26th-larson-workshop"
     }
   ]
 }
