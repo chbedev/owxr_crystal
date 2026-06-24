@@ -57,7 +57,10 @@
       "date": "2026-10-09",
       "location": "University of Houston at Main Campus",
       "title": "Welch Crystallization Symposium 2026",
-      "preview": "We are pleased to announce that the annual Welch Crystallization Symposium will take place on October 9, 2026. \n\nHosted by the Welch Center for Advanced Bioactive Materials Crystallization, this event serves as a premier forum for researchers, faculty, and industry professionals. Attendees will explore the latest advancements in crystal nucleation, molecular engineering, and nonclassical crystallization pathways.\n\nKey Information:\nDate: Friday, October 9, 2026\nHost: Welch Center for Advanced Bioactive Materials Crystallization\nAudience: Materials scientists, chemical engineers, chemists, and industry experts\n\nStay tuned for upcoming announcements regarding our keynote speaker lineup, session topics, and registration details."
+      "preview": "We are pleased to announce that the annual Welch Crystallization Symposium will take place on October 9, 2026. ",
+      "body": {
+        "lead_text": "Hosted by the Welch Center for Advanced Bioactive Materials Crystallization, this event serves as a premier forum for researchers, faculty, and industry professionals. Attendees will explore the latest advancements in crystal nucleation, molecular engineering, and nonclassical crystallization pathways.\n\nKey Information:\nDate: Friday, October 9, 2026\nHost: Welch Center for Advanced Bioactive Materials Crystallization\nAudience: Materials scientists, chemical engineers, chemists, and industry experts\n\nStay tuned for upcoming announcements regarding our keynote speaker lineup, session topics, and registration details."
+      }
     }
   ]
 }
