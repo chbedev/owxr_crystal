@@ -37,31 +37,6 @@
       ]
     },
     {
-      "id": "aacg-2026",
-      "date": "2026-06-07",
-      "title": "29th AACG Western Section Conference on Crystal Growth & Epitaxy",
-      "time": "June 7 - 11, 2026",
-      "location": "Fallen Leaf Lake, California, USA",
-      "preview": "Western Section Conference on Crystal Growth & Epitaxy.",
-      "link": "https://www.aacgwest.org/",
-      "tags": [
-        "Conference"
-      ]
-    },
-    {
-      "preview": "26th Larson Workshop | May 17-20, 2026 | Minneapolis, MN",
-      "time": "May 17 - 20, 2026",
-      "date": "2026-05-17",
-      "recurrence": "none",
-      "location": "Faegre Drinker Offices 2200 Wells Fargo Center 90 S. 7th  Street Minneapolis, MN 55402",
-      "title": "26th Larson Workshop",
-      "tags": [
-        "Workshop"
-      ],
-      "link": "https://www.regcytes.extension.iastate.edu/larson/",
-      "id": "26th-larson-workshop"
-    },
-    {
       "body": {
         "full_title": "Molecular Engineering Academy",
         "image": "/public/images/gul_mea_3.jpg",
@@ -75,6 +50,14 @@
       "title": "Molecular Engineering Academy",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLScO8hygQazVMrNX-dy_giB173DMm66uglc9VmAV1hcZxr_l9A/viewform",
       "id": "Gul_MEA_2026"
+    },
+    {
+      "recurrence": "none",
+      "id": "Welch_Symposium",
+      "date": "2026-10-09",
+      "location": "University of Houston at Main Campus",
+      "title": "Welch Crystallization Symposium 2026",
+      "preview": "We are pleased to announce that the annual Welch Crystallization Symposium will take place on October 9, 2026. \n\nHosted by the Welch Center for Advanced Bioactive Materials Crystallization, this event serves as a premier forum for researchers, faculty, and industry professionals. Attendees will explore the latest advancements in crystal nucleation, molecular engineering, and nonclassical crystallization pathways.\n\nKey Information:\nDate: Friday, October 9, 2026\nHost: Welch Center for Advanced Bioactive Materials Crystallization\nAudience: Materials scientists, chemical engineers, chemists, and industry experts\n\nStay tuned for upcoming announcements regarding our keynote speaker lineup, session topics, and registration details."
     }
   ]
 }
