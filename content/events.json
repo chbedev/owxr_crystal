@@ -1,6 +1,9 @@
 {
   "events_list": [
     {
+      "body": {
+        "image": "/public/images/favicon-96x96.png"
+      },
       "preview": "Weekly Center Meeting.",
       "time": "9:00 AM - 10:00 AM",
       "date": "2026-01-16",
