@@ -2,7 +2,7 @@
   "events_list": [
     {
       "body": {
-        "image": "/public/images/favicon-96x96.png"
+        "image": ""
       },
       "preview": "Weekly Center Meeting.",
       "time": "9:00 AM - 10:00 AM",
@@ -56,7 +56,7 @@
     {
       "body": {
         "full_title": "Prof. Rimer to speak at TAMEST’s O’Donnell Awards Summit",
-        "image": "https://www.egr.uh.edu/news/202606/chbe%E2%80%99s-rimer-speak-tamest%E2%80%99s-o%E2%80%99donnell-awards-summit"
+        "image": "/public/images/jeff-rimer-2-newsroom-01-crop.jpg"
       },
       "preview": "Prof. Rimer has been invited to speak at the Edith and Peter O'Donnell Awards Summit hosted by the Texas Academy of Medicine, Science, and Technology.",
       "time": "Thursday, September 10, 2026",
