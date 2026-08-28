@@ -43,16 +43,17 @@
       "id": "Gul_MEA_2026"
     },
     {
-      "recurrence": "none",
-      "id": "Welch_Symposium",
-      "date": "2026-10-09",
-      "location": "University of Houston at Main Campus",
-      "title": "Welch Crystallization Symposium 2026",
-      "preview": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the 2nd Annual Welch Crystallization Symposium, which will be held on Friday, October 9, 2026, at the University of Houston in Houston, Texas.\n\nOnline registration for the symposium is available at https://forms.gle/FVkDQJKdbjSJ1DPS9; and there is no registration fee. \n",
       "body": {
         "lead_text": ""
       },
-      "time": "09.00 AM - 04.00 PM"
+      "preview": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the 2nd Annual Welch Crystallization Symposium, which will be held on Friday, October 9, 2026, at the University of Houston in Houston, Texas.\n\nOnline registration for the symposium is now open and there is no registration fee. \n",
+      "time": "09.00 AM - 04.00 PM",
+      "date": "2026-10-09",
+      "recurrence": "none",
+      "location": "University of Houston at Main Campus",
+      "title": "Welch Crystallization Symposium 2026",
+      "link": "https://forms.gle/FVkDQJKdbjSJ1DPS9",
+      "id": "Welch_Symposium"
     },
     {
       "body": {
