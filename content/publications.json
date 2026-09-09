@@ -757,12 +757,12 @@
     },
     {
       "featured": false,
-      "id": "Rimer_CentScie_2026",
+      "id": "Rimer_CGD_2026",
       "year": 2026,
-      "title": "Cholesterol Crystallization Tests the Limits of Microscopic Reversibility for Molecular Pathways of Growth and Dissolution",
-      "journal": "ACS Cent. Sci.",
+      "title": "Solvent-dependent Relative Stability of Crystal Forms",
+      "journal": "Cryst. Growth Des.",
       "authors": "Rimer, Vekilov et al.",
-      "link": "https://doi.org/10.1021/acscentsci.5c02371?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+      "link": "https://doi.org/10.1021/acs.cgd.5c01461"
     }
   ]
 }
