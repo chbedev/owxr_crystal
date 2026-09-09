@@ -758,12 +758,192 @@
     },
     {
       "featured": false,
-      "id": "Rimer_CGD_2026",
+      "id": "Vekilov_CC_2025",
+      "year": 2025,
+      "title": "A Nonclassical Pathway of Beta-Hematin Crystal Nucleation Enables its Suppression by Antimalarials",
+      "journal": "Commun. Chem. 8 (2025) 246",
+      "authors": "Vekilov, Palmer, Rimer et al.",
+      "link": "https://doi.org/10.1038/s42004-025-01612-0"
+    },
+    {
+      "featured": false,
+      "id": "Vekilov_JPCL_2026",
+      "title": "Direct Measurements of Colloid Crystal Nucleation Barriers and Rates Comply with a Priori Classical Theory Prediction",
       "year": 2026,
-      "title": "Solvent-dependent Relative Stability of Crystal Forms",
-      "journal": "Cryst. Growth Des. 26 (2026) 3233-3249",
-      "authors": "Rimer, Vekilov et al.",
-      "link": "https://doi.org/10.1021/acs.cgd.5c01461"
+      "journal": "J. Phys. Chem. Lett. 17(2026)  6183−6192",
+      "authors": "Vekilov et al.",
+      "link": "https://doi.org/10.1021/acs.jpclett.6c00707?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "id": "Vekilov_CGD_2026",
+      "year": 2026,
+      "title": "Crystal Polymorph Stability",
+      "journal": "Cryst. Growth Des. 26 (2026) 4411−4433",
+      "authors": "Vekilov et al.",
+      "link": "https://doi.org/10.1021/acs.cgd.6c00323"
+    },
+    {
+      "featured": false,
+      "id": "Vekilov_AB_2026",
+      "year": 2026,
+      "title": "Differential Responses of Amyloid-β 42 Aggregates to Resveratrol",
+      "journal": "Advanced Biology 10(3) (2026) 10:e00586",
+      "authors": "Vekilov et al.",
+      "link": "https://doi.org/10.1002/adbi.202500586"
+    },
+    {
+      "featured": false,
+      "id": "Vekilov_CGD_2026",
+      "year": 2026,
+      "title": "Modifiers Regulate Crystal Morphology by Generating Lattice Defects",
+      "journal": "Cryst. Growth Des. 26 (2026) 934−943",
+      "authors": "Vekilov et al.",
+      "link": "https://doi.org/10.1021/acs.cgd.5c01526?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "id": "Vekilov_Small_2026",
+      "year": 2026,
+      "title": "Navigating Classical and Nonclassical Realms of Nucleation and Crystallization",
+      "journal": "Small 22-50 (2026) e11608",
+      "link": "https://doi.org/10.1002/smll.202511608",
+      "authors": "Vekilov et al"
+    },
+    {
+      "featured": false,
+      "title": "Direct Observation of Amyloid β 42 Oligomer, Fibril, and Amorphous Aggregate Growth and Dissolution at Biomimetic Concentrations",
+      "year": 2025,
+      "id": "Vekilov_JPCB_2025",
+      "journal": "J. Phys. Chem. B,  129 (2025) 9083−9096",
+      "authors": "Vekilov et al.",
+      "link": "https://doi.org/10.1021/acs.jpcb.5c03842"
+    },
+    {
+      "featured": false,
+      "id": "Palmer_JPCB_2025",
+      "year": 2025,
+      "title": "pH response of Weak Polyampholyte Brushes with Random Charge-Asymmetric Monomer Sequences",
+      "journal": "J. Phys. Chem. B. 129(2025) 10174−10183",
+      "authors": "Palmer et al.",
+      "link": "https://doi.org/10.1021/acs.jpcb.5c04431?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "id": "Palmer_PRM_2026",
+      "year": 2026,
+      "title": "Guided Synthesis of EMT Zeolites by Machine Learning",
+      "journal": "Phys. Rev. Mater. 10 (2026) 083801",
+      "authors": "Palmer, Rimer et al.",
+      "link": "https://doi-org.ezproxy.lib.uh.edu/10.1103/v2yp-ylxm"
+    },
+    {
+      "featured": false,
+      "id": "Palmer_JCP_2026",
+      "title": "Effects of skewing collision cells on transport properties in multiparticle collision dynamics simulations",
+      "year": 2026,
+      "journal": "J. Chem. Phys.164 (2026) 094909",
+      "authors": "Palmer et al.",
+      "link": "https://doi.org/10.1063/5.0307665"
+    },
+    {
+      "featured": false,
+      "id": "Palmer_SM_2026",
+      "year": 2026,
+      "title": "Simulation of weak polyelectrolyte brushes: the effects of ionizable monomer fraction and monovalent salt",
+      "journal": "Soft Matter, 22(2026) 1240",
+      "authors": "Palmer et al.",
+      "link": "https://doi-org.ezproxy.lib.uh.edu/10.1039/d5sm00999e"
+    },
+    {
+      "featured": false,
+      "title": "pH Response of Weak Polyampholyte Brushes with Random ChargeAsymmetric Monomer Sequences",
+      "year": 2025,
+      "id": "Palmer_JPCB_2025",
+      "journal": "J. Phys. Chem. B, 129 (2025) 10174−10183",
+      "authors": "Palmer et al.",
+      "link": "https://doi.org/10.1021/acs.jpcb.5c04431"
+    },
+    {
+      "featured": false,
+      "id": "Lee_Mat_2026",
+      "year": 2026,
+      "title": "Tuning the Crystallite Size, Shape, and Magnetic Properties of Fe3O4 Nanoparticles Using Annealing",
+      "journal": "Materials 19 (2026) 2911",
+      "authors": "Lee, Robles et al.",
+      "link": "https://doi.org/10.3390/ma19132911"
+    },
+    {
+      "featured": false,
+      "id": "Leet_ANM_2025",
+      "year": 2025,
+      "title": "Magnetic Fe₃O₄ Nanocubes Coated with Silica and Nb-doped TiO₂ for Recyclable Photocatalytic Degradation of Ciprofloxacin",
+      "journal": "ACS Appl Nano Mater 8 (2025) 22540–22552",
+      "authors": "Lee, Robles et al.",
+      "link": "https://doi.org/10.1021/acsanm.5c03103"
+    },
+    {
+      "featured": false,
+      "title": "Coupling atomic layer design with switching dynamics in sub-2 nanometer oxide memristors",
+      "year": 2026,
+      "id": "Robles_CM_2026",
+      "journal": "Communications Materials 7 (2026) 188",
+      "authors": "Robles et al.",
+      "link": "https://doi.org/10.1038/s43246-026-01116-x"
+    },
+    {
+      "featured": false,
+      "title": "Energy Storage in Nanocomposite Films of Polystyrene Grafted TiO₂ Nanoparticles",
+      "year": 2025,
+      "id": "Karim_Pol_2025",
+      "journal": "Polymer",
+      "authors": "Karim, Robles et al.",
+      "link": "https://doi-org.ezproxy.lib.uh.edu/10.1016/j.polymer.2025.128751"
+    },
+    {
+      "featured": false,
+      "title": "Effect of mixing order on structure and formation of polyelectrolyte complexes",
+      "year": 2026,
+      "id": "Karim_JCIS_2026",
+      "journal": "Journal of Colloid and Interface Science 716 (2026) 140298",
+      "authors": "Karim, Zerze et al.",
+      "link": "https://doi-org.ezproxy.lib.uh.edu/10.1016/j.jcis.2026.140298"
+    },
+    {
+      "featured": false,
+      "title": "Glassy dynamics of model complex coacervate films with variable interaction strength quantified by the critical salt concentration",
+      "id": "Karim_SM_2025",
+      "year": 2025,
+      "journal": "Soft Matter 21(2025) 9361",
+      "authors": "Karim, Zerze et al.",
+      "link": "https://doi.org/10.1039/d5sm00969c"
+    },
+    {
+      "featured": false,
+      "title": "Two-Dimensional Covalent Organic Framework Films for High Dielectric Strength Electrically and Thermo-Mechanically Stable Low Permittivity Dielectrics",
+      "year": 2025,
+      "id": "Karim_acsNano_2025",
+      "journal": "ACS Nano 19(42) (2025) 37175-37185",
+      "authors": "Karim, Robles et al",
+      "link": "https://doi.org/10.1021/acsnano.5c11582"
+    },
+    {
+      "featured": false,
+      "title": "Stabilizing Effect of Neighboring Disordered RGG Domain on the Folded State of FUS-RRM",
+      "id": "Zerze_JPCB_2026",
+      "year": 2026,
+      "journal": "J. Phys. Chem. B 130(2026) 6773−6781",
+      "authors": "Zerze et al.",
+      "link": "https://doi.org/10.1021/acs.jpcb.6c02052?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "title": "Blind Prediction of Complex Water and Ion EnsemblesAround RNA in CASP16",
+      "id": "Zerze_Protein_",
+      "year": 2026,
+      "journal": "Proteins: Structure, Function, and Bioinformatics 94 (2026) 381–402",
+      "authors": "Zerze et al.",
+      "link": "https://doi.org/10.1002/prot.70079"
     }
   ]
 }
