@@ -718,6 +718,51 @@
       "id": "Rimer_JACsAu_2026",
       "journal": "JACS Au",
       "authors": "Rimer et al."
+    },
+    {
+      "featured": false,
+      "id": "Rimer_JPCL_2026",
+      "year": 2026,
+      "title": "Cooperative Action of Inorganic and Organic Modifiers of Calcium Oxalate Crystallization",
+      "journal": "J. Phys. Chem. Lett.",
+      "authors": "Rimer et al.",
+      "link": "https://doi.org/10.1021/acs.jpclett.6c01453"
+    },
+    {
+      "featured": false,
+      "id": "Rimer_JPCC_2025",
+      "title": "Dynamic Interchanges between Isomers and Charged States of a Polyprotic, Tautomeric Molecule Impacts the Growth of Biogenic Urate Crystals",
+      "year": 2025,
+      "journal": "J. Phys. Chem. C",
+      "authors": "Rimer et al.",
+      "link": "https://doi.org/10.1021/acs.jpcc.5c05418"
+    },
+    {
+      "featured": false,
+      "id": "Rimer_AMI_2026",
+      "title": "Hydroxycitrate is a Unique Inhibitor of Pathologically-Relevant Brushite Crystallization",
+      "year": 2026,
+      "journal": "ACS Appl. Mater. Interfaces",
+      "authors": "Rimer et al.",
+      "link": "https://doi.org/10.1021/acsami.5c21109"
+    },
+    {
+      "featured": false,
+      "id": "Rimer_AngewChem_2026",
+      "year": 2026,
+      "title": "Hydrothermal Annealing of Hierarchical ZSM-5 Zeolites Improves Catalytic Performance",
+      "journal": "Angew. Chem. Int. Ed.",
+      "authors": "Rimer et al.",
+      "link": "https://doi-org.ezproxy.lib.uh.edu/10.1002%2Fanie.202515008"
+    },
+    {
+      "featured": false,
+      "id": "Rimer_CentScie_2026",
+      "year": 2026,
+      "title": "Cholesterol Crystallization Tests the Limits of Microscopic Reversibility for Molecular Pathways of Growth and Dissolution",
+      "journal": "ACS Cent. Sci.",
+      "authors": "Rimer, Vekilov et al.",
+      "link": "https://doi.org/10.1021/acscentsci.5c02371?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
     }
   ]
 }
