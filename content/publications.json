@@ -661,7 +661,7 @@
       "year": 2025
     },
     {
-      "featured": false,
+      "featured": true,
       "id": "Rimer_ACS_AMI_2026",
       "title": "Hydroxycitrate is a Unique Inhibitor of Pathologically-Relevant Brushite Crystallization",
       "year": 2026,
@@ -718,7 +718,7 @@
       "link": "https://doi.org/10.1021/acs.jpcc.5c05418"
     },
     {
-      "featured": false,
+      "featured": true,
       "id": "Rimer_AFM_2026",
       "title": "Nonclassical Modes to Inhibit Beta-Hematin Crystallization",
       "year": 2026,
@@ -727,7 +727,7 @@
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1002%2Fadfm.202521179"
     },
     {
-      "featured": true,
+      "featured": false,
       "id": "Rimer_AngewChem_2026",
       "year": 2026,
       "title": "Hydrothermal Annealing of Hierarchical ZSM-5 Zeolites Improves Catalytic Performance",
