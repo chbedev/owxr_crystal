@@ -320,10 +320,11 @@
             "items": [
               {
                 "src": "/public/images/picture4.jpg",
-                "caption": "The poster session featured 32 presenters from Texas universities, while five world-leading manufacturers showcased their state-of-the-art instruments for crystal characterization."
+                "caption": "The poster session featured 32 presenters from Texas universities."
               },
               {
-                "src": "/public/images/picture5.jpg"
+                "src": "/public/images/picture5.jpg",
+                "caption": "Five world-leading manufacturers showcased their state-of-the-art instruments for crystal characterization."
               }
             ]
           },
