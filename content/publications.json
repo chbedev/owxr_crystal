@@ -914,6 +914,15 @@
       "journal": "Proteins: Structure, Function, and Bioinformatics 94 (2026) 381–402",
       "authors": "Zerze et al.",
       "link": "https://doi.org/10.1002/prot.70079"
+    },
+    {
+      "featured": false,
+      "id": "Zerze_BioPhys_2026",
+      "year": 2026,
+      "title": "Enhanced-sampling simulations reveal distinct intermediates in SARS-CoV-2 FSE pseudoknot interconversion",
+      "journal": "Biophysical Journal",
+      "authors": "Zerze et al.",
+      "link": "https://doi.org/10.1016/j.bpj.2026.06.039"
     }
   ]
 }
