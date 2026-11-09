@@ -671,7 +671,7 @@
       "link": "https://pubs.acs.org/doi/10.1021/acsami.5c21109"
     },
     {
-      "featured": false,
+      "featured": true,
       "title": "Cholesterol Crystallization Tests the Limits of Microscopic Reversibility for Molecular Pathways of Growth and Dissolution",
       "year": 2026,
       "date": "2026-04-01",
@@ -691,7 +691,7 @@
       "id": "Vekilov_CGD_2026"
     },
     {
-      "featured": false,
+      "featured": true,
       "title": "Mechanistic Insights into Molecular Modifiers that Promote Urate Crystallization Through Solute Assembly Regulation",
       "year": 2026,
       "date": "2026-04-01",
@@ -727,7 +727,7 @@
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1002%2Fadfm.202521179"
     },
     {
-      "featured": false,
+      "featured": true,
       "id": "Rimer_AngewChem_2026",
       "year": 2026,
       "title": "Hydrothermal Annealing of Hierarchical ZSM-5 Zeolites Improves Catalytic Performance",
@@ -781,7 +781,7 @@
       "link": "https://doi.org/10.1021/acs.cgd.5c01526?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
     },
     {
-      "featured": false,
+      "featured": true,
       "id": "Vekilov_Small_2026",
       "year": 2026,
       "title": "Navigating Classical and Nonclassical Realms of Nucleation and Crystallization",
