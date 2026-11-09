@@ -3,35 +3,71 @@
     {
       "id": "summer-school-2026",
       "date": "2026-02-01",
-      "title": "Announcing Welch Summer School 2026",
-      "preview": "A remarkable opportunity for high school students and freshmen to engage in hands-on crystallization research this summer.",
+      "title": "Welch Summer School 2026 Inspires Next Generation of Scientists Through Hands-On Research",
+      "preview": "",
       "image": "",
       "body": {
-        "full_title": "Welch Summer School 2026: Hands-on Research Experience",
+        "full_title": "",
         "category": "Education & Outreach",
         "main_image": "",
         "image_caption": "",
-        "lead_text": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the Welch Summer School 2026. This initiative offers a remarkable opportunity for high school students and freshmen who are passionate about science, technology, and research.",
+        "lead_text": "",
         "content_blocks": [
           {
             "type": "text",
-            "content": "Participants will engage in scientific research focused on crystallization and its applications within pharmaceuticals, energy, and agriculture. They will have the opportunity to work in the laboratories of the center's seven faculty members from three different departments, benefiting from the guidance and mentorship of over 30 postdoctoral fellows and Ph.D. students."
+            "content": "The Welch Summer School 2026, organized by the Welch Center for Advanced Bioactive Materials Crystallization, provided high school students and incoming university freshmen with a unique opportunity to experience scientific research firsthand. Twenty-nine students, including 12 girls and 17 boys, participated in the program, which ran from June 1 through July 30, 2026. During the eight-week summer experience, students worked on research projects spanning crystallization science, biomaterials, catalysis, computational biology, nanomaterials, and pharmaceutical applications. The program concluded with each student delivering a five-minute presentation highlighting their research findings and lessons learned."
+          },
+          {
+            "type": "image",
+            "src": "/public/images/summerschool1.jpg"
           },
           {
             "type": "text",
-            "content": "The program is scheduled to run from June to August 2026, with flexible start and end dates to accommodate participants' schedules. To ensure students can fully engage with the work, applicants should have at least one year of chemistry experience. Each participant is typically paired with a postdoc or a PhD student who acts as a daily mentor, assisting with experimental training, project guidance, and helping them integrate into the lab environment."
+            "content": "A defining feature of the program was its emphasis on mentorship. Every participant was paired with a graduate student or postdoctoral researcher from the center, allowing students to receive one-on-one guidance while working inactive research laboratories. In addition to laboratory and computational work, students interacted with the center's principal investigators, discussing both cutting-edge crystallization science and potential career pathways in engineering and research. After completing initial training, many students were entrusted to perform experiments and computational analyses independently, an opportunity that significantly boosted their confidence and introduced them to the realities of scientific discovery."
           },
           {
             "type": "text",
-            "content": "We regularly collaborate with faculty across the college to organize lectures and activities aimed at introducing students to STEM research, academic pathways, and related career options."
+            "content": "The educational experience extended beyond the laboratory. Students participated in the Department of Chemical and Biomolecular Engineering's Lunch and Learn seminar series, which featured topics such as Introduction to Chemical Engineering, Communicating Research, Engineering the Future of Medicine, and Making Scientific Research. These sessions exposed participants to a broad range of scientific disciplines and professional skills while helping them envision future educational and career opportunities."
           },
           {
             "type": "text",
-            "content": "We are proud of the positive impact our previous summer schools have had. Last year, 11 high school students and freshmen from various schools and universities around Houston gained invaluable hands-on experience in our state-of-the-art laboratories. This year, we anticipate admitting an even larger cohort of enthusiastic learners."
+            "content": "For many participants, the program represented their first exposure to research. Mahi Patel, a high school student, described the summer school as her first opportunity to conduct scientific research. Working with mentor Arshia Nosrati, she investigated how factors such as temperature, supersaturation, nanoparticles, and substrates influence the morphology of the pharmaceutical compound theophylline. Through the project, Patel gained experience with microscopy, X-ray diffraction, scanning electron microscopy, and other advanced characterization techniques. Beyond technical skills, she learned the importance of persistence when experiments do not proceed as expected. The experience strengthened her interest in chemistry and demonstrated how research can contribute to innovations in pharmaceutical science."
+          },
+          {
+            "type": "image",
+            "src": "/public/images/summerschool2.jpg"
           },
           {
             "type": "text",
-            "content": "If you have any questions or need further information, please don't hesitate to reach out to smhatre@central.uh.edu."
+            "content": "Several students explored the growing field of computational biology. Alexander Nguyen investigated interactions between the proteins MYC and MAX, using computational simulations to study how changes in protein organization may be related to cancer. Working in the laboratory of Dr. Gül Zerze, he gained insight into how computational approaches can help address challenging biomedical questions. Similarly, Yuvraj Rathore studied MYC-MAX interactions through hydrophobicity scale and slab simulations. Despite entering the program with limited programming experience, Rathore discovered a passion for computational science and developed coding and data analysis skills that he plans to continue pursuing in future studies"
+          },
+          {
+            "type": "text",
+            "content": "Other participants focused on laboratory-based investigations in materials science and crystallization. Nathan Benjamin examined topics such as polymorphism, nucleation, crystal growth, and the effect of additives on crystal formation, gaining a deeper understanding of the role crystallization plays in pharmaceutical development. Zainab Khokhar explored polymorphism using mefenamic acid and also learned about protein aggregation and malaria-related research. Both students noted that the experience helped connect classroom concepts to real-world scientific challenges while strengthening their interest in healthcare-related careers."
+          },
+          {
+            "type": "text",
+            "content": "Biomineralization and nanomaterials research also featured prominently in the program. Kaela Pham learned laboratory techniques including ion-selective electrodes and microfluidics while studying biomineralization processes. Shruthi Nythruva worked with iron oxide nanoparticles, learning how synthesis conditions influence material properties and gaining familiarity with advanced instrumentation used to characterize nanomaterials. Both students emphasized the value of supportive mentorship and the insight they gained into how scientific research is conducted on a daily basis."
+          },
+          {
+            "type": "text",
+            "content": "Several participants were introduced to advanced characterization techniques used throughout engineering and materials research. Aniruddha Varadarajan learned Raman spectroscopy, microscopy, sample preparation, and data analysis techniques while working collaboratively with mentors and fellow students. Dhira Vejendla also utilized Raman spectroscopy, synthesizing compounds, polishing metals, and depositing ruby coatings using laser-based methods. These experiences provided valuable exposure to materials science and inspired future interests in semiconductor research and related technologies."
+          },
+          {
+            "type": "image",
+            "src": "/public/images/summerschool3.png"
+          },
+          {
+            "type": "text",
+            "content": "Catalysis and materials engineering projects offered students opportunities to engage with research that has direct industrial relevance. Vi Ho, working in Rimer Group, studied the synthesis and characterization of zeolite catalysts for Fischer-Tropsch synthesis. Kayla Nguyen expanded her knowledge of catalyst supports while gaining experience with calcination, X-ray diffraction, and scanning electron microscopy. Karina D'Souza and Ivan Garcia also focused on zeolites and heterogeneous catalysis, learning a wide range of analytical techniques used to evaluate advanced materials. Their experiences highlighted the collaborative nature of laboratory work and demonstrated how scientific discoveries are translated into practical applications."
+          },
+          {
+            "type": "text",
+            "content": "For some participants, the greatest impact extended beyond technical knowledge. Anna Lin, who had never coded before joining the program, learned molecular dynamics simulations and advanced computational approaches for studying proteins. She also described gaining independence and self-confidence through the research process. Across the program, students repeatedly cited mentorship, teamwork, and exposure to authentic scientific challenges as transformative aspects of their experience. Whether their interests lay in medicine, computational biology, chemical engineering, catalysis, pharmaceuticals, or materials science, many participants left with a clearer vision of their future careers and a stronger appreciation for research."
+          },
+          {
+            "type": "text",
+            "content": "As the 2026 Welch Summer School came to a close, the students' final presentations showcased not only research results but also personal growth. Through hands-on projects, close mentorship, and immersion in a university research environment, the program succeeded in its mission of introducing young scholars to the excitement and rigor of scientific discovery. For many participants, the experience served as a first step toward future careers in science, engineering, and medicine, while reinforcing the importance of curiosity, perseverance, and collaboration in advancing knowledge."
           }
         ]
       }
