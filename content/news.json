@@ -254,7 +254,7 @@
     },
     {
       "id": "welch-symposium-2026",
-      "date": "",
+      "date": "2026-10-09",
       "title": "Welch Crystallization Symposium 2026 Brings Together Leading Experts in Crystal Engineering and Pharmaceutical Manufacturing",
       "preview": "\n\n",
       "body": {
@@ -269,7 +269,7 @@
           },
           {
             "type": "text",
-            "content": "\\    \nThe event opened with remarks from Dr. Adam Kuspa, President of the Welch Foundation, who emphasized the Foundation's longstanding commitment to advancing chemical research. Founded in 1954 and based in Houston, the Welch Foundation is among the nation's largest private funding sources supporting basic chemical research."
+            "content": "The event opened with remarks from Dr. Adam Kuspa, President of the Welch Foundation, who emphasized the Foundation's longstanding commitment to advancing chemical research. Founded in 1954 and based in Houston, the Welch Foundation is among the nation's largest private funding sources supporting basic chemical research."
           },
           {
             "type": "text",
@@ -319,7 +319,8 @@
             "type": "image_row",
             "items": [
               {
-                "src": "/public/images/picture4.jpg"
+                "src": "/public/images/picture4.jpg",
+                "caption": "The poster session featured 32 presenters from Texas universities, while five world-leading manufacturers showcased their state-of-the-art instruments for crystal characterization."
               },
               {
                 "src": "/public/images/picture5.jpg"
