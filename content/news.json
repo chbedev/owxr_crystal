@@ -5,7 +5,7 @@
       "date": "2026-02-01",
       "title": "Welch Summer School 2026 Inspires Next Generation of Scientists Through Hands-On Research",
       "preview": "",
-      "image": "",
+      "image": "/public/images/summerschool1.jpg",
       "body": {
         "full_title": "",
         "category": "Education & Outreach",
@@ -16,10 +16,6 @@
           {
             "type": "text",
             "content": "The Welch Summer School 2026, organized by the Welch Center for Advanced Bioactive Materials Crystallization, provided high school students and incoming university freshmen with a unique opportunity to experience scientific research firsthand. Twenty-nine students, including 12 girls and 17 boys, participated in the program, which ran from June 1 through July 30, 2026. During the eight-week summer experience, students worked on research projects spanning crystallization science, biomaterials, catalysis, computational biology, nanomaterials, and pharmaceutical applications. The program concluded with each student delivering a five-minute presentation highlighting their research findings and lessons learned."
-          },
-          {
-            "type": "image",
-            "src": "/public/images/summerschool1.jpg"
           },
           {
             "type": "text",
