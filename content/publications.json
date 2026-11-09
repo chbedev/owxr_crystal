@@ -646,7 +646,7 @@
       "journal": "ACS Applied Materials & Interfaces, 17, 64065–64076",
       "title": "Gold-Silver Nanoshell-Embedded Polydimethylsiloxane Films for Near-Infrared Photothermal Eradication of Bacteria",
       "link": "https://pubs.acs.org/doi/10.1021/acsami.5c11932",
-      "id": "gold-silver-nanoshell-2025",
+      "id": "Lee_ACS_AMI_2025",
       "year": 2025
     },
     {
@@ -657,29 +657,8 @@
       "journal": "Materials, 18, 5246",
       "title": "Stabilizing the Localized Surface Plasmon Resonance (LSPR) of Citrate-Synthesized Metal Nanoparticles in Organic Solvents",
       "link": "https://www.mdpi.com/1996-1944/18/22/5246",
-      "id": "stabilizing-lspr-nanoparticles-2025",
+      "id": "Lee_Mat_2025",
       "year": 2025
-    },
-    {
-      "authors": "T. R. Lee, F. Robles et al.",
-      "pdf_file": null,
-      "featured": false,
-      "date": "2025-01-01",
-      "journal": "ACS Applied Nano Materials, 8, 22540–22552",
-      "title": "Magnetic Fe3O4 Nanocubes Coated with Silica and Nb-Doped TiO2 for Recyclable Photocatalytic Degradation of Ciprofloxacin",
-      "link": "https://pubs.acs.org/doi/10.1021/acsanm.5c03103",
-      "id": "magnetic-fe3o4-nanocubes-2025",
-      "year": 2025
-    },
-    {
-      "featured": false,
-      "id": "Vekilov_AFM_2025",
-      "year": 2024,
-      "date": "2025-10-28",
-      "title": "Nonclassical Modes to Inhibit β-Hematin Crystallization",
-      "journal": "Advanced Functional Materials",
-      "authors": "P. Vekilov, J. Rimer et al.",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202521179"
     },
     {
       "featured": false,
@@ -735,7 +714,7 @@
       "title": "Dynamic Interchanges between Isomers and Charged States of a Polyprotic, Tautomeric Molecule Impacts the Growth of Biogenic Urate Crystals",
       "year": 2025,
       "journal": "J. Phys. Chem. C, 17 (2026) 6683-6690",
-      "authors": "Rimer et al.",
+      "authors": "Rimer et. al.",
       "link": "https://doi.org/10.1021/acs.jpcc.5c05418"
     },
     {
@@ -744,7 +723,7 @@
       "title": "Nonclassical Modes to Inhibit Beta-Hematin Crystallization",
       "year": 2026,
       "journal": "Adv. Func. Mater. 36 (2026) e21179",
-      "authors": "Vekilov, Rimer et al.",
+      "authors": "Vekilov, Rimer et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1002%2Fadfm.202521179"
     },
     {
@@ -753,7 +732,7 @@
       "year": 2026,
       "title": "Hydrothermal Annealing of Hierarchical ZSM-5 Zeolites Improves Catalytic Performance",
       "journal": "Angew. Chem. Int. Ed. 65 (2026) e15008",
-      "authors": "Rimer et al.",
+      "authors": "Rimer et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1002%2Fanie.202515008"
     },
     {
@@ -762,7 +741,7 @@
       "year": 2025,
       "title": "A Nonclassical Pathway of Beta-Hematin Crystal Nucleation Enables its Suppression by Antimalarials",
       "journal": "Commun. Chem. 8 (2025) 246",
-      "authors": "Vekilov, Palmer, Rimer et al.",
+      "authors": "Vekilov, Palmer, Rimer et. al.",
       "link": "https://doi.org/10.1038/s42004-025-01612-0"
     },
     {
@@ -771,7 +750,7 @@
       "title": "Direct Measurements of Colloid Crystal Nucleation Barriers and Rates Comply with a Priori Classical Theory Prediction",
       "year": 2026,
       "journal": "J. Phys. Chem. Lett. 17(2026)  6183−6192",
-      "authors": "Vekilov et al.",
+      "authors": "Vekilov et. al.",
       "link": "https://doi.org/10.1021/acs.jpclett.6c00707?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
     },
     {
@@ -780,7 +759,7 @@
       "year": 2026,
       "title": "Crystal Polymorph Stability",
       "journal": "Cryst. Growth Des. 26 (2026) 4411−4433",
-      "authors": "Vekilov et al.",
+      "authors": "Vekilov et. al.",
       "link": "https://doi.org/10.1021/acs.cgd.6c00323"
     },
     {
@@ -789,7 +768,7 @@
       "year": 2026,
       "title": "Differential Responses of Amyloid-β 42 Aggregates to Resveratrol",
       "journal": "Advanced Biology 10(3) (2026) 10:e00586",
-      "authors": "Vekilov et al.",
+      "authors": "Vekilov et. al.",
       "link": "https://doi.org/10.1002/adbi.202500586"
     },
     {
@@ -808,25 +787,16 @@
       "title": "Navigating Classical and Nonclassical Realms of Nucleation and Crystallization",
       "journal": "Small 22-50 (2026) e11608",
       "link": "https://doi.org/10.1002/smll.202511608",
-      "authors": "Vekilov et al"
+      "authors": "Vekilov et. al."
     },
     {
       "featured": false,
-      "title": "Direct Observation of Amyloid β 42 Oligomer, Fibril, and Amorphous Aggregate Growth and Dissolution at Biomimetic Concentrations",
+      "title": "Direct Observation of Amyloid-β 42 Oligomer, Fibril, and Amorphous Aggregate Growth and Dissolution at Biomimetic Concentrations",
       "year": 2025,
       "id": "Vekilov_JPCB_2025",
       "journal": "J. Phys. Chem. B,  129 (2025) 9083−9096",
-      "authors": "Vekilov et al.",
+      "authors": "Vekilov et. al.",
       "link": "https://doi.org/10.1021/acs.jpcb.5c03842"
-    },
-    {
-      "featured": false,
-      "id": "Palmer_JPCB_2025",
-      "year": 2025,
-      "title": "pH response of Weak Polyampholyte Brushes with Random Charge-Asymmetric Monomer Sequences",
-      "journal": "J. Phys. Chem. B. 129(2025) 10174−10183",
-      "authors": "Palmer et al.",
-      "link": "https://doi.org/10.1021/acs.jpcb.5c04431?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
     },
     {
       "featured": false,
@@ -834,7 +804,7 @@
       "year": 2026,
       "title": "Guided Synthesis of EMT Zeolites by Machine Learning",
       "journal": "Phys. Rev. Mater. 10 (2026) 083801",
-      "authors": "Palmer, Rimer et al.",
+      "authors": "Palmer, Rimer et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1103/v2yp-ylxm"
     },
     {
@@ -843,7 +813,7 @@
       "title": "Effects of skewing collision cells on transport properties in multiparticle collision dynamics simulations",
       "year": 2026,
       "journal": "J. Chem. Phys.164 (2026) 094909",
-      "authors": "Palmer et al.",
+      "authors": "Palmer et. al.",
       "link": "https://doi.org/10.1063/5.0307665"
     },
     {
@@ -852,16 +822,16 @@
       "year": 2026,
       "title": "Simulation of weak polyelectrolyte brushes: the effects of ionizable monomer fraction and monovalent salt",
       "journal": "Soft Matter, 22(2026) 1240",
-      "authors": "Palmer et al.",
+      "authors": "Palmer et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1039/d5sm00999e"
     },
     {
       "featured": false,
-      "title": "pH Response of Weak Polyampholyte Brushes with Random ChargeAsymmetric Monomer Sequences",
+      "title": "pH Response of Weak Polyampholyte Brushes with Random Charge Asymmetric Monomer Sequences",
       "year": 2025,
       "id": "Palmer_JPCB_2025",
       "journal": "J. Phys. Chem. B, 129 (2025) 10174−10183",
-      "authors": "Palmer et al.",
+      "authors": "Palmer et. al.",
       "link": "https://doi.org/10.1021/acs.jpcb.5c04431"
     },
     {
@@ -870,7 +840,7 @@
       "year": 2026,
       "title": "Tuning the Crystallite Size, Shape, and Magnetic Properties of Fe3O4 Nanoparticles Using Annealing",
       "journal": "Materials 19 (2026) 2911",
-      "authors": "Lee, Robles et al.",
+      "authors": "Lee, Robles et. al.",
       "link": "https://doi.org/10.3390/ma19132911"
     },
     {
@@ -879,7 +849,7 @@
       "year": 2025,
       "title": "Magnetic Fe₃O₄ Nanocubes Coated with Silica and Nb-doped TiO₂ for Recyclable Photocatalytic Degradation of Ciprofloxacin",
       "journal": "ACS Appl Nano Mater 8 (2025) 22540–22552",
-      "authors": "Lee, Robles et al.",
+      "authors": "Lee, Robles et. al.",
       "link": "https://doi.org/10.1021/acsanm.5c03103"
     },
     {
@@ -888,7 +858,7 @@
       "year": 2026,
       "id": "Robles_CM_2026",
       "journal": "Communications Materials 7 (2026) 188",
-      "authors": "Robles et al.",
+      "authors": "Robles et. al.",
       "link": "https://doi.org/10.1038/s43246-026-01116-x"
     },
     {
@@ -897,7 +867,7 @@
       "year": 2025,
       "id": "Karim_Pol_2025",
       "journal": "Polymer",
-      "authors": "Karim, Robles et al.",
+      "authors": "Karim, Robles et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1016/j.polymer.2025.128751"
     },
     {
@@ -906,7 +876,7 @@
       "year": 2026,
       "id": "Karim_JCIS_2026",
       "journal": "Journal of Colloid and Interface Science 716 (2026) 140298",
-      "authors": "Karim, Zerze et al.",
+      "authors": "Karim, Zerze et. al.",
       "link": "https://doi-org.ezproxy.lib.uh.edu/10.1016/j.jcis.2026.140298"
     },
     {
@@ -915,7 +885,7 @@
       "id": "Karim_SM_2025",
       "year": 2025,
       "journal": "Soft Matter 21(2025) 9361",
-      "authors": "Karim, Zerze et al.",
+      "authors": "Karim, Zerze et. al.",
       "link": "https://doi.org/10.1039/d5sm00969c"
     },
     {
@@ -924,7 +894,7 @@
       "year": 2025,
       "id": "Karim_acsNano_2025",
       "journal": "ACS Nano 19(42) (2025) 37175-37185",
-      "authors": "Karim, Robles et al",
+      "authors": "Karim, Robles et. al.",
       "link": "https://doi.org/10.1021/acsnano.5c11582"
     },
     {
@@ -938,8 +908,8 @@
     },
     {
       "featured": false,
-      "title": "Blind Prediction of Complex Water and Ion EnsemblesAround RNA in CASP16",
-      "id": "Zerze_Protein_",
+      "title": "Blind Prediction of Complex Water and Ion Ensembles Around RNA in CASP16",
+      "id": "Zerze_Protein_26",
       "year": 2026,
       "journal": "Proteins: Structure, Function, and Bioinformatics 94 (2026) 381–402",
       "authors": "Zerze et al.",
