@@ -923,6 +923,33 @@
       "journal": "Biophysical Journal",
       "authors": "Zerze et al.",
       "link": "https://doi.org/10.1016/j.bpj.2026.06.039"
+    },
+    {
+      "featured": false,
+      "id": "Zerze_JPCB_2025_2",
+      "year": 2025,
+      "title": "Nucleation Landscape of Biomolecular Condensates in the Grand Canonical Ensemble via Monte Carlo Simulations",
+      "journal": "J. Phys. Chem. B",
+      "authors": "Zerze et al.",
+      "link": "https://doi.org/10.1021/acs.jpcb.5c03912?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "id": "Lee_MatHor_2026",
+      "year": 2026,
+      "title": "Emergence of magnetic monopole-like behavior in iron oxide nanoparticles grafted with chiral brushes: a chiral induced spin selectivity manifestation",
+      "journal": "Mater. Horiz. 13 (2026) 5908",
+      "authors": "T. R. Lee et al.",
+      "link": "https://doi.org/10.1039/d5mh01737h"
+    },
+    {
+      "featured": false,
+      "id": "Lee_ACS_ANM_2026",
+      "year": 2026,
+      "title": "Diverse Amino Acid Capping of Monodispersed Iron Oxide Nanoparticles via Reverse-Microemulsion-Based Ligand Exchange: A Versatile Platform for Bioapplication",
+      "journal": "ACS Appl. Nano Mater. 9(2026) 11064−11073",
+      "authors": "Lee et al.",
+      "link": "https://doi.org/10.1021/acsanm.6c01526?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
     }
   ]
 }
