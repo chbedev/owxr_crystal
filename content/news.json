@@ -254,30 +254,91 @@
     },
     {
       "id": "welch-symposium-2026",
-      "date": "2026-10-09",
-      "title": "Registration Open for the 2nd Welch Crystallization Symposium",
+      "date": "",
+      "title": "Welch Crystallization Symposium 2026 Brings Together Leading Experts in Crystal Engineering and Pharmaceutical Manufacturing",
       "preview": "\n\n",
       "body": {
         "content_blocks": [
           {
             "type": "text",
-            "content": "The Welch Center for Advanced Bioactive Materials Crystallization is pleased to announce the 2nd Welch Crystallization Symposium, which will be held on Friday, October 9, 2026, at the University of Houston in Houston, Texas.\n\nThe symposium will focus on key areas of crystallization science, including nucleation, polymorphism, and crystal engineering, while highlighting recent advances and emerging challenges in pharmaceutical and materials applications.\n\nFollowing the tremendous success of last year's inaugural event, which welcomed more than 100 participants from the pharmaceutical industry, academia, and the student community, this year's symposium will feature an expanded program of scientific presentations, networking opportunities, and research showcases."
+            "content": "The Welch Center for Advanced Bioactive Materials Crystallization at the University of Houston hosted its annual Welch Crystallization Symposium on October 9, 2026, bringing together more than 100 scientists, professors, researchers, and industry professionals from universities, research institutions, and pharmaceutical companies across the United States. The one-day event highlighted the latest advances in crystallization science, crystal engineering, pharmaceutical manufacturing, and biomaterials research."
           },
           {
             "type": "text",
-            "content": "## **Featured Speakers and Program**\n\nThe symposium will include presentations from distinguished scientists representing leading pharmaceutical companies, including Pfizer, Eli Lilly, AbbVie, Merck, GSK and Takeda.\n\nThe program will also feature presentations from the Welch Center's Principal Investigators, as well as student poster presentations highlighting innovative research across a broad range of crystallization-related topics"
+            "content": "The symposium served as a premier forum for academic and industrial leaders to exchange ideas on the science and technology of crystallization, a field that plays a critical role in the development of pharmaceuticals, advanced materials, and biological systems. Through scientific presentations, poster sessions, and industry exhibitions, participants explored emerging challenges and opportunities in understanding and controlling crystal formation."
           },
           {
             "type": "text",
-            "content": "## **Registration**\n\nOnline registration for the symposium is available **[here](https://forms.gle/FVkDQJKdbjSJ1DPS9)**; and there is no registration fee.\n\n## **Poster Presentations and vendor booths**\n\nAttendees are invited to present either a research poster or a business showcase at no cost.\n\n### **Research Posters:**\n\n* Participate in the dedicated poster session from 1:00 PM to 2:30 PM.\n* Share your latest research findings with academic and industry audiences.\n* Engage directly with experts in crystallization science.\n\n### **Vendor Booths:**\n\n* Display information about your company, products, services, or technologies.\n* Showcase materials will be prominently exhibited at the entrance to the symposium venue."
+            "content": "\\    \nThe event opened with remarks from Dr. Adam Kuspa, President of the Welch Foundation, who emphasized the Foundation's longstanding commitment to advancing chemical research. Founded in 1954 and based in Houston, the Welch Foundation is among the nation's largest private funding sources supporting basic chemical research."
           },
           {
             "type": "text",
-            "content": "## Participants will have the opportunity to:\n\n* Learn about the latest developments in crystallization research.\n* Connect with scientists from industry and academia.\n* Explore collaborative opportunities.\n* Engage with students, faculty, and industry professionals from across the crystallization community.\n* Gain insight into ongoing research at the Welch Center for Advanced Bioactive Materials Crystallization.\n\nIf you are unable to attend, we encourage you to share this announcement with colleagues and collaborators who may benefit from participating.\n\nWe look forward to welcoming you to the University of Houston for a day of scientific exchange, collaboration, and innovation in crystallization science.\n\n**Register today and join us on October 9, 2026.**"
+            "content": "In his remarks, Dr. Kuspa highlighted the Foundation's investments in single-investigator grants, departmental programs, endowed chairs, and special initiatives at educational institutions throughout Texas. He also discussed the Foundation's recently launched Catalyst for Discovery Program Grants, which are designed to accelerate collaborative, team-based research aimed at addressing significant challenges at the forefront of chemistry."
+          },
+          {
+            "type": "text",
+            "content": "Following the opening presentation, Prof. Jeffrey D. Rimer, Director of the Welch Center and Abraham E. Dukler Endowed Chair of Chemical Engineering at the University of Houston, provided an overview of the Center's mission and accomplishments. Rimer highlighted major research advances achieved during the past three years and described ongoing collaborative efforts focused on understanding and controlling crystallization processes relevant to healthcare, materials science, and pharmaceutical manufacturing."
+          },
+          {
+            "type": "text",
+            "content": "The symposium featured four sessions, including a poster session, with seven internationally recognized experts from academia and the pharmaceutical industry presenting cutting-edge research."
+          },
+          {
+            "type": "text",
+            "content": "Prof. Rimer opened the scientific program with a keynote lecture titled \"Breaking the Rules of Classical Crystallization: An Unconventional Guide to Crystal Engineering.\" His presentation explored both classical crystal growth pathways, involving the addition of ions and molecules, and nonclassical crystallization pathways in which metastable precursor particles directly participate in nucleation and crystal growth. Drawing examples from kidney stone formation, biomineralization, and pharmaceutical compounds, hedemonstrated how a deeper understanding of crystal nucleation can lead tomaterials with enhanced properties."
+          },
+          {
+            "type": "text",
+            "content": "Prof. Rimer also showcased collaborative research at the Welch Center focused on amorphous precursor assemblies, polymorph selection, and innovative methods for directing crystal growth through molecular modifiers, engineered surfaces, and coacervate systems."
+          },
+          {
+            "type": "text",
+            "content": "Representing Eli Lilly and Company, Dr. Samir Kulkarni, Director of Engineering, presented \"Turning Industrial Crystallization Data into Decisions: A Connected Workflow Approach.\" Dr. Kulkarni addressed the growing challenge of managing large volumes of process development data generated throughout crystallization workflows. He described how a \"digital thread\" strategy can connect experimental, analytical, and manufacturing information into a unified system, enabling faster decision-making, improved process understanding, and more efficient translation of laboratory findings to commercial production. Dr. Alpana Thorat, Principal Scientist at Pfizer Inc., presented \"Crystallization Guided by Fundamentals: Spherical Crystallization of Avibactam Tomilopil (AVT).\" Her talk focused on spherical agglomeration as an advanced crystallization strategy for a mesophase active pharmaceutical ingredient. Dr. Thorat described the successful progression of the process from late-stage development through large-scale manufacturing, including scale-up to approximately 300 kilograms. The study demonstrated how fundamental crystallization principles can support robust pharmaceutical process development and commercialization."
+          },
+          {
+            "type": "text",
+            "content": "In a presentation titled \"Complex Coacervates for Polymorphism Control in Molecular Crystallization,\" Prof. Alamgir Karim, Dow Chair and Welch Foundation Professor in the Department of Chemical and Biomolecular Engineering at the University of Houston, discussed how coacervates can serve as biomimetic environments for directing crystallization. Prof. Karim demonstrated that complex coacervate systems can selectively concentrate calcium and oxalate ions, enabling precise control over crystal size, morphology, and polymorphic form. The results suggest that coacervates may provide powerful new tools for controlling biomineralization processes and designing advanced functional materials."
+          },
+          {
+            "type": "text",
+            "content": "Dr. John Maggioni, Associate Engineering Fellow at Takeda Development Center Americas, presented \"In Silico First: Takeda's Journey Toward Autonomous Crystallization Development.\" Dr. Maggioni outlined Takeda's strategy for creating increasingly autonomous, model-driven crystallization workflows that integrate prior knowledge, automated experimentation, and predictive modeling. Using examples involving solubility measurements and recrystallization processes, he demonstrated how computational tools can accelerate decision-making while helping scientists identify hidden process variables and optimize crystal properties. A highlight of the symposium was the presentation by Dr. Monika Warzecha of Vertex Pharmaceuticals, who discussed \"Navigating Polymorphic Complexity: Templated Desolvation Strategy for the Controlled Crystallization of Drug Substance.\""
+          },
+          {
+            "type": "text",
+            "content": "Her research examined a compound exhibiting more than 150 identified solid-state phases. Dr. Warzecha detailed how a carefully designed sequence of solvent-mediated transformations was required to obtain the desired crystal form selected for development. The work emphasized the critical roles of lattice templating, structural compatibility, and controlled dissolution pathways in achieving reliable crystallization outcomes for pharmaceutical products. Closing the invited speaker program, Dr. Manish Kelkar, Senior Principal Research Scientist at AbbVie Inc., delivered an engaging presentation titled \"Necessity is the Mother of Invention! ... OR ... Is it Curiosity?\" Using a real-world pharmaceutical process development case study, Kelkar illustrated how asking purposeful \"why\" questions can uncover hidden assumptions, challenge conventional approaches, and inspire innovative solutions. His talk encouraged students and researchers to view scientific curiosity as a critical driver of engineering creativity, efficiency, and discovery."
+          },
+          {
+            "type": "text",
+            "content": "An important component of the symposium was the poster session, which featured research presentations from 32 graduate students, postdoctoral researchers, and scientists representing institutions across the country. A panel of six judges from the pharmaceutical industry evaluated the posters based on scientific quality, originality, and presentation effectiveness. Following a competitive review process, the symposium recognized three outstanding contributions. The first prize was awarded to M. Osman Khalid, the second to Alejandro C. Veliz, and the third prize to Hariharan Annadurai. The awards highlighted the exceptional research being conducted by emerging scientists in crystallization and related disciplines."
+          },
+          {
+            "type": "text",
+            "content": "In addition to the scientific program, five leading instrument manufacturers participated as exhibitors, providing attendees with opportunities to explore state-of-the-art analytical technologies used in crystallization research and development. Participating companies included Rigaku, Anton Paar, Technobis, Malvern Panalytical and Mettler Toledo. Representatives demonstrated advanced instrumentation for crystal characterization, particle analysis, thermal analysis, process monitoring, and materials research, giving attendees insight into the latest technological developments supporting both academic and industrial crystallization studies."
+          },
+          {
+            "type": "image_row",
+            "items": [
+              {
+                "src": "/public/images/picture4.jpg"
+              },
+              {
+                "src": "/public/images/picture5.jpg"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "content": "The 2026 Welch Crystallization Symposium reinforced the Welch Center's role as a national hub for crystallization science by fostering collaboration among researchers from academia, industry, and government-funded research programs. Through discussions spanning fundamental crystal growth mechanisms, digital transformation, autonomous experimentation, pharmaceutical process development, and biomimetic materials, the symposium highlighted the growing impact of crystallization research on healthcare, manufacturing, and advanced materials design."
+          },
+          {
+            "type": "text",
+            "content": "As crystallization science continues to play a central role in addressing challenges across multiple disciplines, the annual symposium remains an important platform for exchanging ideas, building partnerships, and inspiring the next generation of scientific innovation."
           }
-        ]
+        ],
+        "image": "/public/images/picture2.jpg",
+        "image_caption": "The symposium was attended by the Welch Center’s PIs, members of the industrial advisory board, and the Welch Foundation President, Dr. Adam Kuspa"
       },
-      "link": "https://uofh-my.sharepoint.com/:b:/g/personal/smhatre_cougarnet_uh_edu/IQCETBynJWY1Q7roaIJk6n7ZAe1iA0E7VKKoXZvgXkPu4fw?e=QaTqGZ"
+      "link": ""
     }
   ]
 }
