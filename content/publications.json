@@ -950,6 +950,33 @@
       "journal": "ACS Appl. Nano Mater. 9(2026) 11064−11073",
       "authors": "Lee et al.",
       "link": "https://doi.org/10.1021/acsanm.6c01526?urlappend=%3Fref%3DPDF&jav=VoR&rel=cite-as"
+    },
+    {
+      "featured": false,
+      "id": "Lee_NanoM_2026",
+      "year": 2026,
+      "title": "Interplay Between Exfoliation and Functionalization Strategies for Group VI Layered Transition Metal Dichalcogenide Dispersions",
+      "journal": "Nanomaterials 16 (2026) 429",
+      "authors": "Lee et al.",
+      "link": "https://doi.org/10.3390/nano16070429"
+    },
+    {
+      "featured": false,
+      "title": "Surface-Modified Magnetic Nanoparticles for Photocatalytic Degradation of Antibiotics in Wastewater: A Review",
+      "year": 2026,
+      "id": "Lee_AS_2026",
+      "journal": "Appl. Sci. 16 (2026) 844",
+      "authors": "Lee et al.",
+      "link": "https://doi.org/10.3390/app16020844"
+    },
+    {
+      "featured": false,
+      "title": "Recent Advances in Polymer-Coated Metal and Metal Oxide Nanoparticles: From Design to Promising Applications",
+      "id": "Lee_NanoM_2025",
+      "year": 2025,
+      "journal": "Nanomaterials 15 (2025) 1744",
+      "authors": "Lee et al.",
+      "link": "https://doi.org/ 10.3390/nano15221744"
     }
   ]
 }
