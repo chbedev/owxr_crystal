@@ -330,6 +330,24 @@
       "advisor": "Dr. Alamgir Karim & Dr. Jeffrey D. Rimer",
       "bio": "Research: Investigating polyelectrolyte-based complex coacervate as tunable, confined microenvironment.",
       "image": "public/images/saniya_zafar.jpg"
+    },
+    {
+      "is_pi": false,
+      "id": "Olan_Dara",
+      "name": "Olanrewaju Daramola",
+      "role": "Graduate Student",
+      "image": "/public/images/2023_passport.jpg",
+      "advisor": "Dr. Jeremy C. Palmer",
+      "bio": "Research: molecular simulations, self-assembly, nucleation, polymorphism. "
+    },
+    {
+      "is_pi": false,
+      "id": "Mahi_Islam",
+      "name": "Mahidul Islam",
+      "role": "Graduate Student",
+      "advisor": "Dr. Fancisco H. Robles",
+      "title_detail": "",
+      "bio": "Research: Continuous-Flow Chemistry, Nanoparticle Synthesis, Medium- and High-Entropy Alloys, Memristor Characterization, Neuromorphic Computing."
     }
   ]
 }
