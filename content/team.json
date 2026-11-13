@@ -349,6 +349,14 @@
       "title_detail": "",
       "bio": "Research: Continuous-Flow Chemistry, Nanoparticle Synthesis, Medium- and High-Entropy Alloys, Memristor Characterization, Neuromorphic Computing.",
       "image": "/public/images/self_islam.jpeg"
+    },
+    {
+      "is_pi": false,
+      "id": "ruwanthi_Amarsekara",
+      "name": "Ruwanthi Amarasekara",
+      "role": "Graduate Student ",
+      "advisor": "Dr. Jeffrey D. Rimer",
+      "bio": "Research: Self-Assembled Monolayers Crystallization Templates"
     }
   ]
 }
