@@ -358,6 +358,15 @@
       "advisor": "Dr. Jeffrey D. Rimer",
       "bio": "Research: Self-Assembled Monolayers Crystallization Templates",
       "image": "/public/images/ruwanthi.jpeg"
+    },
+    {
+      "is_pi": false,
+      "id": "Dilshan_Kumarage",
+      "bio": "Research: Effect of templates on acetaminophen crystallization",
+      "advisor": "Dr. Jeffrey D. Rimer",
+      "name": "Dilshan Y. Kumarage",
+      "image": "/public/images/headshot.jpeg",
+      "role": "Graduate Student"
     }
   ]
 }
